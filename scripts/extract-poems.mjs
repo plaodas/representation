@@ -456,7 +456,10 @@ add({
   see: ["night", "light", "sky"],
 });
 
+const ids = new Set();
 for (const poem of poems) {
+  if (ids.has(poem.id)) throw new Error(`duplicate id ${poem.id}`);
+  ids.add(poem.id);
   if (!poem.body || poem.body.length < 8) throw new Error(`empty ${poem.id}`);
   if (/project gutenberg/i.test(poem.body)) throw new Error(`license leaked ${poem.id}`);
 }
