@@ -26,6 +26,8 @@ export default function TodayScreen() {
   const viewing = params.poem ? poemById(params.poem) : undefined;
   const reasonSave = useRef(Promise.resolve());
   const latestReason = useRef("");
+  const sentimentRef = useRef<Reaction["sentiment"] | null>(null);
+  const shownReaction = useRef<{ id?: string; sentiment?: Reaction["sentiment"] }>({});
 
   const openForm = useCallback(async (nextForm: Form) => {
     const today = todayKey();
@@ -55,27 +57,59 @@ export default function TodayScreen() {
   const reaction = reactions.find((item) => item.poemId === current?.id);
   const wide = current?.form === "haiku" || current?.form === "tanka";
 
-  useEffect(() => {
+  if (
+    shownReaction.current.id !== current?.id ||
+    shownReaction.current.sentiment !== reaction?.sentiment
+  ) {
+    shownReaction.current = { id: current?.id, sentiment: reaction?.sentiment };
+    sentimentRef.current = reaction?.sentiment ?? null;
     latestReason.current = reaction?.reason ?? "";
-  }, [current?.id, reaction?.sentiment]);
+  }
 
-  const choose = async (sentiment: "like" | "dislike") => {
+  const enqueue = (task: () => Promise<void>) => {
+    reasonSave.current = reasonSave.current.catch(() => undefined).then(task);
+    return reasonSave.current;
+  };
+
+  const choose = (sentiment: "like" | "dislike") => {
     if (!current) return;
-    await reasonSave.current.catch(() => undefined);
-    await saveReaction(current.id, sentiment, latestReason.current);
-    setReactions(await loadReactions());
+    const poemId = current.id;
+    sentimentRef.current = sentiment;
+    const existing = reactions.find((item) => item.poemId === poemId);
+    const reason = latestReason.current || existing?.reason || "";
+    latestReason.current = reason;
+    const next: Reaction = {
+      poemId,
+      sentiment,
+      reason,
+      updatedAt: new Date().toISOString(),
+    };
+    setReactions((prev) => [next, ...prev.filter((item) => item.poemId !== poemId)]);
+    void enqueue(() => saveReaction(poemId, sentiment, reason));
+  };
+
+  const saveReason = (poemId: string, reason: string) => {
+    latestReason.current = reason;
+    void enqueue(async () => {
+      if (sentimentRef.current !== "like") return;
+      await saveReaction(poemId, "like", latestReason.current);
+    });
   };
 
   const writeReason = (reason: string) => {
-    if (!current) return;
-    latestReason.current = reason;
-    const poemId = current.id;
-    reasonSave.current = reasonSave.current.catch(() => undefined).then(() =>
-      saveReaction(poemId, "like", reason),
-    );
+    if (!current || sentimentRef.current !== "like") return;
+    const active = typeof document === "undefined" ? null : document.activeElement;
+    if (active && active.tagName !== "INPUT" && active.tagName !== "TEXTAREA") return;
+    saveReason(current.id, reason);
+  };
+
+  const finishReason = (reason: string) => {
+    if (!current || sentimentRef.current !== "like") return;
+    saveReason(current.id, reason);
   };
 
   const nextPoem = async () => {
+    await reasonSave.current.catch(() => undefined);
     const today = todayKey();
     const poemId = selectNextPoem({
       poems: allPoems,
@@ -149,17 +183,18 @@ export default function TodayScreen() {
             <Text style={{ color: ground.color }}>次の一首</Text>
           </Pressable>
         </View>
-        {reaction?.sentiment === "like" ? (
-          <TextInput
-            key={current?.id}
-            defaultValue={reaction.reason}
-            onChangeText={writeReason}
-            placeholder="ひとこと"
-            placeholderTextColor={ground.faint}
-            style={[styles.reason, { color: ground.color, borderColor: ground.faint }]}
-          />
-        ) : null}
       </View>
+      {reaction?.sentiment === "like" && current ? (
+        <TextInput
+          key={`${current.id}:like`}
+          defaultValue={reaction.reason}
+          onChangeText={writeReason}
+          onEndEditing={(event) => finishReason(event.nativeEvent.text)}
+          placeholder="ひとこと"
+          placeholderTextColor={ground.faint}
+          style={[styles.reason, { color: ground.color, borderColor: ground.faint }]}
+        />
+      ) : null}
     </Frame>
   );
 }
