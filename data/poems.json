@@ -1,0 +1,518 @@
+[
+  {
+    "id": "free-take",
+    "source": "現代詩文庫　1009　萩原朔太郎",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000067/files/859_21656.html",
+    "deathYear": 1942,
+    "poet": "萩原朔太郎",
+    "form": "free",
+    "lang": "ja",
+    "title": "竹",
+    "body": "光る地面に竹が生え、\n青竹が生え、\n地下には竹の根が生え、\n根がしだいにほそらみ、\n根の先より繊毛が生え、\nかすかにけぶる繊毛が生え、\nかすかにふるえ。\n\nかたき地面に竹が生え、\n地上にするどく竹が生え、\nまつしぐらに竹が生え、\n凍れる節節りんりんと、\n青空のもとに竹が生え、\n竹、竹、竹が生え。",
+    "see": [
+      "plant",
+      "morning",
+      "sky",
+      "light",
+      "scenery"
+    ],
+    "say": [
+      "stops"
+    ],
+    "order": 1
+  },
+  {
+    "id": "free-hana",
+    "source": "八木重吉詩集",
+    "sourceYear": 1969,
+    "origin": "https://www.aozora.gr.jp/cards/000013/files/542_42320.html",
+    "deathYear": 1927,
+    "poet": "八木重吉",
+    "form": "free",
+    "lang": "ja",
+    "title": "花がふってくると思う",
+    "body": "花がふってくると思う\n花がふってくるとおもう\nこの　てのひらにうけとろうとおもう",
+    "see": [
+      "plant",
+      "sky"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 2
+  },
+  {
+    "id": "free-egg",
+    "source": "現代詩文庫　1009　萩原朔太郎",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000067/files/859_21656.html",
+    "deathYear": 1942,
+    "poet": "萩原朔太郎",
+    "form": "free",
+    "lang": "ja",
+    "title": "卵",
+    "body": "いと高き梢にありて、\nちいさなる卵ら光り、\nあふげば小鳥の巣は光り、\nいまはや罪びとの祈るときなる。",
+    "see": [
+      "sky",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 3
+  },
+  {
+    "id": "free-yamabuki",
+    "source": "八木重吉詩集",
+    "sourceYear": 1969,
+    "origin": "https://www.aozora.gr.jp/cards/000013/files/542_42320.html",
+    "deathYear": 1927,
+    "poet": "八木重吉",
+    "form": "free",
+    "lang": "ja",
+    "title": "山吹",
+    "body": "山吹を　おもえば\n水のごとし",
+    "see": [
+      "plant",
+      "water"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 4
+  },
+  {
+    "id": "free-tenkei",
+    "source": "現代詩文庫　1009　萩原朔太郎",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000067/files/859_21656.html",
+    "deathYear": 1942,
+    "poet": "萩原朔太郎",
+    "form": "free",
+    "lang": "ja",
+    "title": "天景",
+    "body": "しづかにきしれ四輪馬車、\nほのかに海はあかるみて、\n麦は遠きにながれたり、\nしづかにきしれ四輪馬車。\n光る魚鳥の天景を、\nまた窓青き建築を、\nしづかにきしれ四輪馬車。",
+    "see": [
+      "scenery",
+      "sky",
+      "light"
+    ],
+    "say": [
+      "stops"
+    ],
+    "order": 5
+  },
+  {
+    "id": "free-neko",
+    "source": "現代詩文庫　1009　萩原朔太郎",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000067/files/859_21656.html",
+    "deathYear": 1942,
+    "poet": "萩原朔太郎",
+    "form": "free",
+    "lang": "ja",
+    "title": "猫",
+    "body": "まつくろけの猫が二疋、\nなやましいよるの家根のうへで、\nぴんとたてた尻尾のさきから、\n糸のやうなみかづきがかすんでゐる。\n『おわあ、こんばんは』\n『おわあ、こんばんは』\n『おぎやあ、おぎやあ、おぎやあ』\n『おわああ、ここの家の主人は病気です』",
+    "see": [
+      "night",
+      "ordinary",
+      "sky"
+    ],
+    "say": [
+      "short_line"
+    ],
+    "order": 6
+  },
+  {
+    "id": "free-spider",
+    "poet": "Walt Whitman",
+    "source": "Leaves of Grass",
+    "sourceYear": 1892,
+    "origin": "https://www.gutenberg.org/cache/epub/1322/pg1322.txt",
+    "deathYear": 1892,
+    "form": "free",
+    "lang": "en",
+    "title": "A Noiseless Patient Spider",
+    "body": "A noiseless patient spider,\nI mark’d where on a little promontory it stood isolated,\nMark’d how to explore the vacant vast surrounding,\nIt launch’d forth filament, filament, filament out of itself,\nEver unreeling them, ever tirelessly speeding them.\n\nAnd you O my soul where you stand,\nSurrounded, detached, in measureless oceans of space,\nCeaselessly musing, venturing, throwing, seeking the spheres to connect them,\nTill the bridge you will need be form’d, till the ductile anchor hold,\nTill the gossamer thread you fling catch somewhere, O my soul.",
+    "see": [
+      "object",
+      "scenery"
+    ],
+    "say": [
+      "one_leap",
+      "stops"
+    ],
+    "order": 7
+  },
+  {
+    "id": "free-astronomer",
+    "poet": "Walt Whitman",
+    "source": "Leaves of Grass",
+    "sourceYear": 1892,
+    "origin": "https://www.gutenberg.org/cache/epub/1322/pg1322.txt",
+    "deathYear": 1892,
+    "form": "free",
+    "lang": "en",
+    "title": "When I Heard the Learn’d Astronomer",
+    "body": "When I heard the learn’d astronomer,\nWhen the proofs, the figures, were ranged in columns before me,\nWhen I was shown the charts and diagrams, to add, divide, and measure them,\nWhen I sitting heard the astronomer where he lectured with much applause in the lecture-room,\nHow soon unaccountable I became tired and sick,\nTill rising and gliding out I wander’d off by myself,\nIn the mystical moist night-air, and from time to time,\nLook’d up in perfect silence at the stars.",
+    "see": [
+      "night",
+      "indoor",
+      "sky"
+    ],
+    "say": [
+      "one_leap"
+    ],
+    "order": 8
+  },
+  {
+    "id": "free-oak",
+    "poet": "Walt Whitman",
+    "source": "Leaves of Grass",
+    "sourceYear": 1892,
+    "origin": "https://www.gutenberg.org/cache/epub/1322/pg1322.txt",
+    "deathYear": 1892,
+    "form": "free",
+    "lang": "en",
+    "title": "I Saw in Louisiana a Live-Oak Growing",
+    "body": "I saw in Louisiana a live-oak growing,\nAll alone stood it and the moss hung down from the branches,\nWithout any companion it grew there uttering joyous of dark green,\nAnd its look, rude, unbending, lusty, made me think of myself,\nBut I wonder’d how it could utter joyous leaves standing alone there without its friend near, for I knew I could not,\nAnd I broke off a twig with a certain number of leaves upon it and twined around it a little moss,\nAnd brought it away, and I have placed it in sight in my room,\nIt is not needed to remind me as of my own dear friends,\n(For I believe lately I think of little else than of them,)\nYet it remains to me a curious token, it makes me think of manly love;\nFor all that, and though the live-oak glistens there in Louisiana solitary in a wide in a wide flat space,\nUttering joyous leaves all its life without a friend a lover near,\nI know very well I could not.",
+    "see": [
+      "plant",
+      "scenery"
+    ],
+    "say": [
+      "one_leap"
+    ],
+    "order": 9
+  },
+  {
+    "id": "free-midnight",
+    "poet": "Walt Whitman",
+    "source": "Leaves of Grass",
+    "sourceYear": 1892,
+    "origin": "https://www.gutenberg.org/cache/epub/1322/pg1322.txt",
+    "deathYear": 1892,
+    "form": "free",
+    "lang": "en",
+    "title": "A Clear Midnight",
+    "body": "This is thy hour O Soul, thy free flight into the wordless,\nAway from books, away from art, the day erased, the lesson done,\nThee fully forth emerging, silent, gazing, pondering the themes thou lovest best,\nNight, sleep, death and the stars.",
+    "see": [
+      "night",
+      "sky"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 10
+  },
+  {
+    "id": "haiku-shiki-usuyo",
+    "poet": "正岡子規",
+    "source": "花の名随筆5　五月の花",
+    "sourceYear": 1999,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/59088_76405.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "title": "",
+    "body": "薄様に花包みある牡丹哉",
+    "see": [
+      "plant",
+      "indoor"
+    ],
+    "order": 11
+  },
+  {
+    "id": "haiku-hosai-tako",
+    "poet": "尾崎放哉",
+    "source": "尾崎放哉句集",
+    "sourceYear": 1997,
+    "origin": "https://www.aozora.gr.jp/cards/000195/files/974_318.html",
+    "deathYear": 1926,
+    "form": "haiku",
+    "lang": "ja",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "title": "",
+    "body": "きれ凧の糸かかりけり梅の枝",
+    "see": [
+      "plant",
+      "scenery"
+    ],
+    "order": 12
+  },
+  {
+    "id": "haiku-shiki-ichirin",
+    "poet": "正岡子規",
+    "source": "花の名随筆5　五月の花",
+    "sourceYear": 1999,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/59088_76405.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "title": "",
+    "body": "一輪の牡丹かゝやく病間哉",
+    "see": [
+      "plant",
+      "indoor",
+      "light"
+    ],
+    "order": 13
+  },
+  {
+    "id": "haiku-hosai-mizu",
+    "poet": "尾崎放哉",
+    "source": "尾崎放哉句集",
+    "sourceYear": 1997,
+    "origin": "https://www.aozora.gr.jp/cards/000195/files/974_318.html",
+    "deathYear": 1926,
+    "form": "haiku",
+    "lang": "ja",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "title": "",
+    "body": "水打つて静かな家や夏やなぎ",
+    "see": [
+      "water",
+      "plant",
+      "ordinary"
+    ],
+    "order": 14
+  },
+  {
+    "id": "tanka-kani",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "body": "東海の小島の磯の白砂に\nわれ泣きぬれて\n蟹とたはむる",
+    "see": [
+      "water",
+      "scenery",
+      "person"
+    ],
+    "order": 15
+  },
+  {
+    "id": "tanka-sono",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "その子二十櫛にながるる黒髪のおごりの春のうつくしきかな",
+    "see": [
+      "person",
+      "plant"
+    ],
+    "order": 16
+  },
+  {
+    "id": "tanka-suna",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "body": "頬につたふ\nなみだのごはず\n一握の砂を示しし人を忘れず",
+    "see": [
+      "ordinary",
+      "person"
+    ],
+    "order": 17
+  },
+  {
+    "id": "tanka-kiyomizu",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "清水へ祇園をよぎる桜月夜こよひ逢ふ人みなうつくしき",
+    "see": [
+      "night",
+      "street",
+      "person",
+      "scenery"
+    ],
+    "order": 18
+  },
+  {
+    "id": "fixed-hatsukoi",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "初恋",
+    "body": "まだあげ初めし前髪の\n林檎のもとに見えしとき\n前にさしたる花櫛の\n花ある君と思ひけり\n\nやさしく白き手をのべて\n林檎をわれにあたへしは\n薄紅の秋の実に\n人こひ初めしはじめなり\n\nわがこゝろなきためいきの\nその髪の毛にかゝるとき\nたのしき恋の盃を\n君が情に酌みしかな\n\n林檎畑の樹の下に\nおのづからなる細道は\n誰が踏みそめしかたみぞと\n問ひたまふこそこひしけれ",
+    "see": [
+      "plant",
+      "person",
+      "day"
+    ],
+    "order": 19
+  },
+  {
+    "id": "fixed-kitsune",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "狐のわざ",
+    "body": "庭にかくるゝ小狐の\n人なきときに夜いでて\n秋の葡萄の樹の影に\nしのびてぬすむつゆのふさ\n\n恋は狐にあらねども\n君は葡萄にあらねども\n人しれずこそ忍びいで\n君をぬすめる吾心",
+    "see": [
+      "night",
+      "plant",
+      "person"
+    ],
+    "order": 20
+  },
+  {
+    "id": "fixed-sonnet-18",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 18",
+    "body": "Shall I compare thee to a summer’s day?\nThou art more lovely and more temperate:\nRough winds do shake the darling buds of May,\nAnd summer’s lease hath all too short a date:\nSometime too hot the eye of heaven shines,\nAnd often is his gold complexion dimm’d,\nAnd every fair from fair sometime declines,\nBy chance, or nature’s changing course untrimm’d:\nBut thy eternal summer shall not fade,\nNor lose possession of that fair thou ow’st,\nNor shall death brag thou wander’st in his shade,\nWhen in eternal lines to time thou grow’st,\nSo long as men can breathe, or eyes can see,\nSo long lives this, and this gives life to thee.",
+    "see": [
+      "light",
+      "plant",
+      "day"
+    ],
+    "order": 21
+  },
+  {
+    "id": "fixed-sonnet-73",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 73",
+    "body": "That time of year thou mayst in me behold\nWhen yellow leaves, or none, or few, do hang\nUpon those boughs which shake against the cold,\nBare ruin’d choirs, where late the sweet birds sang.\nIn me thou see’st the twilight of such day\nAs after sunset fadeth in the west;\nWhich by and by black night doth take away,\nDeath’s second self, that seals up all in rest.\nIn me thou see’st the glowing of such fire,\nThat on the ashes of his youth doth lie,\nAs the death-bed, whereon it must expire,\nConsum’d with that which it was nourish’d by.\nThis thou perceiv’st, which makes thy love more strong,\nTo love that well, which thou must leave ere long.",
+    "see": [
+      "evening",
+      "plant",
+      "night"
+    ],
+    "order": 22
+  },
+  {
+    "id": "fixed-lamb",
+    "poet": "William Blake",
+    "source": "Songs of Innocence and of Experience",
+    "sourceYear": 1794,
+    "origin": "https://www.gutenberg.org/cache/epub/1934/pg1934.txt",
+    "deathYear": 1827,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "short_line"
+    ],
+    "title": "The Lamb",
+    "body": "Little lamb, who made thee?\nDoes thou know who made thee,\nGave thee life, and bid thee feed\nBy the stream and o’er the mead;\nGave thee clothing of delight,\nSoftest clothing, woolly, bright;\nGave thee such a tender voice,\nMaking all the vales rejoice?\nLittle lamb, who made thee?\nDoes thou know who made thee?\n\nLittle lamb, I’ll tell thee;\nLittle lamb, I’ll tell thee:\nHe is callèd by thy name,\nFor He calls Himself a Lamb.\nHe is meek, and He is mild,\nHe became a little child.\nI a child, and thou a lamb,\nWe are callèd by His name.\nLittle lamb, God bless thee!\nLittle lamb, God bless thee!",
+    "see": [
+      "day",
+      "ordinary",
+      "person"
+    ],
+    "order": 23
+  },
+  {
+    "id": "fixed-tyger",
+    "poet": "William Blake",
+    "source": "Songs of Innocence and of Experience",
+    "sourceYear": 1794,
+    "origin": "https://www.gutenberg.org/cache/epub/1934/pg1934.txt",
+    "deathYear": 1827,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "short_line"
+    ],
+    "title": "The Tiger",
+    "body": "Tiger, tiger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nCould frame thy fearful symmetry?\n\nIn what distant deeps or skies\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand dare seize the fire?\n\nAnd what shoulder and what art\nCould twist the sinews of thy heart?\nAnd, when thy heart began to beat,\nWhat dread hand and what dread feet?\n\nWhat the hammer? what the chain?\nIn what furnace was thy brain?\nWhat the anvil? what dread grasp\nDare its deadly terrors clasp?\n\nWhen the stars threw down their spears,\nAnd watered heaven with their tears,\nDid He smile His work to see?\nDid He who made the lamb make thee?\n\nTiger, tiger, burning bright\nIn the forests of the night,\nWhat immortal hand or eye\nDare frame thy fearful symmetry?",
+    "see": [
+      "night",
+      "light",
+      "sky"
+    ],
+    "order": 24
+  }
+]
