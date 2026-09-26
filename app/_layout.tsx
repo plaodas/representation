@@ -5,6 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Frame } from "../components/Frame";
 
 SplashScreen.preventAutoHideAsync().catch(() => undefined);
 
@@ -21,7 +22,9 @@ export default function RootLayout() {
   if (!ready) return null;
   return (
     <SafeAreaProvider>
-      <Slot />
+      <Frame>
+        <Slot />
+      </Frame>
     </SafeAreaProvider>
   );
 }

@@ -1,7 +1,6 @@
 import { useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
-import { Frame } from "../components/Frame";
 import { loadReactions } from "../data/db";
 import { groundFor, poemById } from "../data/library";
 import { sayLabel, seeLabel, type Reaction, type SayTag, type SeeTag } from "../domain/types";
@@ -33,8 +32,7 @@ export default function TasteScreen() {
   const words = ranked(reactions);
   const reasons = likes.filter((reaction) => reaction.reason.trim()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
   return (
-    <Frame>
-      <ScrollView contentContainerStyle={styles.page}>
+    <ScrollView style={styles.fill} contentContainerStyle={styles.page}>
         {likes.length === 0 ? (
           <Text style={[styles.lead, { color: ground.color }]}>反応がたまるとここに並ぶ。</Text>
         ) : (
@@ -47,12 +45,12 @@ export default function TasteScreen() {
             ))}
           </>
         )}
-      </ScrollView>
-    </Frame>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  fill: { flex: 1 },
   page: { paddingHorizontal: 36, paddingVertical: 48, maxWidth: 640, width: "100%", alignSelf: "center" },
   lead: { fontSize: 18, lineHeight: 32 },
   word: { fontSize: 22, lineHeight: 40, fontFamily: "ZenOldMincho_400Regular" },
