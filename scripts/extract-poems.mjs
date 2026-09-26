@@ -119,6 +119,77 @@ const blakePoem = (text, title) => {
   return lines.join("\n").replace(/\n{3,}/g, "\n\n");
 };
 
+const byTitle = (map, title) => {
+  const want = title.replace(/\s+/g, "");
+  const key = [...map.keys()].find((item) => item.replace(/\s+/g, "") === want);
+  if (!key) throw new Error(`missing poem ${title}`);
+  return map.get(key).split("\n○\n")[0].trim();
+};
+
+const tankaLine = (html, start) => {
+  const line = textOf(stripRuby(mainChunk(html))).split("\n").find((item) => item.startsWith(start));
+  if (!line) throw new Error(`missing tanka ${start}`);
+  return line;
+};
+
+const verseBlock = (text, startLine, stop) => {
+  const lines = text.split(/\r?\n/);
+  const index = lines.findIndex((line) => line.replace(/\s{2,}\d+\s*$/, "").trim() === startLine);
+  if (index < 0) throw new Error(`missing ${startLine}`);
+  const body = [];
+  for (const raw of lines.slice(index)) {
+    const trimmed = raw.replace(/\s{2,}\d+\s*$/, "").trim();
+    if (body.length > 0 && stop(trimmed)) break;
+    if (!trimmed) {
+      if (body.length && body.at(-1) !== "") body.push("");
+      continue;
+    }
+    body.push(trimmed);
+  }
+  while (body.at(-1) === "") body.pop();
+  return body.join("\n").replace(/\n{3,}/g, "\n\n");
+};
+
+const romanPoem = (text, numeral) => {
+  const lines = text.split(/\r?\n/);
+  const head = lines.findIndex((line) => new RegExp(`^\\s{10,}${numeral}$`).test(line));
+  if (head < 0) throw new Error(`missing ${numeral}`);
+  const body = [];
+  for (const raw of lines.slice(head + 1)) {
+    if (/^\s{10,}[IVXLC]+$/.test(raw)) break;
+    const trimmed = raw.trim();
+    if (!trimmed) {
+      if (body.length && body.at(-1) !== "") body.push("");
+      continue;
+    }
+    body.push(trimmed);
+  }
+  while (body.at(-1) === "") body.pop();
+  return body.join("\n");
+};
+
+const epitaph = (text, name) => {
+  const lines = text.split(/\r?\n/);
+  const index = lines.findIndex((line) => line.trim() === name);
+  if (index < 0) throw new Error(`missing ${name}`);
+  const body = [];
+  let blanks = 0;
+  for (const raw of lines.slice(index + 1)) {
+    const trimmed = raw.trim();
+    if (!trimmed) {
+      blanks += 1;
+      if (body.length && body.at(-1) !== "") body.push("");
+      continue;
+    }
+    if (body.length && blanks >= 2 && trimmed.length < 48 && !/[.!?,"—-]$/.test(trimmed)) break;
+    blanks = 0;
+    body.push(trimmed);
+  }
+  while (body[0] === "") body.shift();
+  while (body.at(-1) === "") body.pop();
+  return body.join("\n");
+};
+
 const betweenTitles = (text, startTitle, endTitle) => {
   const start = text.indexOf(startTitle);
   const end = text.indexOf(endTitle, start + startTitle.length);
@@ -454,6 +525,343 @@ add({
   title: "The Tiger",
   body: blakePoem(blake, "THE TIGER"),
   see: ["night", "light", "sky"],
+});
+
+const [yagiwa, haru, seisan, hakuyo, shuncho, tenchi, tsuyu, oote, senge, crane, keats, wordsworth, masters] =
+  await Promise.all([
+    fetchText("https://www.aozora.gr.jp/cards/000026/files/894_28272.html"),
+    fetchText("https://www.aozora.gr.jp/cards/000081/files/1058_15403.html"),
+    fetchText("https://www.aozora.gr.jp/cards/000136/files/731_50613.html"),
+    fetchText("https://www.aozora.gr.jp/cards/000150/files/50558_61357.html"),
+    fetchText("https://www.aozora.gr.jp/cards/001055/files/46161_54994.html"),
+    fetchText("https://www.aozora.gr.jp/cards/001081/files/42233_38066.html"),
+    fetchText("https://www.aozora.gr.jp/cards/001059/files/56884_63901.html"),
+    fetchText("https://www.aozora.gr.jp/cards/000190/files/1029_20618.html"),
+    fetchText("https://www.aozora.gr.jp/cards/000617/files/48569_33319.html"),
+    fetchText("https://www.gutenberg.org/cache/epub/40786/pg40786.txt"),
+    fetchText("https://www.gutenberg.org/cache/epub/23684/pg23684.txt"),
+    fetchText("https://www.gutenberg.org/cache/epub/8824/pg8824.txt"),
+    fetchText("https://www.gutenberg.org/cache/epub/1280/pg1280.txt"),
+  ]);
+
+const chuyaPoems = headingPoems(yagiwa);
+const kenjiPoems = headingPoems(haru);
+const bochoPoems = headingPoems(seisan);
+const hakuyoPoems = headingPoems(hakuyo);
+const shunchoPoems = headingPoems(shuncho);
+const tenchiPoems = headingPoems(tenchi);
+const sengePoems = headingPoems(senge);
+const ooteText = textOf(mainChunk(oote));
+
+const chuyaSource = {
+  poet: "中原中也",
+  source: "中原中也詩集",
+  sourceYear: 1981,
+  origin: "https://www.aozora.gr.jp/cards/000026/files/894_28272.html",
+  deathYear: 1937,
+  form: "free",
+  lang: "ja",
+};
+const kenjiSource = {
+  poet: "宮沢賢治",
+  source: "宮沢賢治全集1",
+  sourceYear: 1986,
+  origin: "https://www.aozora.gr.jp/cards/000081/files/1058_15403.html",
+  deathYear: 1933,
+  form: "free",
+  lang: "ja",
+};
+const bochoSource = {
+  poet: "山村暮鳥",
+  source: "山村暮鳥全集第一巻",
+  sourceYear: 1989,
+  origin: "https://www.aozora.gr.jp/cards/000136/files/731_50613.html",
+  deathYear: 1924,
+  form: "free",
+  lang: "ja",
+};
+const ooteSource = {
+  poet: "大手拓次",
+  source: "世界の詩 28 大手拓次詩集",
+  sourceYear: 1965,
+  origin: "https://www.aozora.gr.jp/cards/000190/files/1029_20618.html",
+  deathYear: 1934,
+  form: "free",
+  lang: "ja",
+};
+const sengeSource = {
+  poet: "千家元麿",
+  source: "日本現代文學全集 54 千家元麿・山村暮鳥・佐藤惣之助・福士幸次郎・堀口大學集",
+  sourceYear: 1966,
+  origin: "https://www.aozora.gr.jp/cards/000617/files/48569_33319.html",
+  deathYear: 1948,
+  form: "free",
+  lang: "ja",
+};
+const susukidaSource = {
+  poet: "薄田泣菫",
+  source: "白羊宮",
+  sourceYear: 1906,
+  origin: "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+  deathYear: 1945,
+  form: "fixed",
+  lang: "ja",
+  say: ["shichigo"],
+};
+const ariakeSource = {
+  poet: "蒲原有明",
+  source: "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+  sourceYear: 1968,
+  origin: "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+  deathYear: 1952,
+  form: "fixed",
+  lang: "ja",
+  say: ["shichigo"],
+};
+const bansuiSource = {
+  poet: "土井晩翠",
+  source: "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+  sourceYear: 1967,
+  origin: "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+  deathYear: 1952,
+  form: "fixed",
+  lang: "ja",
+  say: ["shichigo"],
+};
+const mokichiSource = {
+  poet: "斎藤茂吉",
+  source: "歌集　つゆじも",
+  sourceYear: 2004,
+  origin: "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+  deathYear: 1953,
+  form: "tanka",
+  lang: "ja",
+  title: "",
+  say: ["short_line", "stops"],
+};
+const craneSource = {
+  poet: "Stephen Crane",
+  source: "The Black Riders, and Other Lines",
+  sourceYear: 1895,
+  origin: "https://www.gutenberg.org/cache/epub/40786/pg40786.txt",
+  deathYear: 1900,
+  form: "free",
+  lang: "en",
+  title: "",
+};
+const mastersSource = {
+  poet: "Edgar Lee Masters",
+  source: "Spoon River Anthology",
+  sourceYear: 1915,
+  origin: "https://www.gutenberg.org/cache/epub/1280/pg1280.txt",
+  deathYear: 1950,
+  form: "free",
+  lang: "en",
+};
+const keatsSource = {
+  poet: "John Keats",
+  source: "Poems Published in 1820",
+  sourceYear: 1820,
+  origin: "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+  deathYear: 1821,
+  form: "fixed",
+  lang: "en",
+  say: ["rhyme"],
+};
+const wordsworthSource = {
+  poet: "William Wordsworth",
+  source: "Poems in Two Volumes, Volume 2",
+  sourceYear: 1807,
+  origin: "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+  deathYear: 1850,
+  form: "fixed",
+  lang: "en",
+  say: ["rhyme"],
+};
+
+add({
+  id: "free-chuya-circus",
+  ...chuyaSource,
+  title: "サーカス",
+  body: pick(chuyaPoems, "サーカス"),
+  see: ["night", "person", "ordinary"],
+  say: ["one_leap", "stops"],
+});
+add({
+  id: "free-chuya-asa",
+  ...chuyaSource,
+  title: "朝の歌",
+  body: pick(chuyaPoems, "朝の歌"),
+  see: ["morning", "light", "sky"],
+  say: ["names_feeling", "stops"],
+});
+add({
+  id: "free-kenji-kussetsu",
+  ...kenjiSource,
+  title: "屈折率",
+  body: pick(kenjiPoems, "屈折率"),
+  see: ["water", "sky", "scenery"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-kenji-kurakake",
+  ...kenjiSource,
+  title: "くらかけの雪",
+  body: pick(kenjiPoems, "くらかけの雪"),
+  see: ["sky", "scenery"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-bocho-dansu",
+  ...bochoSource,
+  title: "だんす",
+  body: pick(bochoPoems, "だんす"),
+  see: ["sky", "light", "plant"],
+  say: ["short_line", "one_leap", "stops"],
+});
+add({
+  id: "free-bocho-nanohana",
+  ...bochoSource,
+  title: "風景",
+  body: byTitle(bochoPoems, "風景純銀もざいく"),
+  see: ["plant", "sky", "day", "scenery"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-oote-gama",
+  ...ooteSource,
+  title: "藍色の蟇",
+  body: betweenTitles(ooteText, "藍色の蟇", "陶器の鴉"),
+  see: ["indoor", "plant", "person"],
+  say: ["one_leap", "stops"],
+});
+add({
+  id: "free-senge-kuruma",
+  ...sengeSource,
+  title: "車の音",
+  body: pick(sengePoems, "車の音"),
+  see: ["night", "street", "ordinary", "morning"],
+  say: ["explains"],
+});
+add({
+  id: "tanka-mokichi-furo",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "据風呂を買ひに行きつつ"),
+  see: ["indoor", "evening", "ordinary"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "tanka-mokichi-ame",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "かりずみのねむりは浅く"),
+  see: ["night", "water", "street"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "fixed-susukida-fuyu",
+  ...susukidaSource,
+  title: "冬の日",
+  body: pick(hakuyoPoems, "冬の日"),
+  see: ["day", "water", "plant", "sky"],
+});
+add({
+  id: "fixed-susukida-yugoe",
+  ...susukidaSource,
+  title: "夕ごゑ",
+  body: pick(hakuyoPoems, "夕ごゑ"),
+  see: ["evening", "sky", "light", "scenery"],
+});
+add({
+  id: "fixed-ariake-chinchoge",
+  ...ariakeSource,
+  title: "沈丁花",
+  body: pick(shunchoPoems, "沈丁花"),
+  see: ["night", "plant", "person", "light"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-ariake-icho",
+  ...ariakeSource,
+  title: "銀杏樹",
+  body: pick(shunchoPoems, "銀杏樹"),
+  see: ["plant", "sky"],
+});
+add({
+  id: "fixed-bansui-hoshi",
+  ...bansuiSource,
+  title: "星と花",
+  body: pick(tenchiPoems, "星と花"),
+  see: ["sky", "plant", "night", "light"],
+});
+add({
+  id: "fixed-bansui-yusei",
+  ...bansuiSource,
+  title: "夕の星",
+  body: pick(tenchiPoems, "夕の星"),
+  see: ["evening", "sky", "light"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "free-crane-riders",
+  ...craneSource,
+  body: romanPoem(crane, "I"),
+  see: ["water", "scenery"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-crane-desert",
+  ...craneSource,
+  body: romanPoem(crane, "III"),
+  see: ["scenery", "person"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "free-masters-fiddler",
+  ...mastersSource,
+  title: "Fiddler Jones",
+  body: epitaph(masters, "Fiddler Jones"),
+  see: ["plant", "person", "ordinary", "scenery"],
+  say: ["explains", "names_feeling"],
+});
+add({
+  id: "free-masters-matlock",
+  ...mastersSource,
+  title: "Lucinda Matlock",
+  body: epitaph(masters, "Lucinda Matlock"),
+  see: ["person", "plant", "water", "night"],
+  say: ["explains", "names_feeling", "stops"],
+});
+add({
+  id: "fixed-keats-autumn",
+  ...keatsSource,
+  title: "To Autumn",
+  body: verseBlock(keats, "Season of mists and mellow fruitfulness,", (line) => line === "ODE ON MELANCHOLY."),
+  see: ["plant", "day", "evening", "sky", "scenery"],
+  say: ["rhyme", "stops"],
+});
+add({
+  id: "fixed-keats-melancholy",
+  ...keatsSource,
+  title: "Ode on Melancholy",
+  body: verseBlock(keats, "No, no, go not to Lethe, neither twist", (line) => line === "HYPERION."),
+  see: ["night", "plant", "sky"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-wordsworth-cloud",
+  ...wordsworthSource,
+  title: "I wandered lonely as a Cloud",
+  body: verseBlock(wordsworth, "I wandered lonely as a Cloud", (line) => line === "8."),
+  see: ["plant", "water", "day", "scenery"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-wordsworth-reaper",
+  ...wordsworthSource,
+  title: "The Solitary Reaper",
+  body: verseBlock(wordsworth, "Behold her, single in the field,", (line) => line.startsWith("3.")),
+  see: ["plant", "person", "scenery"],
+  say: ["rhyme", "names_feeling"],
 });
 
 const ids = new Set();

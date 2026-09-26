@@ -514,5 +514,539 @@
       "sky"
     ],
     "order": 24
+  },
+  {
+    "id": "free-chuya-circus",
+    "poet": "中原中也",
+    "source": "中原中也詩集",
+    "sourceYear": 1981,
+    "origin": "https://www.aozora.gr.jp/cards/000026/files/894_28272.html",
+    "deathYear": 1937,
+    "form": "free",
+    "lang": "ja",
+    "title": "サーカス",
+    "body": "幾時代かがありまして\n茶色い戦争ありました\n\n幾時代かがありまして\n冬は疾風吹きました\n\n幾時代かがありまして\n今夜此処での一と殷盛り\n今夜此処での一と殷盛り\n\nサーカス小屋は高い梁\nそこに一つのブランコだ\n見えるともないブランコだ\n\n頭倒さに手を垂れて\n汚れ木綿の屋蓋のもと\nゆあーん　ゆよーん　ゆやゆよん\n\nそれの近くの白い灯が\n安値いリボンと息を吐き\n\n観客様はみな鰯\n咽喉が鳴ります牡蠣殻と\nゆあーん　ゆよーん　ゆやゆよん\n\n屋外は真ッ闇　闇の闇\n夜は劫々と更けまする\n落下傘奴のノスタルヂアと\nゆあーん　ゆよーん　ゆやゆよん",
+    "see": [
+      "night",
+      "person",
+      "ordinary"
+    ],
+    "say": [
+      "one_leap",
+      "stops"
+    ],
+    "order": 25
+  },
+  {
+    "id": "free-chuya-asa",
+    "poet": "中原中也",
+    "source": "中原中也詩集",
+    "sourceYear": 1981,
+    "origin": "https://www.aozora.gr.jp/cards/000026/files/894_28272.html",
+    "deathYear": 1937,
+    "form": "free",
+    "lang": "ja",
+    "title": "朝の歌",
+    "body": "天井に　朱きいろいで\n戸の隙を　洩れ入る光、\n鄙びたる　軍楽の憶ひ\n手にてなす　なにごともなし。\n\n小鳥らの　うたはきこえず\n空は今日　はなだ色らし、\n倦んじてし　人のこころを\n諫めする　なにものもなし。\n\n樹脂の香に　朝は悩まし\nうしなひし　さまざまのゆめ、\n森竝は　風に鳴るかな\n\nひろごりて　たひらかの空、\n土手づたひ　きえてゆくかな\nうつくしき　さまざまの夢。",
+    "see": [
+      "morning",
+      "light",
+      "sky"
+    ],
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "order": 26
+  },
+  {
+    "id": "free-kenji-kussetsu",
+    "poet": "宮沢賢治",
+    "source": "宮沢賢治全集1",
+    "sourceYear": 1986,
+    "origin": "https://www.aozora.gr.jp/cards/000081/files/1058_15403.html",
+    "deathYear": 1933,
+    "form": "free",
+    "lang": "ja",
+    "title": "屈折率",
+    "body": "七つ森のこつちのひとつが\n水の中よりもつと明るく\nそしてたいへん巨きいのに\nわたくしはでこぼこ凍つたみちをふみ\nこのでこぼこの雪をふみ\n向ふの縮れた亜鉛の雲へ\n陰気な郵便脚夫のやうに\n（またアラツデイン　洋燈とり）\n急がなければならないのか\n（一九二二、一、六）",
+    "see": [
+      "water",
+      "sky",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 27
+  },
+  {
+    "id": "free-kenji-kurakake",
+    "poet": "宮沢賢治",
+    "source": "宮沢賢治全集1",
+    "sourceYear": 1986,
+    "origin": "https://www.aozora.gr.jp/cards/000081/files/1058_15403.html",
+    "deathYear": 1933,
+    "form": "free",
+    "lang": "ja",
+    "title": "くらかけの雪",
+    "body": "たよりになるのは\nくらかけつづきの雪ばかり\n野はらもはやしも\nぽしやぽしやしたり黝んだりして\nすこしもあてにならないので\nほんたうにそんな酵母のふうの\n朧ろなふぶきですけれども\nほのかなのぞみを送るのは\nくらかけ山の雪ばかり\n（ひとつの古風な信仰です）\n（一九二二、一、六）",
+    "see": [
+      "sky",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 28
+  },
+  {
+    "id": "free-bocho-dansu",
+    "poet": "山村暮鳥",
+    "source": "山村暮鳥全集第一巻",
+    "sourceYear": 1989,
+    "origin": "https://www.aozora.gr.jp/cards/000136/files/731_50613.html",
+    "deathYear": 1924,
+    "form": "free",
+    "lang": "ja",
+    "title": "だんす",
+    "body": "あらし\nあらし\nしだれやなぎに光あれ\nあかんぼの\nへその芽\n水銀歇私的利亞\nはるきたり\nあしうらぞ\nあらしをまろめ\n愛のさもわるに\n烏龍茶をかなしましむるか\nあらしは\n天に蹴上げられ。",
+    "see": [
+      "sky",
+      "light",
+      "plant"
+    ],
+    "say": [
+      "short_line",
+      "one_leap",
+      "stops"
+    ],
+    "order": 29
+  },
+  {
+    "id": "free-bocho-nanohana",
+    "poet": "山村暮鳥",
+    "source": "山村暮鳥全集第一巻",
+    "sourceYear": 1989,
+    "origin": "https://www.aozora.gr.jp/cards/000136/files/731_50613.html",
+    "deathYear": 1924,
+    "form": "free",
+    "lang": "ja",
+    "title": "風景",
+    "body": "いちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nかすかなるむぎぶえ\nいちめんのなのはな\n\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nひばりのおしやべり\nいちめんのなのはな\n\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nいちめんのなのはな\nやめるはひるのつき\nいちめんのなのはな。",
+    "see": [
+      "plant",
+      "sky",
+      "day",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 30
+  },
+  {
+    "id": "free-oote-gama",
+    "poet": "大手拓次",
+    "source": "世界の詩 28 大手拓次詩集",
+    "sourceYear": 1965,
+    "origin": "https://www.aozora.gr.jp/cards/000190/files/1029_20618.html",
+    "deathYear": 1934,
+    "form": "free",
+    "lang": "ja",
+    "title": "藍色の蟇",
+    "body": "森の宝庫の寝間に\n藍色の蟇は黄色い息をはいて\n陰湿の暗い暖炉のなかにひとつの絵模様をかく。\n太陽の隠し子のやうにひよわの少年は\n美しい葡萄のやうな眼をもつて、\n行くよ、行くよ、いさましげに、\n空想の猟人はやはらかいカンガルウの編靴に。",
+    "see": [
+      "indoor",
+      "plant",
+      "person"
+    ],
+    "say": [
+      "one_leap",
+      "stops"
+    ],
+    "order": 31
+  },
+  {
+    "id": "free-senge-kuruma",
+    "poet": "千家元麿",
+    "source": "日本現代文學全集 54 千家元麿・山村暮鳥・佐藤惣之助・福士幸次郎・堀口大學集",
+    "sourceYear": 1966,
+    "origin": "https://www.aozora.gr.jp/cards/000617/files/48569_33319.html",
+    "deathYear": 1948,
+    "form": "free",
+    "lang": "ja",
+    "title": "車の音",
+    "body": "夜中の二時頃から\n巣鴨の大通りを田舍から百姓の車が\nカラ／＼カラ／＼と小さな燥いた木の音を立て、無數に遣つて來る。\n勢のいゝその音は絶える間もなく、賑やかに密集して來る。\n人聲は一つも聞え無い。何千何萬と知れ無い車の輪の、\n飾り氣の無い、元氣な單調な音許り\n天から繰り出して來る。\n遠く遠くから、カラ／＼カラ／＼調面白く、\nよく廻りあとからあとから空に漲り、\n地に觸れて跳ねかへり一杯にひろがつて來る。夥しい木の輪の音、\n夜もすがら\n眠れる人々の上に天使が舞ひ下りて、休みもせず\n舞ひつ踊りつ煩さい位耳を離れず、幸福な歌をうたふやうに。\n\n氣が附けばます／＼音は元氣づき、密集團となり\n朝の來るのに間に合はせる爲め\n忙しなく天の戸を皆んな繰り出した音のやうに\n喜びに滿ちた勇しい同じ小さな木の輪の音が\n恐ろしいやうにやつて來る。\n一つ一つ夥しい星の中から生れてぬけ出して來る。\nもう餘程通り過ぎて仕舞つたやうに\n初めから終りまで同じ音で此世へやつて來る。\n\n曉方になるとその音は\n天使の見離した夢のやうに消えて仕舞ふ。\n天と地とのつなぎをへだてゝしまふ\n何處かへ蜂が巣を替へて仕舞つた跡のやうに\n一つも聞えなくなる。\n鋭敏になつた頭には今度は地上のあらゆる音を聞く\n馬鹿らしい夜烏の自動車の浮いた音や、\n間の拔けた眠さうな不平をこぼす汽笛や、\nだるさうな時計の響が味もなくあつち、こつちで\n眞似をして仕損つたやうに、自信もなく離れ／″＼に鳴る。\n\nあゝ毎晩々々、雨の降る夜も星の降る夜も、自分の頭に響て來る\n無數の百姓の車の音は自分に喜びを運んで來る\n飾り氣の無い木の音のいつも變らない快さ\n天から幸福を運んで繰り出して來る神來の無數の車を迎へる。\nその一つ事に熱中した心の底から親切な、\n喜びいそぐ無數の車の音、樂しい、賑やかな、勇しい音。\n\nあゝ、汝の勝利だ\nその一生懸命な小さいけれど氣の揃つた\n豐かな百姓車の軍勢が堂々と繰り出して行つたら何でも負ける。\n道を讓る\nあゝ勇しい木の輪の音の行列よ\nどん／＼繰り出して來い。\n天の一方から下りて來い\n下界を目がけて、一直線に遠い／＼ところから走つて來る星のやうに\n都會を目がけてその一絲も亂さず、整然と\n同じ法則、同じ姿勢で\n立派に揃つた、木の音で\n電車道を踏み鳴らして行け、躍つて行け\n\n揃ひも揃つて選り拔きの、よく洗はれた手入の屆いた、簡單で、\n調法な、木の車の自信のある安らかな音色よ\n何ものも御前の音に敵ふ奴は無い。\n憎々しい惰弱な病的な汽笛や不平な野心の逞しい機械の音より\nどの位、\n御前の勤勉な盡き無い木の音の方が俺は大好きだか知れないぞ、\n前にゆくものゝ音を受けついで、後から來る者に傳へて、\n赤兒のやうに生れて來る、\n汝の盡きる事なく繰り出す音は\n此世のものでは無い、天上のものだ\n喜びだ、勝どきだ。\n\nおゝ又氣がつけば賑やかな、いつも機嫌な木の輪の音の群\n滿ち、溢れ、盡きずくり出して來て\nぴつたり跡を殘さず消えて行く自信のある歌ひぶりよ神來が來り、\n大擾亂を呈して過ぎ去つたあとのやうに一つも殘さず、\n漏れる事無く歌ひ終る。\n無數の木の輪の音、\nわが愛す、喜びの歌、\n平易で味の無いやうで\n無限な味の籠つた\n天の變化にも追ひ付く、單調な喜びの歌、\n天來の音、呱々の聲\n簡單で完全な、よく洗はれた、手入のいゝ、親切な車の輪の音、\n氣の揃つた賑やかなコーラス\n毎晩來てくれ、\n毎晩調子を揃へて繰り出して來て呉れ\n巣鴨の大通りを田舍からつゞいて來る\n無數の百姓車の木の輪の音、\n\n俺は毎晩待つて居る。きつと氣がつく\n御前の來るのを待つのは恐いけれど\n來てしまへば俺は元氣づいて躍り出す、\n氣がつけば引つきり無しに遣つて來る、神來の喜び！\n木の音の行列、夥しい星の歌、一粒撰りの新しい音色！\n天の戸をくる喜びの歌、朝の歌！\n氣の揃つた一團の可愛ゆい、小さな百姓車の行進曲！\n（一〇、二五曉、愛の本所載）",
+    "see": [
+      "night",
+      "street",
+      "ordinary",
+      "morning"
+    ],
+    "say": [
+      "explains"
+    ],
+    "order": 32
+  },
+  {
+    "id": "tanka-mokichi-furo",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "body": "据風呂を買ひに行きつつこよひまた買はず帰り来て寂しく眠る",
+    "see": [
+      "indoor",
+      "evening",
+      "ordinary"
+    ],
+    "order": 33
+  },
+  {
+    "id": "tanka-mokichi-ame",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "かりずみのねむりは浅くさめしかば外面の道に雨降りをるかな",
+    "see": [
+      "night",
+      "water",
+      "street"
+    ],
+    "order": 34
+  },
+  {
+    "id": "fixed-susukida-fuyu",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "冬の日",
+    "body": "新甞の祭り日なりき、\n午さがり、曝れし河原に、\n老御達、『冬』こそたてれ、\n身ぞたゆげに。\n\n數へ日のこころ細さや、\n涙眼なる日のたたずまひ、\n物の影、淡げに搖れて、\nうるみ色に。\n\n雲の襞ほのかに鈍み、\n空ひくに滑るゆるかさ、\nありし世のおもひでぐさの\n榮、また、空華。\n\nみだれ伏す根じろ高萱、\n老しらむ末葉のそそけ、\n氣を寒み、失聲かすけく\n音こそいため。\n\n今し、日は思ひ消ゆらし、\n面隱し、――うは曇りして、\n夕時雨しのびに泣くや、\n欷歔よよと。\n\nかかる日よ、在巣の鳥も、\nうらびれし目路の眺めに、\nさへづりの徒音を絶えて、\n俯居すらめ。\n\n束の間や、――やがて日直り、\n冬の日はほほ笑みそめつ。\n青じろき頬ぞ、鼻じろむ\n面ほでり。\n\n樹に、莖に、伏葉に、石に、\n泣き濡れしうるほひ映えて\n嘆かひの似るものもなき\nうつくしさや。\n\n日の心地、いまの憂身に、\nそのかみの美き日をしのぶ\nさびしさに、笑みし子ならで、\n誰か解かめ。",
+    "see": [
+      "day",
+      "water",
+      "plant",
+      "sky"
+    ],
+    "order": 35
+  },
+  {
+    "id": "fixed-susukida-yugoe",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "夕ごゑ",
+    "body": "日は暮れぬ、野の面低に、\n霧はくゆるたゆげさの、\n齋精進、懺悔のひと夜、\n思ひしづむ魂ならし。\n\n夕晴の黄金路に、\nかへる鳥の遠がくれ、\n胸の汚染、ひとつ消えて、\n今はた、二のうするかに。\n\n葉ずくなの並木なかに、\n『靜こころ』の浮歩み、\n木木の枝しぬに垂れて、\nわれかの樣に息づきぬ。\n\nいま雲の夕くれなゐ、\n天照る日の大殿に、\nをんな樂、かへり聲の\nほのにひびく夢ごこち。\n\n淨まはる魂の深み、\n聖ごころととのひて、\n美し音のさこそ響む\n日のあなたに往かまほし。",
+    "see": [
+      "evening",
+      "sky",
+      "light",
+      "scenery"
+    ],
+    "order": 36
+  },
+  {
+    "id": "fixed-ariake-chinchoge",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "沈丁花",
+    "body": "艶なる夜の黒髮は\n月にきえぎえうつろひぬ、\n香に洩れて沈丁花、\nなほ、祕めつつむ花のふえ。\n\n朧のかげはゆらめきぬ、\n膚に物の音ぞしづく、――\nたとへば浪のうねうねを\n春は櫂うつ夢小舟。\n\n照らしぬ、融けぬ、あめつちは\n宴まどかにうるほひて、\n月にはうかぶ月の暈――\nああ、新妻の新室や。\n\n風は紋羅の浮織に\n人と草との舞のあや――\nほのに映れる花姿、\n弱肩、それとさだめなく。\n\n燭の火くゆる聖殿に\nいつく女天をさながらの\n春に、こよひは、をみなごの\nよき名をささげまつらむよ。\n\n戀のみぞ知る深き夜の\n祈祷は永劫に金泥の\n紺紙にきえぬ世のまこと、――\nあだしごころのえこそわかたね。",
+    "see": [
+      "night",
+      "plant",
+      "person",
+      "light"
+    ],
+    "order": 37
+  },
+  {
+    "id": "fixed-ariake-icho",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "銀杏樹",
+    "body": "なべての樹にまさる\n銀杏樹よ、くるほしき\n北風葉をふるへ、\n汝が枝さすや、唯これ北にのみ。\n\n銀杏樹は北を壓す\n南の砦。――ああ、\nなべての樹のなかに\n今の日いやしめる往にし代のさま。\n\nなよびは花むろに、\n弱きは盡きて、ここ\n小きはひしめける\nさやぎを知るや、いさ、汝が天そそり。\n\n銀杏樹よ、（ときめきぬ\nわが胸。）あぶら火の\nくゆれる、そを嘲み、\nひとりか蝋の香の焔かかぐる。\n\n劫初の浪に、いと\nけだかき大洋の\n枝より、貝の葉の\n碎けしそれか、汝が落葉のゆくへ。\n\n思へばしづかなり\n散るとき、立てるとき、\n思へば汝が幹は\nかの跡世にたちし巨象のねぶり。\n\n汝が身は汝が設けし\nおくつき、復た活きて、\n汝が日に甦る\n眞夏を白鵠の歌かなしまむ。",
+    "see": [
+      "plant",
+      "sky"
+    ],
+    "order": 38
+  },
+  {
+    "id": "fixed-bansui-hoshi",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "星と花",
+    "body": "同じ「自然」のおん母の\n御手にそだちし姉と妹\nみ空の花を星といひ\nわが世の星を花といふ。\n\nかれとこれとに隔たれど\nにほひは同じ星と花\n笑みと光を宵々に\n替はすもやさし花と星\n\nされば曙雲白く\n御空の花のしぼむとき\n見よ白露のひとしづく\nわが世の星に涙あり。",
+    "see": [
+      "sky",
+      "plant",
+      "night",
+      "light"
+    ],
+    "order": 39
+  },
+  {
+    "id": "fixed-bansui-yusei",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "夕の星",
+    "body": "ちぎれ／＼に雲迷ふ\n夕の空に星ひとつ\n光はいまだ淺けれど\n思深しや天の海。\n\n嗚呼カルデアに牧びとの\nなれを見しより四千年\n光はとはに若うして\n世はかくまでに老いしかな。\n\nまたゝく光露帶びて\n今はた泣くか人のため\nつかれ、爭ひ、わづらひに\n我世の幸は遠ければ。",
+    "see": [
+      "evening",
+      "sky",
+      "light"
+    ],
+    "order": 40
+  },
+  {
+    "id": "free-crane-riders",
+    "poet": "Stephen Crane",
+    "source": "The Black Riders, and Other Lines",
+    "sourceYear": 1895,
+    "origin": "https://www.gutenberg.org/cache/epub/40786/pg40786.txt",
+    "deathYear": 1900,
+    "form": "free",
+    "lang": "en",
+    "title": "",
+    "body": "Black Riders came from the sea.\nThere was clang and clang of spear and shield,\nAnd clash and clash of hoof and heel,\nWild shouts and the wave of hair\nIn the rush upon the wind:\nThus the ride of Sin.",
+    "see": [
+      "water",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 41
+  },
+  {
+    "id": "free-crane-desert",
+    "poet": "Stephen Crane",
+    "source": "The Black Riders, and Other Lines",
+    "sourceYear": 1895,
+    "origin": "https://www.gutenberg.org/cache/epub/40786/pg40786.txt",
+    "deathYear": 1900,
+    "form": "free",
+    "lang": "en",
+    "title": "",
+    "body": "In the desert\nI saw a creature, naked, bestial,\nWho, squatting upon the ground,\nHeld his heart in his hands,\nAnd ate of it.\nI said, \"Is it good, friend?\"\n\"It is bitter--bitter,\" he answered;\n\"But I like it\nBecause it is bitter,\nAnd because it is my heart.\"",
+    "see": [
+      "scenery",
+      "person"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "order": 42
+  },
+  {
+    "id": "free-masters-fiddler",
+    "poet": "Edgar Lee Masters",
+    "source": "Spoon River Anthology",
+    "sourceYear": 1915,
+    "origin": "https://www.gutenberg.org/cache/epub/1280/pg1280.txt",
+    "deathYear": 1950,
+    "form": "free",
+    "lang": "en",
+    "title": "Fiddler Jones",
+    "body": "The earth keeps some vibration going\nThere in your heart, and that is you.\nAnd if the people find you can fiddle,\nWhy, fiddle you must, for all your life.\nWhat do you see, a harvest of clover?\nOr a meadow to walk through to the river?\nThe wind’s in the corn; you rub your hands\nFor beeves hereafter ready for market;\nOr else you hear the rustle of skirts\nLike the girls when dancing at Little Grove.\nTo Cooney Potter a pillar of dust\nOr whirling leaves meant ruinous drouth;\nThey looked to me like Red-Head Sammy\nStepping it off, to “Toor-a-Loor.”\nHow could I till my forty acres\nNot to speak of getting more,\nWith a medley of horns, bassoons and piccolos\nStirred in my brain by crows and robins\nAnd the creak of a wind-mill—only these?\nAnd I never started to plow in my life\nThat some one did not stop in the road\nAnd take me away to a dance or picnic.\nI ended up with forty acres;\nI ended up with a broken fiddle—\nAnd a broken laugh, and a thousand memories,\nAnd not a single regret.",
+    "see": [
+      "plant",
+      "person",
+      "ordinary",
+      "scenery"
+    ],
+    "say": [
+      "explains",
+      "names_feeling"
+    ],
+    "order": 43
+  },
+  {
+    "id": "free-masters-matlock",
+    "poet": "Edgar Lee Masters",
+    "source": "Spoon River Anthology",
+    "sourceYear": 1915,
+    "origin": "https://www.gutenberg.org/cache/epub/1280/pg1280.txt",
+    "deathYear": 1950,
+    "form": "free",
+    "lang": "en",
+    "title": "Lucinda Matlock",
+    "body": "I went to the dances at Chandlerville,\nAnd played snap-out at Winchester.\nOne time we changed partners,\nDriving home in the moonlight of middle June,\nAnd then I found Davis.\nWe were married and lived together for seventy years,\nEnjoying, working, raising the twelve children,\nEight of whom we lost\nEre I had reached the age of sixty.\nI spun,\nI wove,\nI kept the house,\nI nursed the sick,\nI made the garden, and for holiday\nRambled over the fields where sang the larks,\nAnd by Spoon River gathering many a shell,\nAnd many a flower and medicinal weed—\nShouting to the wooded hills, singing to the green valleys.\nAt ninety—six I had lived enough, that is all,\nAnd passed to a sweet repose.\nWhat is this I hear of sorrow and weariness,\nAnger, discontent and drooping hopes?\nDegenerate sons and daughters,\nLife is too strong for you—\nIt takes life to love Life.",
+    "see": [
+      "person",
+      "plant",
+      "water",
+      "night"
+    ],
+    "say": [
+      "explains",
+      "names_feeling",
+      "stops"
+    ],
+    "order": 44
+  },
+  {
+    "id": "fixed-keats-autumn",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "stops"
+    ],
+    "title": "To Autumn",
+    "body": "Season of mists and mellow fruitfulness,\nClose bosom-friend of the maturing sun;\nConspiring with him how to load and bless\nWith fruit the vines that round the thatch-eves run;\nTo bend with apples the moss'd cottage-trees,\nAnd fill all fruit with ripeness to the core;\nTo swell the gourd, and plump the hazel shells\nWith a sweet kernel; to set budding more,\nAnd still more, later flowers for the bees,\nUntil they think warm days will never cease,\nFor Summer has o'er-brimm'd their clammy cells.\n\n2.\n\nWho hath not seen thee oft amid thy store?\nSometimes whoever seeks abroad may find\nThee sitting careless on a granary floor,\nThy hair soft-lifted by the winnowing wind;\nOr on a half-reap'd furrow sound asleep,\nDrows'd with the fume of poppies, while thy hook\nSpares the next swath and all its twined flowers:\nAnd sometimes like a gleaner thou dost keep\nSteady thy laden head across a brook;\nOr by a cyder-press, with patient look,\nThou watchest the last oozings hours by hours.\n\n3.\n\nWhere are the songs of Spring? Ay, where are they?\nThink not of them, thou hast thy music too,--\nWhile barred clouds bloom the soft-dying day,\nAnd touch the stubble-plains with rosy hue;\nThen in a wailful choir the small gnats mourn\nAmong the river sallows, borne aloft\nOr sinking as the light wind lives or dies;\nAnd full-grown lambs loud bleat from hilly bourn;\nHedge-crickets sing; and now with treble soft\nThe red-breast whistles from a garden-croft;\nAnd gathering swallows twitter in the skies.",
+    "see": [
+      "plant",
+      "day",
+      "evening",
+      "sky",
+      "scenery"
+    ],
+    "order": 45
+  },
+  {
+    "id": "fixed-keats-melancholy",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Ode on Melancholy",
+    "body": "No, no, go not to Lethe, neither twist\nWolf's-bane, tight-rooted, for its poisonous wine;\nNor suffer thy pale forehead to be kiss'd\nBy nightshade, ruby grape of Proserpine;\nMake not your rosary of yew-berries,\nNor let the beetle, nor the death-moth be\nYour mournful Psyche, nor the downy owl\nA partner in your sorrow's mysteries;\nFor shade to shade will come too drowsily,\nAnd drown the wakeful anguish of the soul.\n\n2.\n\nBut when the melancholy fit shall fall\nSudden from heaven like a weeping cloud,\nThat fosters the droop-headed flowers all,\nAnd hides the green hill in an April shroud;\nThen glut thy sorrow on a morning rose,\nOr on the rainbow of the salt sand-wave,\nOr on the wealth of globed peonies;\nOr if thy mistress some rich anger shows,\nEmprison her soft hand, and let her rave,\nAnd feed deep, deep upon her peerless eyes.\n\n3.\n\nShe dwells with Beauty--Beauty that must die;\nAnd Joy, whose hand is ever at his lips\nBidding adieu; and aching Pleasure nigh,\nTurning to poison while the bee-mouth sips:\nAy, in the very temple of Delight\nVeil'd Melancholy has her sovran shrine,\nThough seen of none save him whose strenuous tongue\nCan burst Joy's grape against his palate fine;\nHis soul shall taste the sadness of her might,\nAnd be among her cloudy trophies hung.",
+    "see": [
+      "night",
+      "plant",
+      "sky"
+    ],
+    "order": 46
+  },
+  {
+    "id": "fixed-wordsworth-cloud",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "I wandered lonely as a Cloud",
+    "body": "I wandered lonely as a Cloud\nThat floats on high o'er Vales and Hills,\nWhen all at once I saw a crowd\nA host of dancing Daffodills;\nAlong the Lake, beneath the trees,\nTen thousand dancing in the breeze.\n\nThe waves beside them danced, but they\nOutdid the sparkling waves in glee:--\nA Poet could not but be gay\nIn such a laughing company:\nI gaz'd--and gaz'd--but little thought\nWhat wealth the shew to me had brought:\n\nFor oft when on my couch I lie\nIn vacant or in pensive mood,\nThey flash upon that inward eye\nWhich is the bliss of solitude,\nAnd then my heart with pleasure fills,\nAnd dances with the Daffodils.",
+    "see": [
+      "plant",
+      "water",
+      "day",
+      "scenery"
+    ],
+    "order": 47
+  },
+  {
+    "id": "fixed-wordsworth-reaper",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "The Solitary Reaper",
+    "body": "Behold her, single in the field,\nYon solitary Highland Lass!\nReaping and singing by herself;\nStop here, or gently pass!\nAlone she cuts, and binds the grain,\nAnd sings a melancholy strain;\nO listen! for the Vale profound\nIs overflowing with the sound.\n\nNo Nightingale did ever chaunt\nSo sweetly to reposing bands\nOf Travellers in some shady haunt,\nAmong Arabian Sands:\nNo sweeter voice was ever heard\nIn spring-time from the Cuckoo-bird,\nBreaking the silence of the seas\nAmong the farthest Hebrides.\n\nWill no one tell me what she sings?\nPerhaps the plaintive numbers flow\nFor old, unhappy, far-off things,\nAnd battles long ago:\nOr is it some more humble lay,\nFamiliar matter of today?\nSome natural sorrow, loss, or pain,\nThat has been, and may be again!\n\nWhate'er the theme, the Maiden sung\nAs if her song could have no ending;\nI saw her singing at her work,\nAnd o'er the sickle bending;\nI listen'd till I had my fill;\nAnd, as I mounted up the hill,\nThe music in my heart I bore,\nLong after it was heard no more.",
+    "see": [
+      "plant",
+      "person",
+      "scenery"
+    ],
+    "order": 48
   }
 ]
