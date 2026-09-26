@@ -1,5 +1,5 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Pressable,
   ScrollView,
@@ -24,6 +24,8 @@ export default function TodayScreen() {
   const [ready, setReady] = useState(false);
   const [actionsClear, setActionsClear] = useState(false);
   const viewing = params.poem ? poemById(params.poem) : undefined;
+  const reasonSave = useRef(Promise.resolve());
+  const latestReason = useRef("");
 
   const openForm = useCallback(async (nextForm: Form) => {
     const today = todayKey();
@@ -53,17 +55,24 @@ export default function TodayScreen() {
   const reaction = reactions.find((item) => item.poemId === current?.id);
   const wide = current?.form === "haiku" || current?.form === "tanka";
 
+  useEffect(() => {
+    latestReason.current = reaction?.reason ?? "";
+  }, [current?.id, reaction?.sentiment]);
+
   const choose = async (sentiment: "like" | "dislike") => {
     if (!current) return;
-    const reason = sentiment === "like" ? (reaction?.reason ?? "") : (reaction?.reason ?? "");
-    await saveReaction(current.id, sentiment, reason);
+    await reasonSave.current.catch(() => undefined);
+    await saveReaction(current.id, sentiment, latestReason.current);
     setReactions(await loadReactions());
   };
 
-  const writeReason = async (reason: string) => {
+  const writeReason = (reason: string) => {
     if (!current) return;
-    await saveReaction(current.id, "like", reason);
-    setReactions(await loadReactions());
+    latestReason.current = reason;
+    const poemId = current.id;
+    reasonSave.current = reasonSave.current.catch(() => undefined).then(() =>
+      saveReaction(poemId, "like", reason),
+    );
   };
 
   const nextPoem = async () => {
@@ -142,7 +151,8 @@ export default function TodayScreen() {
         </View>
         {reaction?.sentiment === "like" ? (
           <TextInput
-            value={reaction.reason}
+            key={current?.id}
+            defaultValue={reaction.reason}
             onChangeText={writeReason}
             placeholder="ひとこと"
             placeholderTextColor={ground.faint}
