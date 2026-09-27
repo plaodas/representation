@@ -195,6 +195,8 @@ export default function TodayScreen() {
     });
   };
 
+  const wordOpacity = (chosen: boolean) => (chosen || actionsClear ? 1 : 0.28);
+
   return (
     <>
       <Animated.View style={{ opacity: poemOpacity }}>
@@ -237,19 +239,16 @@ export default function TodayScreen() {
         ) : null}
       </ScrollView>
       </Animated.View>
-      <View
-        style={{ opacity: actionsClear ? 1 : 0.28 }}
-        onPointerEnter={() => setActionsClear(true)}
-      >
+      <View onPointerEnter={() => setActionsClear(true)}>
         <View style={styles.actions}>
           <Pressable onPress={() => choose("like")}>
-            <Text style={{ color: ground.color }}>好き</Text>
+            <Text style={{ color: ground.color, opacity: wordOpacity(reaction?.sentiment === "like") }}>好き</Text>
           </Pressable>
           <Pressable onPress={() => choose("dislike")}>
-            <Text style={{ color: ground.color }}>嫌い</Text>
+            <Text style={{ color: ground.color, opacity: wordOpacity(reaction?.sentiment === "dislike") }}>嫌い</Text>
           </Pressable>
           <Pressable onPress={nextPoem}>
-            <Text style={{ color: ground.color }}>次の一首</Text>
+            <Text style={{ color: ground.color, opacity: wordOpacity(false) }}>次の一首</Text>
           </Pressable>
         </View>
       </View>
