@@ -78,7 +78,7 @@ add({
 | `light` `water` `indoor` `street` `plant` `food` `sky` | `short_line` 行が短い |
 | `morning` `day` `evening` `night` | `names_feeling` 気持ちを名指しする |
 | `person` `object` | `one_leap` 具体から一行だけずらす |
-| `ordinary` `scenery` | `stops` そこで止める |
+| `ordinary` `scenery` | `stops` 余韻が残る |
 | | `explains` 説明を残す |
 | | `rhyme` 脚韻、`shichigo` 七五 |
 

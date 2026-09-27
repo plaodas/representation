@@ -104,7 +104,7 @@ export const sayLabel: Record<SayTag, string> = {
   short_line: "行が短い",
   names_feeling: "気持ちを名指しする",
   one_leap: "一行だけずらす",
-  stops: "そこで止める",
+  stops: "余韻が残る",
   explains: "説明を残す",
   rhyme: "脚韻がある",
   shichigo: "七五で進む",
