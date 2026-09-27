@@ -102,7 +102,7 @@ export const seeLabel: Record<SeeTag, string> = {
 
 export const sayLabel: Record<SayTag, string> = {
   short_line: "行が短い",
-  names_feeling: "気持ちを名指しする",
+  names_feeling: "気持ちをそのまま言う",
   one_leap: "一行だけずらす",
   stops: "余韻が残る",
   explains: "説明を残す",
