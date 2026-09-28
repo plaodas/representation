@@ -2101,5 +2101,525 @@
       "stops"
     ],
     "order": 96
+  },
+  {
+    "id": "haiku-shiki-harusame",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "春雨や柳の絲もまじるらん",
+    "see": [
+      "water",
+      "plant"
+    ],
+    "order": 97
+  },
+  {
+    "id": "haiku-shiki-meigetsu",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "名月の出るやゆらめく花薄",
+    "see": [
+      "night",
+      "light",
+      "plant"
+    ],
+    "order": 98
+  },
+  {
+    "id": "haiku-shiki-ganpitsu",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "贋筆を掛けて灯ともす夜寒かな",
+    "see": [
+      "night",
+      "light",
+      "indoor"
+    ],
+    "order": 99
+  },
+  {
+    "id": "haiku-shiki-kurayami",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "暗やみに我門敲く夜寒かな",
+    "see": [
+      "night",
+      "indoor"
+    ],
+    "order": 100
+  },
+  {
+    "id": "tanka-takuboku-tomokage",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "body": "燈影なき室に我あり\n父と母\n壁のなかより杖つきて出づ",
+    "see": [
+      "indoor",
+      "night",
+      "person"
+    ],
+    "order": 101
+  },
+  {
+    "id": "tanka-takuboku-ana",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "body": "いと暗き\n穴に心を吸はれゆくごとく思ひて\nつかれて眠る",
+    "see": [
+      "night",
+      "person"
+    ],
+    "order": 102
+  },
+  {
+    "id": "tanka-akiko-niji",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "紫の濃き虹説きしさかづきに映る春の子眉毛かぼそき",
+    "see": [
+      "light",
+      "plant",
+      "person"
+    ],
+    "order": 103
+  },
+  {
+    "id": "tanka-akiko-haru",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "春の国恋の御国のあさぼらけしるきは髪か梅花のあぶら",
+    "see": [
+      "morning",
+      "plant",
+      "person"
+    ],
+    "order": 104
+  },
+  {
+    "id": "tanka-mokichi-kane",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "聖福寺の鐘の音ちかしかさなれる家の甍を越えつつ聞こゆ",
+    "see": [
+      "scenery"
+    ],
+    "order": 105
+  },
+  {
+    "id": "tanka-mokichi-hotaru",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "body": "うなじたれて道いそぎつつこよひごろ蛍を買ひにゆかむとおもへり",
+    "see": [
+      "night",
+      "light",
+      "person"
+    ],
+    "order": 106
+  },
+  {
+    "id": "fixed-susukida-sekiryo",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "寂寥",
+    "body": "宿直やつれの雛星は、\nたゆげにまたたきつ、\n竹柏の老木は、寢おびれの\n夢さわがしく息づきぬ。\n夜はもなか、\n吾ぞひとり、\nかすかに物のけはひして、\nささやく心地、さびしさの\n香にほのめきて身にぞ泌む。",
+    "see": [
+      "night",
+      "plant",
+      "indoor"
+    ],
+    "order": 107
+  },
+  {
+    "id": "fixed-susukida-nana",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "美き名",
+    "body": "今日しも、卯月宵やみに、\n十六夜薔薇香ににほふ。\nなつかしきもの、胸の戸に、\n黄金の文字の名ぞひとり。\n\n神はをとめを召しまして、\nいづくは知らず往にしかど、\n大御心のふかければ、\n殘る名のみは消しませね。",
+    "see": [
+      "night",
+      "plant",
+      "person"
+    ],
+    "order": 108
+  },
+  {
+    "id": "fixed-ariake-amaryllis",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "あまりりす",
+    "body": "水盤に\nあまき露うけむ、\n君がゑみ\n花とさくその日。\n\n胸に蒸す\nにほひ眼にうつり、\n君がゑみ\n眞晝かがやける。\n\nあやしうも\nあでに、睡蓮の\n夜をかをす\nほこりには似じな。\n\nわが戀の\nたとへ、また、（榮の\n古跡や）\n荒む野となるも、\n\nわがこころ\nここに、なほ、清き\n水盤の\n花のつゆうけむ。\n\n夏に添ふ\n花やあまりりす、\n君がゑみ\n花とさくその日。",
+    "see": [
+      "water",
+      "plant",
+      "person",
+      "day"
+    ],
+    "order": 109
+  },
+  {
+    "id": "fixed-ariake-kusa",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "家根のくさ",
+    "body": "家根のくさひでりにかわく、\nかわくとて垂るる頸や、\n露もなき葉ずゑの眼もて\n燒くる見よ、甍の波の。\n\n家根の草かくて乾くか、\n夏はこれさかりのみやこ、\n棟と軒、甍と瓦、\n蒸されつつ人はひそめり。\n\nかの瓦照りてたはむれ、\nこの甍やけてほほゑむ、\n人の世はそのかげに、――今、\n轍鳴り、人はそよめく。\n\nただ悶え、ものの朽ちゆく\nにほひのみ、（さればぞ天の\n光あれ）人はいつより\nちりづかのかげの弱ぐさ\n\n家根の草つひにかわきか\nかわくとも、これや黄金の\n髮おほひ漲るなかに\nきえてゆく紅玉のはえ。",
+    "see": [
+      "plant",
+      "day",
+      "scenery"
+    ],
+    "order": 110
+  },
+  {
+    "id": "fixed-keats-nightingale",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Ode to a Nightingale",
+    "body": "My heart aches, and a drowsy numbness pains\nMy sense, as though of hemlock I had drunk,\nOr emptied some dull opiate to the drains\nOne minute past, and Lethe-wards had sunk:\n'Tis not through envy of thy happy lot,\nBut being too happy in thine happiness,--\nThat thou, light-winged Dryad of the trees,\nIn some melodious plot\nOf beechen green, and shadows numberless,\nSingest of summer in full-throated ease.\n\n2.\n\nO, for a draught of vintage! that hath been\nCool'd a long age in the deep-delved earth,\nTasting of Flora and the country green,\nDance, and Provencal song, and sunburnt mirth!\nO for a beaker full of the warm South,\nFull of the true, the blushful Hippocrene,\nWith beaded bubbles winking at the brim,\nAnd purple-stained mouth;\nThat I might drink, and leave the world unseen,\nAnd with thee fade away into the forest dim:\n\n3.\n\nFade far away, dissolve, and quite forget\nWhat thou among the leaves hast never known,\nThe weariness, the fever, and the fret\nHere, where men sit and hear each other groan;\nWhere palsy shakes a few, sad, last gray hairs,\nWhere youth grows pale, and spectre-thin, and dies;\nWhere but to think is to be full of sorrow\nAnd leaden-eyed despairs,\nWhere Beauty cannot keep her lustrous eyes,\nOr new Love pine at them beyond to-morrow.\n\n4.\n\nAway! away! for I will fly to thee,\nNot charioted by Bacchus and his pards,\nBut on the viewless wings of Poesy,\nThough the dull brain perplexes and retards:\nAlready with thee! tender is the night,\nAnd haply the Queen-Moon is on her throne,\nCluster'd around by all her starry Fays;\nBut here there is no light,\nSave what from heaven is with the breezes blown\nThrough verdurous glooms and winding mossy ways.\n\n5.\n\nI cannot see what flowers are at my feet,\nNor what soft incense hangs upon the boughs,\nBut, in embalmed darkness, guess each sweet\nWherewith the seasonable month endows\nThe grass, the thicket, and the fruit-tree wild;\nWhite hawthorn, and the pastoral eglantine;\nFast fading violets cover'd up in leaves;\nAnd mid-May's eldest child,\nThe coming musk-rose, full of dewy wine,\nThe murmurous haunt of flies on summer eves.\n\n6.\n\nDarkling I listen; and, for many a time\nI have been half in love with easeful Death,\nCall'd him soft names in many a mused rhyme,\nTo take into the air my quiet breath;\nNow more than ever seems it rich to die,\nTo cease upon the midnight with no pain,\nWhile thou art pouring forth thy soul abroad\nIn such an ecstasy!\nStill wouldst thou sing, and I have ears in vain--\nTo thy high requiem become a sod.\n\n7.\n\nThou wast not born for death, immortal Bird!\nNo hungry generations tread thee down;\nThe voice I hear this passing night was heard\nIn ancient days by emperor and clown:\nPerhaps the self-same song that found a path\nThrough the sad heart of Ruth, when, sick for home,\nShe stood in tears amid the alien corn;\nThe same that oft-times hath\nCharm'd magic casements, opening on the foam\nOf perilous seas, in faery lands forlorn.\n\n8.\n\nForlorn! the very word is like a bell\nTo toll me back from thee to my sole self!\nAdieu! the fancy cannot cheat so well\nAs she is fam'd to do, deceiving elf.\nAdieu! adieu! thy plaintive anthem fades\nPast the near meadows, over the still stream,\nUp the hill-side; and now 'tis buried deep\nIn the next valley-glades:\nWas it a vision, or a waking dream?\nFled is that music:--Do I wake or sleep?",
+    "see": [
+      "night",
+      "plant",
+      "person"
+    ],
+    "order": 111
+  },
+  {
+    "id": "fixed-keats-urn",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme"
+    ],
+    "title": "Ode on a Grecian Urn",
+    "body": "Thou still unravish'd bride of quietness,\nThou foster-child of silence and slow time,\nSylvan historian, who canst thus express\nA flowery tale more sweetly than our rhyme:\nWhat leaf-fring'd legend haunts about thy shape\nOf deities or mortals, or of both,\nIn Tempe or the dales of Arcady?\nWhat men or gods are these? What maidens loth?\nWhat mad pursuit? What struggle to escape?\nWhat pipes and timbrels? What wild ecstasy?\n\n2.\n\nHeard melodies are sweet, but those unheard\nAre sweeter; therefore, ye soft pipes, play on;\nNot to the sensual ear, but, more endear'd,\nPipe to the spirit ditties of no tone:\nFair youth, beneath the trees, thou canst not leave\nThy song, nor ever can those trees be bare;\nBold Lover, never, never canst thou kiss,\nThough winning near the goal--yet, do not grieve;\nShe cannot fade, though thou hast not thy bliss,\nFor ever wilt thou love, and she be fair!\n\n3.\n\nAh, happy, happy boughs! that cannot shed\nYour leaves, nor ever bid the Spring adieu;\nAnd, happy melodist, unwearied,\nFor ever piping songs for ever new;\nMore happy love! more happy, happy love!\nFor ever warm and still to be enjoy'd,\nFor ever panting, and for ever young;\nAll breathing human passion far above,\nThat leaves a heart high-sorrowful and cloy'd,\nA burning forehead, and a parching tongue.\n\n4.\n\nWho are these coming to the sacrifice?\nTo what green altar, O mysterious priest,\nLead'st thou that heifer lowing at the skies,\nAnd all her silken flanks with garlands drest?\nWhat little town by river or sea shore,\nOr mountain-built with peaceful citadel,\nIs emptied of this folk, this pious morn?\nAnd, little town, thy streets for evermore\nWill silent be; and not a soul to tell\nWhy thou art desolate, can e'er return.\n\n5.\n\nO Attic shape! Fair attitude! with brede\nOf marble men and maidens overwrought,\nWith forest branches and the trodden weed;\nThou, silent form, dost tease us out of thought\nAs doth eternity: Cold Pastoral!\nWhen old age shall this generation waste,\nThou shalt remain, in midst of other woe\nThan ours, a friend to man, to whom thou say'st,\n\"Beauty is truth, truth beauty,\"--that is all\nYe know on earth, and all ye need to know.",
+    "see": [
+      "object",
+      "plant",
+      "person"
+    ],
+    "order": 112
+  },
+  {
+    "id": "fixed-wordsworth-linnet",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme"
+    ],
+    "title": "The Green Linnet",
+    "body": "The May is come again:--how sweet\nTo sit upon my Orchard-seat!\nAnd Birds and Flowers once more to greet,\nMy last year's Friends together:\nMy thoughts they all by turns employ;\nA whispering Leaf is now my joy,\nAnd then a Bird will be the toy\nThat doth my fancy tether.\n\nOne have I mark'd, the happiest Guest\nIn all this covert of the blest:\nHail to Thee, far above the rest\nIn joy of voice and pinion,\nThou, Linnet! in thy green array,\nPresiding Spirit here to-day,\nDost lead the revels of the May,\nAnd this is thy dominion.\n\nWhile Birds, and Butterflies, and Flowers\nMake all one Band of Paramours,\nThou, ranging up and down the bowers,\nArt sole in thy employment;\nA Life, a Presence like the Air,\nScattering thy gladness without care,\nToo bless'd with any one to pair,\nThyself thy own enjoyment.\n\nUpon yon tuft of hazel trees,\nThat twinkle to the gusty breeze,\nBehold him perch'd in ecstasies,\nYet seeming still to hover;\nThere! where the flutter of his wings\nUpon his back and body flings\nShadows and sunny glimmerings,\nThat cover him all over.\n\nWhile thus before my eyes he gleams,\nA Brother of the Leaves he seems;\nWhen in a moment forth he teems\nHis little song in gushes:\nAs if it pleas'd him to disdain\nAnd mock the Form which he did feign,\nWhile he was dancing with the train\nOf Leaves among the bushes.",
+    "see": [
+      "plant",
+      "day"
+    ],
+    "order": 113
+  },
+  {
+    "id": "fixed-wordsworth-daisy",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "To the Daisy",
+    "body": "With little here to do or see\nOf things that in the great world be,\nSweet Daisy! oft I talk to thee,\nFor thou art worthy,\nThou unassuming Common-place\nOf Nature, with that homely face,\nAnd yet with something of a grace,\nWhich Love makes for thee!\n\nOft do I sit by thee at ease,\nAnd weave a web of similies,\nLoose types of Things through all degrees,\nThoughts of thy raising:\nAnd many a fond and idle name\nI give to thee, for praise or blame,\nAs is the humour of the game,\nWhile I am gazing.\n\nA Nun demure of lowly port,\nOr sprightly Maiden of Love's Court,\nIn thy simplicity the sport\nOf all temptations;\nA Queen in crown of rubies drest,\nA Starveling in a scanty vest,\nAre all, as seem to suit thee best,\nThy appellations.\n\nA little Cyclops, with one eye\nStaring to threaten and defy,\nThat thought comes next--and instantly\nThe freak is over,\nThe shape will vanish, and behold!\nA silver Shield with boss of gold,\nThat spreads itself, some Faery bold\nIn fight to cover.\n\nI see thee glittering from afar;--\nAnd then thou art a pretty Star,\nNot quite so fair as many are\nIn heaven above thee!\nYet, like a star, with glittering crest,\nSelf-poised in air thou seem'st to rest;--\nMay peace come never to his nest,\nWho shall reprove thee!\n\nSweet Flower! for by that name at last,\nWhen all my reveries are past,\nI call thee, and to that cleave fast,\nSweet silent Creature!\nThat breath'st with me in sun and air,\nDo thou, as thou art wont, repair\nMy heart with gladness, and a share\nOf thy meek nature!",
+    "see": [
+      "plant",
+      "day",
+      "light"
+    ],
+    "order": 114
+  },
+  {
+    "id": "free-lowell-white",
+    "poet": "Amy Lowell",
+    "source": "Sword Blades and Poppy Seed",
+    "sourceYear": 1914,
+    "origin": "https://www.gutenberg.org/cache/epub/1020/pg1020.txt",
+    "deathYear": 1925,
+    "form": "free",
+    "lang": "en",
+    "title": "White and Green",
+    "body": "Hey!  My daffodil-crowned,\nSlim and without sandals!\nAs the sudden spurt of flame upon darkness\nSo my eyeballs are startled with you,\nSupple-limbed youth among the fruit-trees,\nLight runner through tasselled orchards.\nYou are an almond flower unsheathed\nLeaping and flickering between the budded branches.",
+    "see": [
+      "plant",
+      "day",
+      "person",
+      "light"
+    ],
+    "say": [
+      "short_line"
+    ],
+    "order": 115
+  },
+  {
+    "id": "free-lowell-aubade",
+    "poet": "Amy Lowell",
+    "source": "Sword Blades and Poppy Seed",
+    "sourceYear": 1914,
+    "origin": "https://www.gutenberg.org/cache/epub/1020/pg1020.txt",
+    "deathYear": 1925,
+    "form": "free",
+    "lang": "en",
+    "title": "Aubade",
+    "body": "As I would free the white almond from the green husk\nSo would I strip your trappings off,\nBeloved.\nAnd fingering the smooth and polished kernel\nI should see that in my hands glittered a gem beyond counting.",
+    "see": [
+      "plant",
+      "person"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "order": 116
+  },
+  {
+    "id": "free-lawrence-peace",
+    "poet": "D. H. Lawrence",
+    "source": "Birds, Beasts and Flowers",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/60337/pg60337.txt",
+    "deathYear": 1930,
+    "form": "free",
+    "lang": "en",
+    "title": "Peace",
+    "body": "Peace is written on the doorstep\nIn lava.\n\nPeace, black peace congealed.\nMy heart will know no peace\nTill the hill bursts.\n\nBrilliant, intolerable lava\nBrilliant as a powerful burning-glass\nWalking like a royal snake down the mountain towards the sea.\n\nForests, cities, bridges\nGone again in the bright trail of lava.\nNaxos thousands of feet below the olive-roots,\nAnd now the olive leaves thousands of feet below the lava fire.\n\nPeace congealed in black lava on the doorstep.\nWithin, white-hot lava, never at peace\nTill it burst forth blinding, withering the earth;\nTo set again into rock\nGrey-black rock.\n\nCall it Peace?\n_Taormina._",
+    "see": [
+      "scenery",
+      "light"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 117
+  },
+  {
+    "id": "free-lawrence-tropic",
+    "poet": "D. H. Lawrence",
+    "source": "Birds, Beasts and Flowers",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/60337/pg60337.txt",
+    "deathYear": 1930,
+    "form": "free",
+    "lang": "en",
+    "title": "Tropic",
+    "body": "Sun, dark sun\nSun of black void heat\nSun of the torrid mid-day’s horrific darkness.\n\nBehold my hair twisting and going black.\nBehold my eyes turn tawny yellow\nNegroid;\nSee the milk of northern spume\nCoagulating and going black in my veins\nAromatic as frankincense.\n\nColumns dark and soft\nSunblack men\nSoft shafts, sunbreathing mouths\nEyes of yellow, golden sand\nAs frictional, as perilous, explosive as brimstone.\n\nRock, waves of dark heat;\nWaves of dark heat, rock, sway upwards\nWaver perpendicular.\n\nWhat is the horizontal rolling of water\nCompared to the flood of black heat that rolls upward past my eyes?\n_Taormina._",
+    "see": [
+      "day",
+      "light",
+      "person",
+      "water"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 118
+  },
+  {
+    "id": "free-kenji-ariake",
+    "poet": "宮沢賢治",
+    "source": "宮沢賢治全集1",
+    "sourceYear": 1986,
+    "origin": "https://www.aozora.gr.jp/cards/000081/files/1058_15403.html",
+    "deathYear": 1933,
+    "form": "free",
+    "lang": "ja",
+    "title": "有明",
+    "body": "起伏の雪は\nあかるい桃の漿をそそがれ\n青ぞらにとけのこる月は\nやさしく天に咽喉を鳴らし\nもいちど散乱のひかりを呑む\n（波羅僧羯諦　菩提　薩婆訶）\n（一九二二、四、一三）",
+    "see": [
+      "sky",
+      "light",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 119
+  },
+  {
+    "id": "free-kenji-tani",
+    "poet": "宮沢賢治",
+    "source": "宮沢賢治全集1",
+    "sourceYear": 1986,
+    "origin": "https://www.aozora.gr.jp/cards/000081/files/1058_15403.html",
+    "deathYear": 1933,
+    "form": "free",
+    "lang": "ja",
+    "title": "谷",
+    "body": "ひかりの澱\n三角ばたけのうしろ\nかれ草層の上で\nわたくしの見ましたのは\n顔いつぱいに赤い点うち\n硝子様鋼青のことばをつかつて\nしきりに歪み合ひながら\n何か相談をやつてゐた\n三人の妖女たちです\n（一九二二、四、二〇）",
+    "see": [
+      "person",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 120
   }
 ]

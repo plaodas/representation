@@ -1297,6 +1297,179 @@ add({
   say: ["short_line", "one_leap", "stops"],
 });
 
+add({
+  id: "haiku-shiki-harusame",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "春雨や柳の絲もまじるらん"),
+  see: ["water", "plant"],
+});
+add({
+  id: "haiku-shiki-meigetsu",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "名月の出るやゆらめく花薄"),
+  see: ["night", "light", "plant"],
+});
+add({
+  id: "haiku-shiki-ganpitsu",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "贋筆を掛けて灯ともす夜寒かな"),
+  see: ["night", "light", "indoor"],
+});
+add({
+  id: "haiku-shiki-kurayami",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "暗やみに我門敲く夜寒かな"),
+  see: ["night", "indoor"],
+});
+add({
+  id: "tanka-takuboku-tomokage",
+  ...takubokuSource,
+  body: tanka.find((block) => block.includes("燈影なき室に我あり")),
+  see: ["indoor", "night", "person"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "tanka-takuboku-ana",
+  ...takubokuSource,
+  body: tanka.find((block) => block.startsWith("いと暗き")),
+  see: ["night", "person"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "tanka-akiko-niji",
+  ...akikoSource,
+  body: akiko.find((line) => line.startsWith("紫の濃き虹説きし")),
+  see: ["light", "plant", "person"],
+});
+add({
+  id: "tanka-akiko-haru",
+  ...akikoSource,
+  body: akiko.find((line) => line.startsWith("春の国恋の御国の")),
+  see: ["morning", "plant", "person"],
+});
+add({
+  id: "tanka-mokichi-kane",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "聖福寺の鐘の音ちかしかさなれる"),
+  see: ["scenery"],
+});
+add({
+  id: "tanka-mokichi-hotaru",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "うなじたれて道いそぎつつこよひごろ"),
+  see: ["night", "light", "person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "fixed-susukida-sekiryo",
+  ...susukidaSource,
+  title: "寂寥",
+  body: pick(hakuyoPoems, "寂寥"),
+  see: ["night", "plant", "indoor"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-susukida-nana",
+  ...susukidaSource,
+  title: "美き名",
+  body: pick(hakuyoPoems, "美き名"),
+  see: ["night", "plant", "person"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-ariake-amaryllis",
+  ...ariakeSource,
+  title: "あまりりす",
+  body: pick(shunchoPoems, "あまりりす"),
+  see: ["water", "plant", "person", "day"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-ariake-kusa",
+  ...ariakeSource,
+  title: "家根のくさ",
+  body: pick(shunchoPoems, "家根のくさ"),
+  see: ["plant", "day", "scenery"],
+});
+add({
+  id: "fixed-keats-nightingale",
+  ...keatsSource,
+  title: "Ode to a Nightingale",
+  body: verseBlock(keats, "My heart aches, and a drowsy numbness pains", (line) => line === "ODE ON A GRECIAN URN."),
+  see: ["night", "plant", "person"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-keats-urn",
+  ...keatsSource,
+  title: "Ode on a Grecian Urn",
+  body: verseBlock(keats, "Thou still unravish'd bride of quietness,", (line) => line === "ODE TO PSYCHE."),
+  see: ["object", "plant", "person"],
+});
+add({
+  id: "fixed-wordsworth-linnet",
+  ...wordsworthSource,
+  title: "The Green Linnet",
+  body: verseBlock(wordsworth, "The May is come again:--how sweet", (line) => line.startsWith("_TO A YOUNG LADY_")),
+  see: ["plant", "day"],
+});
+add({
+  id: "fixed-wordsworth-daisy",
+  ...wordsworthSource,
+  title: "To the Daisy",
+  body: verseBlock(wordsworth, "With little here to do or see", (line) => line.startsWith("_TO THE SAME FLOWER_")),
+  see: ["plant", "day", "light"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "free-lowell-white",
+  ...lowellSource,
+  title: "White and Green",
+  body: titledVerse(lowell, "White and Green"),
+  see: ["plant", "day", "person", "light"],
+  say: ["short_line"],
+});
+add({
+  id: "free-lowell-aubade",
+  ...lowellSource,
+  title: "Aubade",
+  body: titledVerse(lowell, "Aubade"),
+  see: ["plant", "person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "free-lawrence-peace",
+  ...lawrenceSource,
+  title: "Peace",
+  body: titledVerse(lawrence, "PEACE"),
+  see: ["scenery", "light"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-lawrence-tropic",
+  ...lawrenceSource,
+  title: "Tropic",
+  body: titledVerse(lawrence, "TROPIC"),
+  see: ["day", "light", "person", "water"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-kenji-ariake",
+  ...kenjiSource,
+  title: "有明",
+  body: pick(kenjiPoems, "有明"),
+  see: ["sky", "light", "scenery"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-kenji-tani",
+  ...kenjiSource,
+  title: "谷",
+  body: pick(kenjiPoems, "谷"),
+  see: ["person", "scenery"],
+  say: ["short_line", "one_leap"],
+});
+
 const ids = new Set();
 for (const poem of poems) {
   if (ids.has(poem.id)) throw new Error(`duplicate id ${poem.id}`);
