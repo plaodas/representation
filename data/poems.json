@@ -1048,5 +1048,1058 @@
       "scenery"
     ],
     "order": 48
+  },
+  {
+    "id": "haiku-shiki-asagiri",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "朝霧の中に九段のともし哉",
+    "see": [
+      "morning",
+      "street",
+      "light"
+    ],
+    "order": 49
+  },
+  {
+    "id": "haiku-shiki-nekoron",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "ねころんて書よむ人や春の草",
+    "see": [
+      "person",
+      "plant",
+      "day"
+    ],
+    "order": 50
+  },
+  {
+    "id": "haiku-shiki-ennichi",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "縁日の古著屋多き夜寒かな",
+    "see": [
+      "evening",
+      "street",
+      "ordinary"
+    ],
+    "order": 51
+  },
+  {
+    "id": "haiku-shiki-kintsuba",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "きんつばの行燈暗き夜寒かな",
+    "see": [
+      "night",
+      "food",
+      "light",
+      "street"
+    ],
+    "order": 52
+  },
+  {
+    "id": "haiku-shiki-dentou",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "電気燈明るき山の夜寒かな",
+    "see": [
+      "night",
+      "light",
+      "scenery"
+    ],
+    "order": 53
+  },
+  {
+    "id": "haiku-shiki-kashi",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "樫の木の中に灯ともる夜寒かな",
+    "see": [
+      "night",
+      "plant",
+      "light"
+    ],
+    "order": 54
+  },
+  {
+    "id": "tanka-takuboku-ochiru",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "body": "いのちなき砂のかなしさよ\nさらさらと\n握れば指のあひだより落つ",
+    "see": [
+      "ordinary",
+      "person"
+    ],
+    "order": 55
+  },
+  {
+    "id": "tanka-takuboku-namida",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "body": "しっとりと\nなみだを吸へる砂の玉\nなみだは重きものにしあるかな",
+    "see": [
+      "ordinary",
+      "person"
+    ],
+    "order": 56
+  },
+  {
+    "id": "tanka-akiko-kami",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "髪五尺ときなば水にやはらかき少女ごころは秘めて放たじ",
+    "see": [
+      "water",
+      "person"
+    ],
+    "order": 57
+  },
+  {
+    "id": "tanka-akiko-tsubaki",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "椿それも梅もさなりき白かりきわが罪問はぬ色桃に見る",
+    "see": [
+      "plant",
+      "person"
+    ],
+    "order": 58
+  },
+  {
+    "id": "tanka-mokichi-shimo",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "わが住める家のいらかの白霜を見ずて行かむ日近づきにけり",
+    "see": [
+      "indoor",
+      "day"
+    ],
+    "order": 59
+  },
+  {
+    "id": "tanka-mokichi-haari",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "電灯にむれとべる羽蟻おのづから羽をおとして畳をありく",
+    "see": [
+      "indoor",
+      "night",
+      "light",
+      "ordinary"
+    ],
+    "order": 60
+  },
+  {
+    "id": "free-lowell-taxi",
+    "poet": "Amy Lowell",
+    "source": "Sword Blades and Poppy Seed",
+    "sourceYear": 1914,
+    "origin": "https://www.gutenberg.org/cache/epub/1020/pg1020.txt",
+    "deathYear": 1925,
+    "form": "free",
+    "lang": "en",
+    "title": "The Taxi",
+    "body": "When I go away from you\nThe world beats dead\nLike a slackened drum.\nI call out for you against the jutted stars\nAnd shout into the ridges of the wind.\nStreets coming fast,\nOne after the other,\nWedge you away from me,\nAnd the lamps of the city prick my eyes\nSo that I can no longer see your face.\nWhy should I leave you,\nTo wound myself upon the sharp edges of the night?",
+    "see": [
+      "night",
+      "street",
+      "person"
+    ],
+    "say": [
+      "names_feeling",
+      "short_line",
+      "stops"
+    ],
+    "order": 61
+  },
+  {
+    "id": "free-lowell-pike",
+    "poet": "Amy Lowell",
+    "source": "Sword Blades and Poppy Seed",
+    "sourceYear": 1914,
+    "origin": "https://www.gutenberg.org/cache/epub/1020/pg1020.txt",
+    "deathYear": 1925,
+    "form": "free",
+    "lang": "en",
+    "title": "The Pike",
+    "body": "In the brown water,\nThick and silver-sheened in the sunshine,\nLiquid and cool in the shade of the reeds,\nA pike dozed.\nLost among the shadows of stems\nHe lay unnoticed.\nSuddenly he flicked his tail,\nAnd a green-and-copper brightness\nRan under the water.\n\nOut from under the reeds\nCame the olive-green light,\nAnd orange flashed up\nThrough the sun-thickened water.\nSo the fish passed across the pool,\nGreen and copper,\nA darkness and a gleam,\nAnd the blurred reflections of the willows on the opposite bank\nReceived it.",
+    "see": [
+      "water",
+      "plant",
+      "light",
+      "day"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 62
+  },
+  {
+    "id": "free-lawrence-night",
+    "poet": "D. H. Lawrence",
+    "source": "Birds, Beasts and Flowers",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/60337/pg60337.txt",
+    "deathYear": 1930,
+    "form": "free",
+    "lang": "en",
+    "title": "Southern Night",
+    "body": "Come up, thou red thing.\nCome up, and be called a moon.\n\nThe mosquitoes are biting to-night\nLike memories.\n\nMemories, northern memories,\nBitter-stinging white world that bore us\nSubsiding into this night.\n\nCall it moonrise\nThis red anathema?\n\nRise, thou red thing,\nUnfold slowly upwards, blood-dark;\nBurst the night’s membrane of tranquil stars\nFinally.\n\nMaculate\nThe red Macula.\n_Taormina._",
+    "see": [
+      "night",
+      "sky",
+      "light"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 63
+  },
+  {
+    "id": "free-lawrence-humming",
+    "poet": "D. H. Lawrence",
+    "source": "Birds, Beasts and Flowers",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/60337/pg60337.txt",
+    "deathYear": 1930,
+    "form": "free",
+    "lang": "en",
+    "title": "Humming-Bird",
+    "body": "I can imagine, in some otherworld\nPrimeval-dumb, far back\nIn that most awful stillness, that only gasped and hummed,\nHumming-birds raced down the avenues.\n\nBefore anything had a soul,\nWhile life was a heave of Matter, half inanimate,\nThis little bit chipped off in brilliance\nAnd went whizzing through the slow, vast, succulent stems.\n\nI believe there were no flowers, then\nIn the world where the humming-bird flashed ahead of creation.\nI believe he pierced the slow vegetable veins with his long beak.\n\nProbably he was big\nAs mosses, and little lizards, they say were once big.\nProbably he was a jabbing, terrifying monster.\n\nWe look at him through the wrong end of the long telescope of Time,\nLuckily for us.\n_Española._",
+    "see": [
+      "plant",
+      "light",
+      "scenery"
+    ],
+    "say": [
+      "one_leap",
+      "explains"
+    ],
+    "order": 64
+  },
+  {
+    "id": "free-stevens-snow",
+    "poet": "Wallace Stevens",
+    "source": "Harmonium",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/78743/pg78743.txt",
+    "deathYear": 1955,
+    "form": "free",
+    "lang": "en",
+    "title": "The Snow Man",
+    "body": "One must have a mind of winter\nTo regard the frost and the boughs\nOf the pine-trees crusted with snow;\n\nAnd have been cold a long time\nTo behold the junipers shagged with ice,\nThe spruces rough in the distant glitter\n\nOf the January sun; and not to think\nOf any misery in the sound of the wind,\nIn the sound of a few leaves,\n\nWhich is the sound of the land\nFull of the same wind\nThat is blowing in the same bare place\n\nFor the listener, who listens in the snow,\nAnd, nothing himself, beholds\nNothing that is not there and the nothing that is.",
+    "see": [
+      "plant",
+      "light",
+      "scenery",
+      "day"
+    ],
+    "say": [
+      "one_leap",
+      "stops"
+    ],
+    "order": 65
+  },
+  {
+    "id": "free-stevens-jar",
+    "poet": "Wallace Stevens",
+    "source": "Harmonium",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/78743/pg78743.txt",
+    "deathYear": 1955,
+    "form": "free",
+    "lang": "en",
+    "title": "Anecdote of the Jar",
+    "body": "I placed a jar in Tennessee,\nAnd round it was, upon a hill.\nIt made the slovenly wilderness\nSurround that hill.\n\nThe wilderness rose up to it,\nAnd sprawled around, no longer wild.\nThe jar was round upon the ground\nAnd tall and of a port in air.\n\nIt took dominion everywhere.\nThe jar was gray and bare.\nIt did not give of bird or bush,\nLike nothing else in Tennessee.",
+    "see": [
+      "object",
+      "scenery",
+      "plant"
+    ],
+    "say": [
+      "one_leap",
+      "stops"
+    ],
+    "order": 66
+  },
+  {
+    "id": "free-oote-fune",
+    "poet": "大手拓次",
+    "source": "世界の詩 28 大手拓次詩集",
+    "sourceYear": 1965,
+    "origin": "https://www.aozora.gr.jp/cards/000190/files/1029_20618.html",
+    "deathYear": 1934,
+    "form": "free",
+    "lang": "ja",
+    "title": "しなびた船",
+    "body": "海がある、\nお前の手のひらの海がある。\n苺の実の汁を吸ひながら、\nわたしはよろける。\nわたしはお前の手のなかへ捲きこまれる。\n逼塞した息はお腹の上へ墓標をたてようとする。\n灰色の謀叛よ、お前の魂を火皿の心にささげて、\n清浄に、安らかに伝道のために死なうではないか。",
+    "see": [
+      "water",
+      "food",
+      "person"
+    ],
+    "say": [
+      "one_leap",
+      "stops"
+    ],
+    "order": 67
+  },
+  {
+    "id": "free-senge-hoshi",
+    "poet": "千家元麿",
+    "source": "日本現代文學全集 54 千家元麿・山村暮鳥・佐藤惣之助・福士幸次郎・堀口大學集",
+    "sourceYear": 1966,
+    "origin": "https://www.aozora.gr.jp/cards/000617/files/48569_33319.html",
+    "deathYear": 1948,
+    "form": "free",
+    "lang": "ja",
+    "title": "星",
+    "body": "夜ハガキを出しに\n子供を抱いて往來に出た\n郵便局の屋根の向ふの\n暗闇の底から\n星が一つ青々と炎えて自分の胸に光りをともした\n自分は優しい力を感じた、氣丈夫に感じた\n宇宙を通して火はめぐつて居るのを感じた\n至る處に優しい力がまき散らされてゐるのを感じた\n自分の内と星は同じ火でつくられ、同じ法則に從つてゐると思つた\n暗闇の底にある遠い星も自分で動かす事が出來る\n優しい力で動かす事が出來る。",
+    "see": [
+      "night",
+      "sky",
+      "street",
+      "person",
+      "light"
+    ],
+    "say": [
+      "names_feeling",
+      "explains"
+    ],
+    "order": 68
+  },
+  {
+    "id": "fixed-toson-kami",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "髪を洗へば",
+    "body": "髪を洗へば紫の\n小草のまへに色みえて\n足をあぐれば花鳥の\nわれに随ふ風情あり\n\n目にながむれば彩雲の\nまきてはひらく絵巻物\n手にとる酒は美酒の\n若き愁をたゝふめり\n\n耳をたつれば歌神の\nきたりて玉の簫を吹き\n口をひらけばうたびとの\n一ふしわれはこひうたふ\n\nあゝかくまでにあやしくも\n熱きこゝろのわれなれど\nわれをし君のこひしたふ\nその涙にはおよばじな",
+    "see": [
+      "person",
+      "plant",
+      "food"
+    ],
+    "order": 69
+  },
+  {
+    "id": "fixed-toson-kokoro",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "君がこゝろは",
+    "body": "君がこゝろは蟋蟀の\n風にさそはれ鳴くごとく\n朝影清き花草に\n惜しき涙をそゝぐらむ\n\nそれかきならす玉琴の\n一つの糸のさはりさへ\n君がこゝろにかぎりなき\nしらべとこそはきこゆめれ\n\nあゝなどかくは触れやすき\n君が優しき心もて\nかくばかりなる吾こひに\n触れたまはぬぞ恨みなる",
+    "see": [
+      "person",
+      "plant",
+      "morning"
+    ],
+    "order": 70
+  },
+  {
+    "id": "fixed-sonnet-29",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 29",
+    "body": "When in disgrace with fortune and men’s eyes\nI all alone beweep my outcast state,\nAnd trouble deaf heaven with my bootless cries,\nAnd look upon myself, and curse my fate,\nWishing me like to one more rich in hope,\nFeatur’d like him, like him with friends possess’d,\nDesiring this man’s art, and that man’s scope,\nWith what I most enjoy contented least;\nYet in these thoughts my self almost despising,\nHaply I think on thee, and then my state,\nLike to the lark at break of day arising\nFrom sullen earth, sings hymns at heaven’s gate;\nFor thy sweet love remember’d such wealth brings\nThat then I scorn to change my state with kings.",
+    "see": [
+      "morning",
+      "sky",
+      "person"
+    ],
+    "order": 71
+  },
+  {
+    "id": "fixed-sonnet-116",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 116",
+    "body": "Let me not to the marriage of true minds\nAdmit impediments. Love is not love\nWhich alters when it alteration finds,\nOr bends with the remover to remove:\nO, no! it is an ever-fixed mark,\nThat looks on tempests and is never shaken;\nIt is the star to every wandering bark,\nWhose worth’s unknown, although his height be taken.\nLove’s not Time’s fool, though rosy lips and cheeks\nWithin his bending sickle’s compass come;\nLove alters not with his brief hours and weeks,\nBut bears it out even to the edge of doom.\nIf this be error and upon me prov’d,\nI never writ, nor no man ever lov’d.",
+    "see": [
+      "sky",
+      "water",
+      "light"
+    ],
+    "order": 72
+  },
+  {
+    "id": "haiku-shiki-komado",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "木をつみて夜の明やすき小窓かな",
+    "see": [
+      "morning",
+      "indoor",
+      "light"
+    ],
+    "order": 73
+  },
+  {
+    "id": "haiku-shiki-yudachi",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "夕立やはちすを笠にかぶり行く",
+    "see": [
+      "water",
+      "plant",
+      "day"
+    ],
+    "order": 74
+  },
+  {
+    "id": "haiku-shiki-kaki",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "柿店の前を過ぎ行く夜寒かな",
+    "see": [
+      "evening",
+      "food",
+      "street"
+    ],
+    "order": 75
+  },
+  {
+    "id": "haiku-shiki-machi",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "見下せば灯の無き町の夜寒かな",
+    "see": [
+      "night",
+      "street",
+      "light"
+    ],
+    "order": 76
+  },
+  {
+    "id": "tanka-takuboku-haha",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "body": "たはむれに母を背負ひて\nそのあまり軽きに泣きて\n三歩あゆまず",
+    "see": [
+      "person",
+      "indoor"
+    ],
+    "order": 77
+  },
+  {
+    "id": "tanka-takuboku-shigoto",
+    "poet": "石川啄木",
+    "source": "日本文学全集12　国木田独歩・石川啄木集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/000153/files/816_15786.html",
+    "deathYear": 1912,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "body": "こころよく\n我にはたらく仕事あれ\nそれを仕遂げて死なむと思ふ",
+    "see": [
+      "person",
+      "day"
+    ],
+    "order": 78
+  },
+  {
+    "id": "tanka-akiko-botan",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "まゐる酒に灯あかき宵を歌たまへ女はらから牡丹に名なき",
+    "see": [
+      "night",
+      "food",
+      "plant",
+      "person"
+    ],
+    "order": 79
+  },
+  {
+    "id": "tanka-akiko-kaido",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "海棠にえうなくときし紅すてて夕雨みやる瞳よたゆき",
+    "see": [
+      "plant",
+      "evening",
+      "water",
+      "person"
+    ],
+    "order": 80
+  },
+  {
+    "id": "tanka-mokichi-kawazu",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "ゆふぐれて浦上村をわが来ればかはず鳴くなり谷に満ちつつ",
+    "see": [
+      "evening",
+      "water",
+      "scenery"
+    ],
+    "order": 81
+  },
+  {
+    "id": "tanka-mokichi-ameoto",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "body": "むし暑き家のとのもに降る雨のひびきの鋭さわれやつかれし",
+    "see": [
+      "indoor",
+      "water",
+      "night"
+    ],
+    "order": 82
+  },
+  {
+    "id": "fixed-bansui-kaido",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "海棠",
+    "body": "盛りいみじき海棠に\n灑ぐも重し春の雨\n花の恨か喜か\n問はんとすれど露もだし\n聞かんとすれど花いはず。\n\n夕しづかに風吹きて\n名殘の露は拂はれぬ\n風の情か嫉みにか\n問はんとすれど露もだし\n聞かんとすれど花いはず。",
+    "see": [
+      "plant",
+      "water",
+      "evening"
+    ],
+    "order": 83
+  },
+  {
+    "id": "fixed-bansui-yanagi",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "枯柳",
+    "body": "沈む夕日を見送りて\n佇む岸のかれやなぎ、\n消えぬすがたはつらくとも\nしばしは忍べ程もなく\n暗のころもに包ませむ、\n下ゆく流水痩せて\n咽ぶも悲し秋の聲。",
+    "see": [
+      "evening",
+      "plant",
+      "water"
+    ],
+    "order": 84
+  },
+  {
+    "id": "fixed-ariake-midori",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "緑のかげ",
+    "body": "女のうたへる\n\n緑のかげとおもひしは\nみづからなせる惱みのかげ。\n\n青野の旅に憩ふとは\nつかれのやみに墜つるその日。\n\n泉は鳴りて、しろがねの\n盞たとへさそひひくも、\n\nあだなる野ぢのすずしさは\n天津みそらも黄泉の荊棘。\n\nつかれなやみの纒はれる\nみどりのかげを遠く去りて、\n\nただ君が手の掌の\nそのかげに入り、あくがれゆかむ。",
+    "see": [
+      "plant",
+      "person",
+      "scenery"
+    ],
+    "order": 85
+  },
+  {
+    "id": "fixed-susukida-keshi",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "雛罌粟",
+    "body": "花を、いよこの、植ゑやれ、\n花を植ゑやれ、雛罌粟を。\n罌粟の、いよこの、脆さに、\n罌粟の脆さに、そのかみを。",
+    "see": [
+      "plant"
+    ],
+    "order": 86
+  },
+  {
+    "id": "fixed-blake-fly",
+    "poet": "William Blake",
+    "source": "Songs of Innocence and of Experience",
+    "sourceYear": 1794,
+    "origin": "https://www.gutenberg.org/cache/epub/1934/pg1934.txt",
+    "deathYear": 1827,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "short_line"
+    ],
+    "title": "The Fly",
+    "body": "Little Fly,\nThy summer’s play\nMy thoughtless hand\nHas brushed away.\n\nAm not I\nA fly like thee?\nOr art not thou\nA man like me?\n\nFor I dance,\nAnd drink, and sing,\nTill some blind hand\nShall brush my wing.\n\nIf thought is life\nAnd strength and breath,\nAnd the want\nOf thought is death;\n\nThen am I\nA happy fly.\nIf I live,\nOr if I die.",
+    "see": [
+      "day",
+      "person"
+    ],
+    "order": 87
+  },
+  {
+    "id": "fixed-blake-rose",
+    "poet": "William Blake",
+    "source": "Songs of Innocence and of Experience",
+    "sourceYear": 1794,
+    "origin": "https://www.gutenberg.org/cache/epub/1934/pg1934.txt",
+    "deathYear": 1827,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "short_line"
+    ],
+    "title": "The Sick Rose",
+    "body": "O rose, thou art sick!\nThe invisible worm,\nThat flies in the night,\nIn the howling storm,\n\nHas found out thy bed\nOf crimson joy,\nAnd his dark secret love\nDoes thy life destroy.",
+    "see": [
+      "night",
+      "plant"
+    ],
+    "order": 88
+  },
+  {
+    "id": "fixed-sonnet-30",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 30",
+    "body": "When to the sessions of sweet silent thought\nI summon up remembrance of things past,\nI sigh the lack of many a thing I sought,\nAnd with old woes new wail my dear time’s waste:\nThen can I drown an eye, unused to flow,\nFor precious friends hid in death’s dateless night,\nAnd weep afresh love’s long since cancell’d woe,\nAnd moan the expense of many a vanish’d sight:\nThen can I grieve at grievances foregone,\nAnd heavily from woe to woe tell o’er\nThe sad account of fore-bemoaned moan,\nWhich I new pay as if not paid before.\nBut if the while I think on thee, dear friend,\nAll losses are restor’d and sorrows end.",
+    "see": [
+      "night",
+      "person"
+    ],
+    "order": 89
+  },
+  {
+    "id": "fixed-sonnet-71",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 71",
+    "body": "No longer mourn for me when I am dead\nThan you shall hear the surly sullen bell\nGive warning to the world that I am fled\nFrom this vile world with vilest worms to dwell:\nNay, if you read this line, remember not\nThe hand that writ it, for I love you so,\nThat I in your sweet thoughts would be forgot,\nIf thinking on me then should make you woe.\nO if, I say, you look upon this verse,\nWhen I perhaps compounded am with clay,\nDo not so much as my poor name rehearse;\nBut let your love even with my life decay;\nLest the wise world should look into your moan,\nAnd mock you with me after I am gone.",
+    "see": [
+      "night",
+      "person"
+    ],
+    "order": 90
+  },
+  {
+    "id": "free-crane-tongues",
+    "poet": "Stephen Crane",
+    "source": "The Black Riders, and Other Lines",
+    "sourceYear": 1895,
+    "origin": "https://www.gutenberg.org/cache/epub/40786/pg40786.txt",
+    "deathYear": 1900,
+    "form": "free",
+    "lang": "en",
+    "title": "",
+    "body": "Yes, I have a thousand tongues,\nAnd nine and ninety-nine lie.\nThough I strive to use the one,\nIt will make no melody at my will,\nBut is dead in my mouth.",
+    "see": [
+      "person"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "order": 91
+  },
+  {
+    "id": "free-crane-horizon",
+    "poet": "Stephen Crane",
+    "source": "The Black Riders, and Other Lines",
+    "sourceYear": 1895,
+    "origin": "https://www.gutenberg.org/cache/epub/40786/pg40786.txt",
+    "deathYear": 1900,
+    "form": "free",
+    "lang": "en",
+    "title": "",
+    "body": "I saw a man pursuing the horizon;\nRound and round they sped.\nI was disturbed at this;\nI accosted the man.\n\"It is futile,\" I said,\n\"You can never\"--\n\n\"You lie,\" he cried,\nAnd ran on.",
+    "see": [
+      "person",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 92
+  },
+  {
+    "id": "free-stevens-candle",
+    "poet": "Wallace Stevens",
+    "source": "Harmonium",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/78743/pg78743.txt",
+    "deathYear": 1955,
+    "form": "free",
+    "lang": "en",
+    "title": "Valley Candle",
+    "body": "My candle burned alone in an immense valley.\nBeams of the huge night converged upon it,\nUntil the wind blew.\nThen beams of the huge night\nConverged upon its image,\nUntil the wind blew.",
+    "see": [
+      "night",
+      "light",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 93
+  },
+  {
+    "id": "free-stevens-tea",
+    "poet": "Wallace Stevens",
+    "source": "Harmonium",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/78743/pg78743.txt",
+    "deathYear": 1955,
+    "form": "free",
+    "lang": "en",
+    "title": "Tea",
+    "body": "When the elephant’s-ear in the park\nShrivelled in frost,\nAnd the leaves on the paths\nRan like rats,\nYour lamp-light fell\nOn shining pillows,\nOf sea-shades and sky-shades,\nLike umbrellas in Java.",
+    "see": [
+      "plant",
+      "night",
+      "light",
+      "indoor"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 94
+  },
+  {
+    "id": "free-yagi-michi",
+    "source": "八木重吉詩集",
+    "sourceYear": 1969,
+    "origin": "https://www.aozora.gr.jp/cards/000013/files/542_42320.html",
+    "deathYear": 1927,
+    "poet": "八木重吉",
+    "form": "free",
+    "lang": "ja",
+    "title": "路",
+    "body": "路をみれば\nこころ　おどる",
+    "see": [
+      "street"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling",
+      "stops"
+    ],
+    "order": 95
+  },
+  {
+    "id": "free-bocho-misaki",
+    "poet": "山村暮鳥",
+    "source": "山村暮鳥全集第一巻",
+    "sourceYear": 1989,
+    "origin": "https://www.aozora.gr.jp/cards/000136/files/731_50613.html",
+    "deathYear": 1924,
+    "form": "free",
+    "lang": "ja",
+    "title": "岬",
+    "body": "岬の光り\n岬のしたにむらがる魚ら\n岬にみち盡き\nそら澄み\n岬に立てる一本の指。",
+    "see": [
+      "scenery",
+      "light",
+      "water"
+    ],
+    "say": [
+      "short_line",
+      "one_leap",
+      "stops"
+    ],
+    "order": 96
   }
 ]

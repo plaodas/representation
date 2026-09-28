@@ -864,6 +864,439 @@ add({
   say: ["rhyme", "names_feeling"],
 });
 
+const kanzanLine = (html, start) => {
+  const line = html
+    .replace(/<[^>]+>/g, "\n")
+    .split("\n")
+    .map((item) => item.trim())
+    .find((item) => item.startsWith(start));
+  if (!line || line.includes("※")) throw new Error(`missing kanzan ${start}`);
+  return line;
+};
+
+const yosamuLine = (html, start) => {
+  const line = [...mainChunk(html).matchAll(/<div class="jisage_3"[^>]*>\s*([^<\n]+)/g)]
+    .map((item) => item[1].trim())
+    .find((item) => item.startsWith(start));
+  if (!line) throw new Error(`missing yosamu ${start}`);
+  return line;
+};
+
+const titledVerse = (text, title) => {
+  const lines = text.split(/\r?\n/);
+  const index = lines.findIndex((line) => line === title);
+  if (index < 0) throw new Error(`missing ${title}`);
+  const body = [];
+  for (const raw of lines.slice(index + 1)) {
+    if (raw.trim() && !/^\s/.test(raw)) break;
+    const trimmed = raw.trim();
+    if (!trimmed) {
+      if (body.length && body.at(-1) !== "") body.push("");
+      continue;
+    }
+    body.push(trimmed);
+  }
+  while (body[0] === "") body.shift();
+  while (body.at(-1) === "") body.pop();
+  return body.join("\n");
+};
+
+const [kanzan, yosamu, lowell, lawrence, stevens] = await Promise.all([
+  fetchText("https://www.aozora.gr.jp/cards/000305/files/1896.html"),
+  fetchText("https://www.aozora.gr.jp/cards/000305/files/42168_12297.html"),
+  fetchText("https://www.gutenberg.org/cache/epub/1020/pg1020.txt"),
+  fetchText("https://www.gutenberg.org/cache/epub/60337/pg60337.txt"),
+  fetchText("https://www.gutenberg.org/cache/epub/78743/pg78743.txt"),
+]);
+
+const kanzanSource = {
+  poet: "正岡子規",
+  source: "子規全集　第一巻　俳句一",
+  sourceYear: 1975,
+  origin: "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+  deathYear: 1902,
+  form: "haiku",
+  lang: "ja",
+  title: "",
+  say: ["short_line", "stops"],
+};
+const yosamuSource = {
+  poet: "正岡子規",
+  source: "日本の名随筆72　夜",
+  sourceYear: 1988,
+  origin: "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+  deathYear: 1902,
+  form: "haiku",
+  lang: "ja",
+  title: "",
+  say: ["short_line", "stops"],
+};
+const lowellSource = {
+  poet: "Amy Lowell",
+  source: "Sword Blades and Poppy Seed",
+  sourceYear: 1914,
+  origin: "https://www.gutenberg.org/cache/epub/1020/pg1020.txt",
+  deathYear: 1925,
+  form: "free",
+  lang: "en",
+};
+const lawrenceSource = {
+  poet: "D. H. Lawrence",
+  source: "Birds, Beasts and Flowers",
+  sourceYear: 1923,
+  origin: "https://www.gutenberg.org/cache/epub/60337/pg60337.txt",
+  deathYear: 1930,
+  form: "free",
+  lang: "en",
+};
+const stevensSource = {
+  poet: "Wallace Stevens",
+  source: "Harmonium",
+  sourceYear: 1923,
+  origin: "https://www.gutenberg.org/cache/epub/78743/pg78743.txt",
+  deathYear: 1955,
+  form: "free",
+  lang: "en",
+};
+
+add({
+  id: "haiku-shiki-asagiri",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "朝霧の中に九段のともし哉"),
+  see: ["morning", "street", "light"],
+});
+add({
+  id: "haiku-shiki-nekoron",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "ねころんて書よむ人や春の草"),
+  see: ["person", "plant", "day"],
+});
+add({
+  id: "haiku-shiki-ennichi",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "縁日の古著屋多き夜寒かな"),
+  see: ["evening", "street", "ordinary"],
+});
+add({
+  id: "haiku-shiki-kintsuba",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "きんつばの行燈暗き夜寒かな"),
+  see: ["night", "food", "light", "street"],
+});
+add({
+  id: "haiku-shiki-dentou",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "電気燈明るき山の夜寒かな"),
+  see: ["night", "light", "scenery"],
+});
+add({
+  id: "haiku-shiki-kashi",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "樫の木の中に灯ともる夜寒かな"),
+  see: ["night", "plant", "light"],
+});
+add({
+  id: "tanka-takuboku-ochiru",
+  ...takubokuSource,
+  body: tanka.find((block) => block.includes("いのちなき砂のかなしさよ")),
+  see: ["ordinary", "person"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "tanka-takuboku-namida",
+  ...takubokuSource,
+  body: tanka.find((block) => block.includes("なみだを吸へる砂の玉")),
+  see: ["ordinary", "person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "tanka-akiko-kami",
+  ...akikoSource,
+  body: akiko.find((line) => line.startsWith("髪五尺ときなば水に")),
+  see: ["water", "person"],
+});
+add({
+  id: "tanka-akiko-tsubaki",
+  ...akikoSource,
+  body: akiko.find((line) => line.startsWith("椿それも梅もさなりき")),
+  see: ["plant", "person"],
+});
+add({
+  id: "tanka-mokichi-shimo",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "わが住める家のいらかの白霜を"),
+  see: ["indoor", "day"],
+});
+add({
+  id: "tanka-mokichi-haari",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "電灯にむれとべる羽蟻"),
+  see: ["indoor", "night", "light", "ordinary"],
+});
+add({
+  id: "free-lowell-taxi",
+  ...lowellSource,
+  title: "The Taxi",
+  body: titledVerse(lowell, "The Taxi"),
+  see: ["night", "street", "person"],
+  say: ["names_feeling", "short_line", "stops"],
+});
+add({
+  id: "free-lowell-pike",
+  ...lowellSource,
+  title: "The Pike",
+  body: titledVerse(lowell, "The Pike"),
+  see: ["water", "plant", "light", "day"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-lawrence-night",
+  ...lawrenceSource,
+  title: "Southern Night",
+  body: titledVerse(lawrence, "SOUTHERN NIGHT"),
+  see: ["night", "sky", "light"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-lawrence-humming",
+  ...lawrenceSource,
+  title: "Humming-Bird",
+  body: titledVerse(lawrence, "HUMMING-BIRD"),
+  see: ["plant", "light", "scenery"],
+  say: ["one_leap", "explains"],
+});
+add({
+  id: "free-stevens-snow",
+  ...stevensSource,
+  title: "The Snow Man",
+  body: titledVerse(stevens, "The Snow Man"),
+  see: ["plant", "light", "scenery", "day"],
+  say: ["one_leap", "stops"],
+});
+add({
+  id: "free-stevens-jar",
+  ...stevensSource,
+  title: "Anecdote of the Jar",
+  body: titledVerse(stevens, "Anecdote of the Jar"),
+  see: ["object", "scenery", "plant"],
+  say: ["one_leap", "stops"],
+});
+add({
+  id: "free-oote-fune",
+  ...ooteSource,
+  title: "しなびた船",
+  body: betweenTitles(ooteText, "しなびた船", "黄金の闇"),
+  see: ["water", "food", "person"],
+  say: ["one_leap", "stops"],
+});
+add({
+  id: "free-senge-hoshi",
+  ...sengeSource,
+  title: "星",
+  body: pick(sengePoems, "星"),
+  see: ["night", "sky", "street", "person", "light"],
+  say: ["names_feeling", "explains"],
+});
+add({
+  id: "fixed-toson-kami",
+  ...tosonSource,
+  title: "髪を洗へば",
+  body: betweenTitles(wakanaText, "髪を洗へば", "君がこゝろは"),
+  see: ["person", "plant", "food"],
+});
+add({
+  id: "fixed-toson-kokoro",
+  ...tosonSource,
+  title: "君がこゝろは",
+  body: betweenTitles(wakanaText, "君がこゝろは", "傘のうち"),
+  see: ["person", "plant", "morning"],
+});
+add({
+  id: "fixed-sonnet-29",
+  ...shakespeare,
+  title: "Sonnet 29",
+  body: sonnet(sonnets, "XXIX"),
+  see: ["morning", "sky", "person"],
+});
+add({
+  id: "fixed-sonnet-116",
+  ...shakespeare,
+  title: "Sonnet 116",
+  body: sonnet(sonnets, "CXVI"),
+  see: ["sky", "water", "light"],
+});
+
+add({
+  id: "haiku-shiki-komado",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "木をつみて夜の明やすき小窓かな"),
+  see: ["morning", "indoor", "light"],
+});
+add({
+  id: "haiku-shiki-yudachi",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "夕立やはちすを笠にかぶり行く"),
+  see: ["water", "plant", "day"],
+});
+add({
+  id: "haiku-shiki-kaki",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "柿店の前を過ぎ行く夜寒かな"),
+  see: ["evening", "food", "street"],
+});
+add({
+  id: "haiku-shiki-machi",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "見下せば灯の無き町の夜寒かな"),
+  see: ["night", "street", "light"],
+});
+add({
+  id: "tanka-takuboku-haha",
+  ...takubokuSource,
+  body: tanka.find((block) => block.includes("母を背負ひて")),
+  see: ["person", "indoor"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "tanka-takuboku-shigoto",
+  ...takubokuSource,
+  body: tanka.find((block) => block.includes("我にはたらく仕事あれ")),
+  see: ["person", "day"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "tanka-akiko-botan",
+  ...akikoSource,
+  body: akiko.find((line) => line.startsWith("まゐる酒に灯あかき宵を")),
+  see: ["night", "food", "plant", "person"],
+});
+add({
+  id: "tanka-akiko-kaido",
+  ...akikoSource,
+  body: akiko.find((line) => line.startsWith("海棠にえうなくときし")),
+  see: ["plant", "evening", "water", "person"],
+});
+add({
+  id: "tanka-mokichi-kawazu",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "ゆふぐれて浦上村をわが来れば"),
+  see: ["evening", "water", "scenery"],
+});
+add({
+  id: "tanka-mokichi-ameoto",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "むし暑き家のとのもに降る雨の"),
+  see: ["indoor", "water", "night"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "fixed-bansui-kaido",
+  ...bansuiSource,
+  title: "海棠",
+  body: pick(tenchiPoems, "海棠"),
+  see: ["plant", "water", "evening"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-bansui-yanagi",
+  ...bansuiSource,
+  title: "枯柳",
+  body: pick(tenchiPoems, "枯柳"),
+  see: ["evening", "plant", "water"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-ariake-midori",
+  ...ariakeSource,
+  title: "緑のかげ",
+  body: pick(shunchoPoems, "緑のかげ"),
+  see: ["plant", "person", "scenery"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-susukida-keshi",
+  ...susukidaSource,
+  title: "雛罌粟",
+  body: pick(hakuyoPoems, "雛罌粟"),
+  see: ["plant"],
+});
+add({
+  id: "fixed-blake-fly",
+  ...blakeSource,
+  title: "The Fly",
+  body: blakePoem(blake, "THE FLY"),
+  see: ["day", "person"],
+});
+add({
+  id: "fixed-blake-rose",
+  ...blakeSource,
+  title: "The Sick Rose",
+  body: blakePoem(blake, "THE SICK ROSE"),
+  see: ["night", "plant"],
+});
+add({
+  id: "fixed-sonnet-30",
+  ...shakespeare,
+  title: "Sonnet 30",
+  body: sonnet(sonnets, "XXX"),
+  see: ["night", "person"],
+});
+add({
+  id: "fixed-sonnet-71",
+  ...shakespeare,
+  title: "Sonnet 71",
+  body: sonnet(sonnets, "LXXI"),
+  see: ["night", "person"],
+});
+add({
+  id: "free-crane-tongues",
+  ...craneSource,
+  body: romanPoem(crane, "IV"),
+  see: ["person"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "free-crane-horizon",
+  ...craneSource,
+  body: romanPoem(crane, "XXIV"),
+  see: ["person", "scenery"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-stevens-candle",
+  ...stevensSource,
+  title: "Valley Candle",
+  body: titledVerse(stevens, "Valley Candle"),
+  see: ["night", "light", "scenery"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-stevens-tea",
+  ...stevensSource,
+  title: "Tea",
+  body: titledVerse(stevens, "Tea"),
+  see: ["plant", "night", "light", "indoor"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-yagi-michi",
+  ...yagiSource,
+  form: "free",
+  lang: "ja",
+  title: "路",
+  body: pick(yagiPoems, "路"),
+  see: ["street"],
+  say: ["short_line", "names_feeling", "stops"],
+});
+add({
+  id: "free-bocho-misaki",
+  ...bochoSource,
+  title: "岬",
+  body: pick(bochoPoems, "岬"),
+  see: ["scenery", "light", "water"],
+  say: ["short_line", "one_leap", "stops"],
+});
+
 const ids = new Set();
 for (const poem of poems) {
   if (ids.has(poem.id)) throw new Error(`duplicate id ${poem.id}`);
