@@ -1644,6 +1644,192 @@ add({
   say: ["short_line", "stops"],
 });
 
+const bokusuiUta = await fetchText("https://www.aozora.gr.jp/cards/000162/files/2693_20319.html");
+const bokusuiSource = {
+  poet: "若山牧水",
+  source: "若山牧水全集　第七卷",
+  sourceYear: 1958,
+  origin: "https://www.aozora.gr.jp/cards/000162/files/2693_20319.html",
+  deathYear: 1928,
+  form: "tanka",
+  lang: "ja",
+  title: "",
+  say: ["short_line", "stops"],
+};
+
+add({
+  id: "tanka-bokusui-konoha",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "ちひさきは小さきままに"),
+  see: ["plant"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "tanka-bokusui-shizuku",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "おのづから湧き出づる水の"),
+  see: ["water", "plant"],
+});
+add({
+  id: "tanka-bokusui-tani",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "山にあらず海にあらず"),
+  see: ["water", "scenery"],
+});
+add({
+  id: "tanka-bokusui-osanaki",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "幼く且つ拙しとおもふ"),
+  see: ["person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "haiku-shiki-kazami",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "散る花のうしろに動く風見哉"),
+  see: ["plant", "day"],
+});
+add({
+  id: "haiku-shiki-shimizu",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "底見えて小魚も住まぬ清水哉"),
+  see: ["water"],
+});
+add({
+  id: "haiku-shiki-kasa",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "傘に落つる櫻の雫かな"),
+  see: ["water", "plant"],
+});
+add({
+  id: "haiku-shiki-hanabi",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "くらがりの天地にひゞく花火哉"),
+  see: ["night", "light", "sky"],
+});
+add({
+  id: "fixed-susukida-suiren",
+  ...susukidaSource,
+  title: "睡蓮の歌",
+  body: pick(hakuyoPoems, "睡蓮の歌"),
+  see: ["water", "plant", "day", "evening"],
+});
+add({
+  id: "fixed-susukida-umi",
+  ...susukidaSource,
+  title: "海のほとりにて",
+  body: pick(hakuyoPoems, "海のほとりにて"),
+  see: ["water", "evening", "sky"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-ariake-ochibo",
+  ...ariakeSource,
+  title: "日のおちぼ",
+  body: pick(shunchoPoems, "日のおちぼ"),
+  see: ["light", "night", "sky", "plant"],
+});
+add({
+  id: "fixed-ariake-minato",
+  ...ariakeSource,
+  title: "みなといり",
+  body: pick(shunchoPoems, "みなといり"),
+  see: ["water", "day", "evening"],
+});
+add({
+  id: "fixed-bansui-haruyo",
+  ...bansuiSource,
+  title: "はるのよ",
+  body: pick(tenchiPoems, "はるのよ"),
+  see: ["night", "plant", "light", "water"],
+});
+add({
+  id: "fixed-bansui-kawa",
+  ...bansuiSource,
+  title: "夏の川",
+  body: pick(tenchiPoems, "夏の川"),
+  see: ["water", "evening", "plant", "light"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-keats-psyche",
+  ...keatsSource,
+  title: "Ode to Psyche",
+  body: verseBlock(keats, "O Goddess! hear these tuneless numbers, wrung", (line) => line === "FANCY."),
+  see: ["plant", "night", "person", "light"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-keats-mermaid",
+  ...keatsSource,
+  title: "The Mermaid Tavern",
+  body: verseBlock(keats, "Souls of Poets dead and gone,", (line) => line === "ROBIN HOOD."),
+  see: ["food", "person", "indoor"],
+});
+add({
+  id: "fixed-wordsworth-cuckoo",
+  ...wordsworthSource,
+  title: "To the Cuckoo",
+  body: verseBlock(wordsworth, "O blithe New-comer! I have heard,", (line) => line.startsWith("12.")),
+  see: ["plant", "day", "sky"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-wordsworth-west",
+  ...wordsworthSource,
+  title: "Stepping Westward",
+  body: verseBlock(wordsworth, `_"What you are stepping westward?"--"Yea_."`, (line) => line.startsWith("4.")),
+  see: ["evening", "sky", "scenery", "person"],
+});
+add({
+  id: "fixed-blake-sunflower",
+  ...blakeSource,
+  title: "Ah! Sunflower",
+  body: blakePoem(blake, "AH, SUNFLOWER"),
+  see: ["plant", "day", "light"],
+});
+add({
+  id: "fixed-sonnet-65",
+  ...shakespeare,
+  title: "Sonnet 65",
+  body: sonnet(sonnets, "LXV"),
+  see: ["water", "plant", "day"],
+});
+add({
+  id: "free-yagi-hikari",
+  ...yagiSource,
+  form: "free",
+  lang: "ja",
+  title: "光",
+  body: pick(yagiPoems, "光"),
+  see: ["light", "person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "free-bocho-kuregata",
+  ...bochoSource,
+  title: "くれがた",
+  body: pick(bochoPoems, "くれがた"),
+  see: ["evening", "indoor", "plant"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-lowell-london",
+  ...lowellSource,
+  title: "A London Thoroughfare. 2 A.M.",
+  body: titledVerse(lowell, "A London Thoroughfare.  2 A.M."),
+  see: ["street", "night", "water", "light"],
+  say: ["short_line"],
+});
+add({
+  id: "free-stevens-emperor",
+  ...stevensSource,
+  title: "The Emperor of Ice-Cream",
+  body: titledVerse(stevens, "The Emperor of Ice-Cream"),
+  see: ["indoor", "food", "person", "light"],
+  say: ["one_leap", "stops"],
+});
+
 const ids = new Set();
 for (const poem of poems) {
   if (ids.has(poem.id)) throw new Error(`duplicate id ${poem.id}`);

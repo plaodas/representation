@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { advanceRead, resolveOpen, selectNextPoem } from "./selectNext.ts";
+import { advanceRead, formForLang, nextForm, resolveOpen, selectNextPoem } from "./selectNext.ts";
 import { emptyRead, type Poem, type Reaction } from "./types.ts";
 
 const poem = (partial: Pick<Poem, "id" | "form" | "lang" | "poet" | "order"> & Partial<Poem>): Poem => ({
@@ -176,4 +176,76 @@ test("the same day keeps the poem, the next day continues", () => {
   });
   assert.equal(tomorrow.poemId, "en1");
   assert.equal(tomorrow.read.countToday, 1);
+});
+
+test("japanese only stays in Japanese", () => {
+  const poems = [
+    poem({ id: "ja1", form: "free", lang: "ja", poet: "甲", order: 1 }),
+    poem({ id: "en1", form: "free", lang: "en", poet: "A", order: 2 }),
+    poem({ id: "ja2", form: "free", lang: "ja", poet: "乙", order: 3 }),
+  ];
+  let read = advanceRead(emptyRead(), "ja1", "2026-09-26");
+  const next = selectNextPoem({ poems, reactions: [], today: "2026-09-26", form: "free", read, langMode: "ja" });
+  assert.equal(next, "ja2");
+  read = advanceRead(read, next, "2026-09-26");
+  const again = selectNextPoem({ poems, reactions: [], today: "2026-09-26", form: "free", read, langMode: "ja" });
+  assert.equal(again, "ja1");
+});
+
+test("english only stays in English", () => {
+  const poems = [
+    poem({ id: "ja1", form: "free", lang: "ja", poet: "甲", order: 1 }),
+    poem({ id: "en1", form: "free", lang: "en", poet: "A", order: 2 }),
+    poem({ id: "en2", form: "free", lang: "en", poet: "B", order: 3 }),
+  ];
+  const read = advanceRead(emptyRead(), "en1", "2026-09-26");
+  const next = selectNextPoem({ poems, reactions: [], today: "2026-09-26", form: "free", read, langMode: "en" });
+  assert.equal(next, "en2");
+});
+
+test("likes in the other language still count toward eight", () => {
+  const liked = Array.from({ length: 8 }, (_, index) =>
+    poem({ id: `en${index}`, form: "free", lang: "en", poet: `E${index}`, order: 10 + index, see: ["water"] }),
+  );
+  const poems = [
+    poem({ id: "street", form: "free", lang: "ja", poet: "甲", order: 1, see: ["street"] }),
+    poem({ id: "water", form: "free", lang: "ja", poet: "乙", order: 2, see: ["water"] }),
+    ...liked,
+  ];
+  const read = advanceRead(emptyRead(), "en0", "2026-09-26");
+  const id = selectNextPoem({
+    poems,
+    reactions: liked.map((item) => like(item.id)),
+    today: "2026-09-26",
+    form: "free",
+    read,
+    langMode: "ja",
+  });
+  assert.equal(id, "water");
+});
+
+test("the same day does not keep a poem outside the chosen language", () => {
+  const poems = [
+    poem({ id: "ja1", form: "free", lang: "ja", poet: "甲", order: 1 }),
+    poem({ id: "en1", form: "free", lang: "en", poet: "A", order: 2 }),
+  ];
+  const read = advanceRead(emptyRead(), "en1", "2026-09-26");
+  const opened = resolveOpen({
+    poems,
+    reactions: [],
+    today: "2026-09-26",
+    form: "free",
+    read,
+    langMode: "ja",
+  });
+  assert.equal(opened.poemId, "ja1");
+});
+
+test("english only skips haiku and tanka", () => {
+  assert.equal(nextForm("free", "en"), "fixed");
+  assert.equal(nextForm("fixed", "en"), "free");
+  assert.equal(nextForm("haiku", "mix"), "tanka");
+  assert.equal(formForLang("haiku", "en"), "fixed");
+  assert.equal(formForLang("tanka", "en"), "fixed");
+  assert.equal(formForLang("free", "en"), "free");
 });

@@ -1,6 +1,6 @@
 import * as SQLite from "expo-sqlite";
 import { Platform } from "react-native";
-import type { Form, Reaction, ReadState, Sentiment } from "../domain/types";
+import type { Form, LangMode, Reaction, ReadState, Sentiment } from "../domain/types";
 import { emptyRead } from "../domain/types";
 
 const fileKey = "representation";
@@ -9,17 +9,22 @@ type FileState = {
   reactions: Reaction[];
   reading: Partial<Record<Form, ReadState>>;
   form: Form;
+  lang: LangMode;
 };
 
-const emptyFile = (): FileState => ({ reactions: [], reading: {}, form: "free" });
+const emptyFile = (): FileState => ({ reactions: [], reading: {}, form: "free", lang: "mix" });
 
 const webWithoutFileSystem = () =>
   Platform.OS === "web" && (typeof navigator === "undefined" || !navigator.storage);
 
+const asLangMode = (value: string | undefined): LangMode =>
+  value === "ja" || value === "en" ? value : "mix";
+
 const readFile = (): FileState => {
   const raw = localStorage.getItem(fileKey);
   if (!raw) return emptyFile();
-  return { ...emptyFile(), ...(JSON.parse(raw) as FileState) };
+  const parsed = JSON.parse(raw) as Partial<FileState>;
+  return { ...emptyFile(), ...parsed, lang: asLangMode(parsed.lang) };
 };
 
 const writeFile = (file: FileState) => {
@@ -167,6 +172,30 @@ export const loadForm = async (): Promise<Form> => {
     return row.value;
   }
   return "free";
+};
+
+export const loadLang = async (): Promise<LangMode> => {
+  if (webWithoutFileSystem()) return readFile().lang;
+  const connection = await db();
+  const row = await connection.getFirstAsync<{ value: string }>(
+    "SELECT value FROM meta WHERE key = 'lang'",
+  );
+  return asLangMode(row?.value);
+};
+
+export const saveLang = async (lang: LangMode) => {
+  if (webWithoutFileSystem()) {
+    const file = readFile();
+    file.lang = lang;
+    writeFile(file);
+    return;
+  }
+  const connection = await db();
+  await connection.runAsync(
+    `INSERT INTO meta (key, value) VALUES ('lang', ?)
+     ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
+    lang,
+  );
 };
 
 export const saveForm = async (form: Form) => {

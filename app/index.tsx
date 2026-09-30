@@ -10,10 +10,10 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { loadForm, loadReactions, loadRead, saveForm, saveReaction, saveRead } from "../data/db";
+import { loadForm, loadLang, loadReactions, loadRead, saveForm, saveLang, saveReaction, saveRead } from "../data/db";
 import { allPoems, groundFor, poemById, todayKey } from "../data/library";
-import { advanceRead, resolveOpen, selectNextPoem } from "../domain/selectNext";
-import { emptyRead, formLabel, forms, type Form, type Reaction, type ReadState } from "../domain/types";
+import { advanceRead, formForLang, nextForm, resolveOpen, selectNextPoem } from "../domain/selectNext";
+import { emptyRead, formLabel, langModeLabel, nextLangMode, type Form, type LangMode, type Reaction, type ReadState } from "../domain/types";
 
 let enterFaded = false;
 
@@ -32,6 +32,7 @@ export default function TodayScreen() {
   const router = useRouter();
   const params = useLocalSearchParams<{ poem?: string }>();
   const [form, setForm] = useState<Form>("free");
+  const [langMode, setLangMode] = useState<LangMode>("ja");
   const [read, setRead] = useState<ReadState>(emptyRead());
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [ready, setReady] = useState(false);
@@ -51,28 +52,34 @@ export default function TodayScreen() {
   })[0];
   const poemOpacity = useRef(new Animated.Value(openedFaded ? 0 : 1)).current;
 
-  const openForm = useCallback(async (nextForm: Form) => {
+  const openForm = useCallback(async (requested: Form, mode: LangMode) => {
     const today = todayKey();
+    const next = formForLang(requested, mode);
+    if (next !== requested) await saveForm(next);
     const [stored, storedReactions] = await Promise.all([
-      loadRead(nextForm),
+      loadRead(next),
       loadReactions(),
     ]);
     const opened = resolveOpen({
       poems: allPoems,
       reactions: storedReactions,
       today,
-      form: nextForm,
+      form: next,
+      langMode: mode,
       read: stored,
     });
-    if (opened.read !== stored) await saveRead(nextForm, opened.read);
-    setForm(nextForm);
+    if (opened.read !== stored) await saveRead(next, opened.read);
+    setForm(next);
+    setLangMode(mode);
     setRead(opened.read);
     setReactions(storedReactions);
     setReady(true);
   }, []);
 
   useEffect(() => {
-    loadForm().then(openForm).catch(() => setReady(true));
+    Promise.all([loadForm(), loadLang()])
+      .then(([storedForm, storedLang]) => openForm(storedForm, storedLang))
+      .catch(() => setReady(true));
   }, [openForm]);
 
   useEffect(() => {
@@ -170,6 +177,7 @@ export default function TodayScreen() {
         reactions,
         today,
         form,
+        langMode,
         read,
       });
       const advanced = advanceRead(read, poemId, today);
@@ -185,13 +193,42 @@ export default function TodayScreen() {
 
   const cycleForm = () => {
     void crossfade(async () => {
-      const next = forms[(forms.indexOf(form) + 1) % forms.length];
+      const next = nextForm(form, langMode);
       await saveForm(next);
       if (viewing) {
         enterFaded = true;
         router.replace("/");
       }
-      await openForm(next);
+      await openForm(next, langMode);
+    });
+  };
+
+  const cycleLang = () => {
+    void crossfade(async () => {
+      const mode = nextLangMode(langMode);
+      const usable = formForLang(form, mode);
+      await saveLang(mode);
+      if (usable !== form) await saveForm(usable);
+      const today = todayKey();
+      const stored = usable === form ? read : await loadRead(usable);
+      const poemId = selectNextPoem({
+        poems: allPoems,
+        reactions,
+        today,
+        form: usable,
+        langMode: mode,
+        read: stored,
+      });
+      const advanced = advanceRead(stored, poemId, today);
+      await saveRead(usable, advanced);
+      setLangMode(mode);
+      setForm(usable);
+      setRead(advanced);
+      setActionsClear(false);
+      if (viewing) {
+        enterFaded = true;
+        router.replace("/");
+      }
     });
   };
 
@@ -207,6 +244,9 @@ export default function TodayScreen() {
         <View style={styles.top}>
           <Pressable onPress={cycleForm}>
             <Text style={[styles.faint, { color: ground.color, opacity: 0.85 }]}>{formLabel[form]}</Text>
+          </Pressable>
+          <Pressable onPress={cycleLang}>
+            <Text style={[styles.faint, { color: ground.color, opacity: 0.85 }]}>{langModeLabel[langMode]}</Text>
           </Pressable>
           <Text style={[styles.faint, { color: ground.faint }]}>{read.countToday || ""}</Text>
         </View>

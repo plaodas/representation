@@ -2,16 +2,22 @@ import { useFocusEffect, useRouter } from "expo-router";
 import { useCallback, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { fadeToScreen } from "../components/Frame";
-import { loadReactions, saveForm } from "../data/db";
+import { loadLang, loadReactions, saveForm } from "../data/db";
 import { groundFor, poemById } from "../data/library";
-import { formLabel, type Reaction } from "../domain/types";
+import { formLabel, type LangMode, type Reaction } from "../domain/types";
 
 export default function ReadScreen() {
   const ground = groundFor();
   const router = useRouter();
   const [reactions, setReactions] = useState<Reaction[]>([]);
+  const [langMode, setLangMode] = useState<LangMode>("mix");
   useFocusEffect(useCallback(() => {
-    loadReactions().then(setReactions).catch(() => undefined);
+    Promise.all([loadReactions(), loadLang()])
+      .then(([stored, mode]) => {
+        setReactions(stored);
+        setLangMode(mode);
+      })
+      .catch(() => undefined);
   }, []));
   const rows = [...reactions].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
   return (
@@ -19,6 +25,7 @@ export default function ReadScreen() {
         {rows.map((reaction) => {
           const poem = poemById(reaction.poemId);
           if (!poem) return null;
+          if (langMode === "en" && (poem.form === "haiku" || poem.form === "tanka")) return null;
           const first = poem.body.split("\n").find((line) => line.trim()) ?? "";
           return (
             <Pressable

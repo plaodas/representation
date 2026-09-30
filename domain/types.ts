@@ -4,6 +4,10 @@ export type Form = (typeof forms)[number];
 
 export type Lang = "ja" | "en";
 
+export const langModes = ["mix", "ja", "en"] as const;
+
+export type LangMode = (typeof langModes)[number];
+
 export const seeTags = [
   "light",
   "water",
@@ -81,6 +85,15 @@ export const formLabel: Record<Form, string> = {
   tanka: "短歌",
   fixed: "定型",
 };
+
+export const langModeLabel: Record<LangMode, string> = {
+  mix: "混合",
+  ja: "日本語",
+  en: "英語",
+};
+
+export const nextLangMode = (langMode: LangMode): LangMode =>
+  langModes[(langModes.indexOf(langMode) + 1) % langModes.length];
 
 export const seeLabel: Record<SeeTag, string> = {
   light: "光",

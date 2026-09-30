@@ -3138,5 +3138,523 @@
       "stops"
     ],
     "order": 144
+  },
+  {
+    "id": "tanka-bokusui-konoha",
+    "poet": "若山牧水",
+    "source": "若山牧水全集　第七卷",
+    "sourceYear": 1958,
+    "origin": "https://www.aozora.gr.jp/cards/000162/files/2693_20319.html",
+    "deathYear": 1928,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "body": "ちひさきは小さきままに伸びて張れる木の葉のすがたわが文にあれよ",
+    "see": [
+      "plant"
+    ],
+    "order": 145
+  },
+  {
+    "id": "tanka-bokusui-shizuku",
+    "poet": "若山牧水",
+    "source": "若山牧水全集　第七卷",
+    "sourceYear": 1958,
+    "origin": "https://www.aozora.gr.jp/cards/000162/files/2693_20319.html",
+    "deathYear": 1928,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "おのづから湧き出づる水の姿ならず木々の雫にかわが文章は",
+    "see": [
+      "water",
+      "plant"
+    ],
+    "order": 146
+  },
+  {
+    "id": "tanka-bokusui-tani",
+    "poet": "若山牧水",
+    "source": "若山牧水全集　第七卷",
+    "sourceYear": 1958,
+    "origin": "https://www.aozora.gr.jp/cards/000162/files/2693_20319.html",
+    "deathYear": 1928,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "山にあらず海にあらずただ谷の石のあひをゆく水かわが文章は",
+    "see": [
+      "water",
+      "scenery"
+    ],
+    "order": 147
+  },
+  {
+    "id": "tanka-bokusui-osanaki",
+    "poet": "若山牧水",
+    "source": "若山牧水全集　第七卷",
+    "sourceYear": 1958,
+    "origin": "https://www.aozora.gr.jp/cards/000162/files/2693_20319.html",
+    "deathYear": 1928,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "body": "幼く且つ拙しとおもふわが文を讀み選みつつ捨てられぬかも",
+    "see": [
+      "person"
+    ],
+    "order": 148
+  },
+  {
+    "id": "haiku-shiki-kazami",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "散る花のうしろに動く風見哉",
+    "see": [
+      "plant",
+      "day"
+    ],
+    "order": 149
+  },
+  {
+    "id": "haiku-shiki-shimizu",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "底見えて小魚も住まぬ清水哉",
+    "see": [
+      "water"
+    ],
+    "order": 150
+  },
+  {
+    "id": "haiku-shiki-kasa",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "傘に落つる櫻の雫かな",
+    "see": [
+      "water",
+      "plant"
+    ],
+    "order": 151
+  },
+  {
+    "id": "haiku-shiki-hanabi",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "くらがりの天地にひゞく花火哉",
+    "see": [
+      "night",
+      "light",
+      "sky"
+    ],
+    "order": 152
+  },
+  {
+    "id": "fixed-susukida-suiren",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "睡蓮の歌",
+    "body": "水うはぬるむ水無月の\n夏かげくらき隱り沼に、\n花こそひらけ、觀法の\n日を睡蓮のかた笑ひ。\n\nしろがね色の花萼に、\n一のかをり焚きくゆる\n蘂は、ひめもす薫習の\n沼の氣に染みてたゆたひぬ。\n\nたたなはる葉のひまびまに、\nほのめきゆらぐ未敷蓮の\nひとつびとつは、後の日を\nこの日につなぐ願ならし。\n\n夕となれば、水がくれの\n阿摩なる姫がふところに、\nひと日を、やがて現想の\nうまし眠りに隱ろひぬ。\n\n沼にひとりなる法子兒の\n翡翠ならで、くだちゆく\n如法闇夜に、睡蓮の\n聖り世を、誰がしのぶべき。",
+    "see": [
+      "water",
+      "plant",
+      "day",
+      "evening"
+    ],
+    "order": 153
+  },
+  {
+    "id": "fixed-susukida-umi",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "海のほとりにて",
+    "body": "鈍なるみ空、鈍なる海、\nああ身ぞひとり、\n入波ゆたにたゆたひて\nゆふべとなりぬ。\n\n氷雨の海の海神は、\n椰子の實熟るる\n常夏かげの國戀ひて、\n胸さわぐらし。\n\n冲の遠鳴、潮の香、――\nああ醉ごこち、\nいづくは知らず、靈魂の\n故郷こひし。\n\nわが世は知らぬかなたへと、\n日に、また夜はに、\nあくがれまどふ野心の\n努力の羽搏。\n\n『時』は頓死れて死にぬとも、\n遂の日までは、\n常若にしもあらまほし、\nわだつみとわれ。",
+    "see": [
+      "water",
+      "evening",
+      "sky"
+    ],
+    "order": 154
+  },
+  {
+    "id": "fixed-ariake-ochibo",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "日のおちぼ",
+    "body": "日の落穗、月のしたたり、\n殘りたる、誰か味ひ、\nこぼれたる、誰かひろひし、\nかくて世は過ぎてもゆくか。\nあなあはれ、日の階段を、\n月の宮――にほひの奧を、\nかくて將た蹈めりといふか、\nたはやすく誰か答へむ。\n\n過ぎ去りて、われ人知らぬ\n束の間や、そのひまびまは、\n光をば闇に刻みて\n音もなく滅えてはゆけど、\nやしなひのこれやその露、\n美稻のたねにこそあれ、――\nそを棄てて運命の啓示、\n星領らす鑰を得むとか。\n\nえしれざる刹那のゆくへ\nいづこぞと誰か定めむ、\n犧牲の身を淵にしづめて\nいかばかりたづねわぶとも、\n底ふかく黒暗とざし、\nひとつ火の影にも遇はじ。\n痛きかな、これをおもへば\n古夢の痍こそ消えね、\n永劫よ、脊に負ふつばさ、\n彩羽もてしばしは掩へ、\n新しきいのちのほとり、\nあふれちる雫むすばむ。",
+    "see": [
+      "light",
+      "night",
+      "sky",
+      "plant"
+    ],
+    "order": 155
+  },
+  {
+    "id": "fixed-ariake-minato",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "みなといり",
+    "body": "浪喘ぐ灣なかば\n萎ゆる帆のふかきはためき、\nものうかるさまや、大船、\nちからなく翅垂れぬる。\n\n常夏の小島を離れて、\nいく波折、いく日、わたづみ、――\n水手はいま眼をあげぬ、\nさがあしきこの港いり。\n\nうるはしき積じろ――眞だま、\n奇鳥の羽、あるはまた\n香にたかき果實、びやくだん――\nいやさらに、かくてものうげ。\n\n天人の食、つらき世に、――\nはたくらきこの日よそほひ\nかざらむの命のふねや、――\n眞帆ぞ、ああ、喘ぎはためく。\n\n底にごる江の波暮れて\n澪びきのこゑあをじろし、\n黒曜の石をみがける\nあだ矢こそ飛ばめ、この時。\n\nもたらしし光けおされ、\nわきがたし眞帆と水手とを、\nいづこにか泊てつる船ぞ、\nまばゆかるま闇のおくが。",
+    "see": [
+      "water",
+      "day",
+      "evening"
+    ],
+    "order": 156
+  },
+  {
+    "id": "fixed-bansui-haruyo",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "はるのよ",
+    "body": "あるじはたそやしらうめの\nかをりにむせぶはるのよは\nおぼろのつきをたよりにて\nしのびきゝけむつまごとか。\n\nそのわくらばのてすさびに\nすゞろにゑへるひとごゝろ\nかすかにもれしともしびに\nはなのすがたはてりしとか。\n\nたをりははてじはなのえだ\nなれしやどりのとりなかむ\nおぼろのつきのうらみより\nそのよくだちぬはるのあめ。\n\nことばむなしくねをたえて\nいまはたしのぶかれひとり\nあゝそのよはのうめがかを\nあゝそのよはのつきかげを。",
+    "see": [
+      "night",
+      "plant",
+      "light",
+      "water"
+    ],
+    "order": 157
+  },
+  {
+    "id": "fixed-bansui-kawa",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "夏の川",
+    "body": "野薔薇にほひて露散りて\n夕暮淋しいさゝ川\n心の空に消殘る\n昨日の春を忍ぶれば\nいかに恨みむあゝ夏よ。\n\n螢流れて水すみて\n夕暮凉しいさゝ川\n心の空の浮雲を\n拂ふ凉かぜ音さえて\nいかに戀せむあゝ夏よ。\n\n漣織りて月照りて\n夕暮たのしいさゝ川\n流れ／＼て行く水に\n秋も近しと眺むれば\nいかに惜まむあゝ夏よ。",
+    "see": [
+      "water",
+      "evening",
+      "plant",
+      "light"
+    ],
+    "order": 158
+  },
+  {
+    "id": "fixed-keats-psyche",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Ode to Psyche",
+    "body": "O Goddess! hear these tuneless numbers, wrung\nBy sweet enforcement and remembrance dear,\nAnd pardon that thy secrets should be sung\nEven into thine own soft-conched ear:\nSurely I dreamt to-day, or did I see\nThe winged Psyche with awaken'd eyes?\nI wander'd in a forest thoughtlessly,\nAnd, on the sudden, fainting with surprise,\nSaw two fair creatures, couched side by side\nIn deepest grass, beneath the whisp'ring roof\nOf leaves and trembled blossoms, where there ran\nA brooklet, scarce espied:\n'Mid hush'd, cool-rooted flowers, fragrant-eyed,\nBlue, silver-white, and budded Tyrian,\nThey lay calm-breathing on the bedded grass;\nTheir arms embraced, and their pinions too;\nTheir lips touch'd not, but had not bade adieu,\nAs if disjoined by soft-handed slumber,\nAnd ready still past kisses to outnumber\nAt tender eye-dawn of aurorean love:\nThe winged boy I knew;\nBut who wast thou, O happy, happy dove?\nHis Psyche true!\n\nO latest born and loveliest vision far\nOf all Olympus' faded hierarchy!\nFairer than Phoebe's sapphire-region'd star,\nOr Vesper, amorous glow-worm of the sky;\nFairer than these, though temple thou hast none,\nNor altar heap'd with flowers;\nNor virgin-choir to make delicious moan\nUpon the midnight hours;\nNo voice, no lute, no pipe, no incense sweet\nFrom chain-swung censer teeming;\nNo shrine, no grove, no oracle, no heat\nOf pale-mouth'd prophet dreaming.\n\nO brightest! though too late for antique vows,\nToo, too late for the fond believing lyre,\nWhen holy were the haunted forest boughs,\nHoly the air, the water, and the fire;\nYet even in these days so far retir'd\nFrom happy pieties, thy lucent fans,\nFluttering among the faint Olympians,\nI see, and sing, by my own eyes inspired.\nSo let me be thy choir, and make a moan\nUpon the midnight hours;\nThy voice, thy lute, thy pipe, thy incense sweet\nFrom swinged censer teeming;\nThy shrine, thy grove, thy oracle, thy heat\nOf pale-mouth'd prophet dreaming.\n\nYes, I will be thy priest, and build a fane\nIn some untrodden region of my mind,\nWhere branched thoughts, new grown with pleasant pain,\nInstead of pines shall murmur in the wind:\nFar, far around shall those dark-cluster'd trees\nFledge the wild-ridged mountains steep by steep;\nAnd there by zephyrs, streams, and birds, and bees,\nThe moss-lain Dryads shall be lull'd to sleep;\nAnd in the midst of this wide quietness\nA rosy sanctuary will I dress\nWith the wreath'd trellis of a working brain,\nWith buds, and bells, and stars without a name,\nWith all the gardener Fancy e'er could feign,\nWho breeding flowers, will never breed the same:\nAnd there shall be for thee all soft delight\nThat shadowy thought can win,\nA bright torch, and a casement ope at night,\nTo let the warm Love in!",
+    "see": [
+      "plant",
+      "night",
+      "person",
+      "light"
+    ],
+    "order": 159
+  },
+  {
+    "id": "fixed-keats-mermaid",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme"
+    ],
+    "title": "The Mermaid Tavern",
+    "body": "Souls of Poets dead and gone,\nWhat Elysium have ye known,\nHappy field or mossy cavern,\nChoicer than the Mermaid Tavern?\nHave ye tippled drink more fine\nThan mine host's Canary wine?\nOr are fruits of Paradise\nSweeter than those dainty pies\nOf venison? O generous food!\nDrest as though bold Robin Hood\nWould, with his maid Marian,\nSup and bowse from horn and can.\n\nI have heard that on a day\nMine host's sign-board flew away,\nNobody knew whither, till\nAn astrologer's old quill\nTo a sheepskin gave the story,\nSaid he saw you in your glory,\nUnderneath a new old-sign\nSipping beverage divine,\nAnd pledging with contented smack\nThe Mermaid in the Zodiac.\n\nSouls of Poets dead and gone,\nWhat Elysium have ye known,\nHappy field or mossy cavern,\nChoicer than the Mermaid Tavern?",
+    "see": [
+      "food",
+      "person",
+      "indoor"
+    ],
+    "order": 160
+  },
+  {
+    "id": "fixed-wordsworth-cuckoo",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "To the Cuckoo",
+    "body": "O blithe New-comer! I have heard,\nI hear thee and rejoice:\nO Cuckoo! shall I call thee Bird,\nOr but a wandering Voice?\n\nWhile I am lying on the grass,\nI hear thy restless shout:\nFrom hill to hill it seems to pass,\nAbout, and all about!\n\nTo me, no Babbler with a tale\nOf sunshine and of flowers,\nThou tellest, Cuckoo! in the vale\nOf visionary hours.\n\nThrice welcome, Darling of the Spring!\nEven yet thou art to me\nNo Bird; but an invisible Thing,\nA voice, a mystery.\n\nThe same whom in my School-boy days\nI listen'd to; that Cry\nWhich made me look a thousand ways;\nIn bush, and tree, and sky.\n\nTo seek thee did I often rove\nThrough woods and on the green;\nAnd thou wert still a hope, a love;\nStill long'd for, never seen!\n\nAnd I can listen to thee yet;\nCan lie upon the plain.\nAnd listen, till I do beget\nThat golden time again.\n\nO blessed Bird! the earth we pace\nAgain appears to be\nAn unsubstantial, faery place;\nThat is fit home for Thee!",
+    "see": [
+      "plant",
+      "day",
+      "sky"
+    ],
+    "order": 161
+  },
+  {
+    "id": "fixed-wordsworth-west",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme"
+    ],
+    "title": "Stepping Westward",
+    "body": "_\"What you are stepping westward?\"--\"Yea_.\"\n--'Twould be a wildish destiny,\nIf we, who thus together roam\nIn a strange Land, and far from home,\nWere in this place the guests of Chance:\nYet who would stop, or fear to advance,\nThough home or shelter he had none,\nWith such a Sky to lead him on?\n\nThe dewy ground was dark and cold;\nBehind, all gloomy to behold;\nAnd stepping westward seem'd to be\nA kind of _heavenly_ destiny;\nI liked the greeting; 'twas a sound\nOf something without place or bound;\nAnd seem'd to give me spiritual right\nTo travel through that region bright.\n\nThe voice was soft, and she who spake\nWas walking by her native Lake:\nThe salutation had to me\nThe very sound of courtesy:\nIt's power was felt; and while my eye\nWas fixed upon the glowing sky,\nThe echo of the voice enwrought\nA human sweetness with the thought\nOf travelling through the world that lay\nBefore me in my endless way.",
+    "see": [
+      "evening",
+      "sky",
+      "scenery",
+      "person"
+    ],
+    "order": 162
+  },
+  {
+    "id": "fixed-blake-sunflower",
+    "poet": "William Blake",
+    "source": "Songs of Innocence and of Experience",
+    "sourceYear": 1794,
+    "origin": "https://www.gutenberg.org/cache/epub/1934/pg1934.txt",
+    "deathYear": 1827,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "short_line"
+    ],
+    "title": "Ah! Sunflower",
+    "body": "Ah, sunflower, weary of time,\nWho countest the steps of the sun;\nSeeking after that sweet golden clime\nWhere the traveller’s journey is done;\n\nWhere the Youth pined away with desire,\nAnd the pale virgin shrouded in snow,\nArise from their graves, and aspire\nWhere my Sunflower wishes to go!",
+    "see": [
+      "plant",
+      "day",
+      "light"
+    ],
+    "order": 163
+  },
+  {
+    "id": "fixed-sonnet-65",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 65",
+    "body": "Since brass, nor stone, nor earth, nor boundless sea,\nBut sad mortality o’ersways their power,\nHow with this rage shall beauty hold a plea,\nWhose action is no stronger than a flower?\nO! how shall summer’s honey breath hold out,\nAgainst the wrackful siege of battering days,\nWhen rocks impregnable are not so stout,\nNor gates of steel so strong but Time decays?\nO fearful meditation! where, alack,\nShall Time’s best jewel from Time’s chest lie hid?\nOr what strong hand can hold his swift foot back?\nOr who his spoil of beauty can forbid?\nO! none, unless this miracle have might,\nThat in black ink my love may still shine bright.",
+    "see": [
+      "water",
+      "plant",
+      "day"
+    ],
+    "order": 164
+  },
+  {
+    "id": "free-yagi-hikari",
+    "source": "八木重吉詩集",
+    "sourceYear": 1969,
+    "origin": "https://www.aozora.gr.jp/cards/000013/files/542_42320.html",
+    "deathYear": 1927,
+    "poet": "八木重吉",
+    "form": "free",
+    "lang": "ja",
+    "title": "光",
+    "body": "ひかりとあそびたい\nわらったり\n哭いたり\nつきとばしあったりしてあそびたい",
+    "see": [
+      "light",
+      "person"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "order": 165
+  },
+  {
+    "id": "free-bocho-kuregata",
+    "poet": "山村暮鳥",
+    "source": "山村暮鳥全集第一巻",
+    "sourceYear": 1989,
+    "origin": "https://www.aozora.gr.jp/cards/000136/files/731_50613.html",
+    "deathYear": 1924,
+    "form": "free",
+    "lang": "ja",
+    "title": "くれがた",
+    "body": "くれがたのおそろしさ\nくりやのすみの玉葱\nほのぐらきかをりに浸りて\n青き芽をあげ\nものなべての罪は\nひき窓の針金をつたはる。",
+    "see": [
+      "evening",
+      "indoor",
+      "plant"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 166
+  },
+  {
+    "id": "free-lowell-london",
+    "poet": "Amy Lowell",
+    "source": "Sword Blades and Poppy Seed",
+    "sourceYear": 1914,
+    "origin": "https://www.gutenberg.org/cache/epub/1020/pg1020.txt",
+    "deathYear": 1925,
+    "form": "free",
+    "lang": "en",
+    "title": "A London Thoroughfare. 2 A.M.",
+    "body": "They have watered the street,\nIt shines in the glare of lamps,\nCold, white lamps,\nAnd lies\nLike a slow-moving river,\nBarred with silver and black.\nCabs go down it,\nOne,\nAnd then another.\nBetween them I hear the shuffling of feet.\nTramps doze on the window-ledges,\nNight-walkers pass along the sidewalks.\nThe city is squalid and sinister,\nWith the silver-barred street in the midst,\nSlow-moving,\nA river leading nowhere.\n\nOpposite my window,\nThe moon cuts,\nClear and round,\nThrough the plum-coloured night.\nShe cannot light the city;\nIt is too bright.\nIt has white lamps,\nAnd glitters coldly.\n\nI stand in the window and watch the moon.\nShe is thin and lustreless,\nBut I love her.\nI know the moon,\nAnd this is an alien city.",
+    "see": [
+      "street",
+      "night",
+      "water",
+      "light"
+    ],
+    "say": [
+      "short_line"
+    ],
+    "order": 167
+  },
+  {
+    "id": "free-stevens-emperor",
+    "poet": "Wallace Stevens",
+    "source": "Harmonium",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/78743/pg78743.txt",
+    "deathYear": 1955,
+    "form": "free",
+    "lang": "en",
+    "title": "The Emperor of Ice-Cream",
+    "body": "Call the roller of big cigars,\nThe muscular one, and bid him whip\nIn kitchen cups concupiscent curds.\nLet the wenches dawdle in such dress\nAs they are used to wear, and let the boys\nBring flowers in last month’s newspapers.\nLet be be finale of seem.\nThe only emperor is the emperor of ice-cream.\n\nTake from the dresser of deal,\nLacking the three glass knobs, that sheet\nOn which she embroidered fantails once\nAnd spread it so as to cover her face.\nIf her horny feet protrude, they come\nTo show how cold she is, and dumb.\nLet the lamp affix its beam.\nThe only emperor is the emperor of ice-cream.",
+    "see": [
+      "indoor",
+      "food",
+      "person",
+      "light"
+    ],
+    "say": [
+      "one_leap",
+      "stops"
+    ],
+    "order": 168
   }
 ]

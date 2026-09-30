@@ -1,4 +1,4 @@
-import type { Form, Poem, Reaction, ReadState, SayTag, SeeTag } from "./types";
+import { forms, type Form, type LangMode, type Poem, type Reaction, type ReadState, type SayTag, type SeeTag } from "./types.ts";
 
 export const likeThreshold = 8;
 
@@ -53,17 +53,41 @@ const avoidPoet = (candidates: Poem[], poet: string | null) => {
 
 const byOrder = (a: Poem, b: Poem) => a.order - b.order;
 
+export const nextForm = (form: Form, langMode: LangMode = "mix"): Form => {
+  const allowed = langMode === "en" ? new Set<Form>(["free", "fixed"]) : new Set<Form>(forms);
+  const start = forms.indexOf(form);
+  for (let step = 1; step <= forms.length; step += 1) {
+    const candidate = forms[(start + step) % forms.length];
+    if (allowed.has(candidate)) return candidate;
+  }
+  return "free";
+};
+
+export const formForLang = (form: Form, langMode: LangMode = "mix"): Form => {
+  if (langMode !== "en" || form === "free" || form === "fixed") return form;
+  return nextForm(form, langMode);
+};
+
+const fitsLang = (poem: Poem, form: Form, langMode: LangMode) => {
+  if (poem.form !== form) return false;
+  if (!alternates(form)) return poem.lang === "ja";
+  if (langMode === "mix") return true;
+  return poem.lang === langMode;
+};
+
 export const selectNextPoem = ({
   poems,
   reactions,
   form,
   read,
+  langMode = "mix",
 }: {
   poems: Poem[];
   reactions: Reaction[];
   today: string;
   form: Form;
   read: ReadState;
+  langMode?: LangMode;
 }): string => {
   const inForm = poems.filter((poem) => poem.form === form);
   if (inForm.length === 0) {
@@ -71,10 +95,18 @@ export const selectNextPoem = ({
   }
   const byId = poemMap(poems);
   const last = read.lastPoemId ? byId.get(read.lastPoemId) : undefined;
-  const lang =
-    alternates(form) && last ? (last.lang === "ja" ? "en" : "ja") : "ja";
+  const lang = !alternates(form)
+    ? "ja"
+    : langMode === "ja" || langMode === "en"
+      ? langMode
+      : last
+        ? last.lang === "ja"
+          ? "en"
+          : "ja"
+        : "ja";
   const pool = inForm.filter((poem) => poem.lang === lang);
-  const source = pool.length > 0 ? pool : inForm;
+  const source = pool.length > 0 ? pool : langMode === "mix" ? inForm : pool;
+  if (source.length === 0) throw new Error(`no poems for ${form} ${langMode}`);
   const shown = new Set(read.shownIds);
   const unread = source.filter((poem) => !shown.has(poem.id));
   const recycling = unread.length === 0;
@@ -125,10 +157,15 @@ export const resolveOpen = (input: {
   today: string;
   form: Form;
   read: ReadState;
+  langMode?: LangMode;
 }): { poemId: string; read: ReadState } => {
-  if (input.read.lastPoemId && input.read.day === input.today) {
-    return { poemId: input.read.lastPoemId, read: input.read };
+  const langMode = input.langMode ?? "mix";
+  const last = input.read.lastPoemId
+    ? input.poems.find((poem) => poem.id === input.read.lastPoemId)
+    : undefined;
+  if (last && input.read.day === input.today && fitsLang(last, input.form, langMode)) {
+    return { poemId: last.id, read: input.read };
   }
-  const poemId = selectNextPoem(input);
+  const poemId = selectNextPoem({ ...input, langMode });
   return { poemId, read: advanceRead(input.read, poemId, input.today) };
 };
