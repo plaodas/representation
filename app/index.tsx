@@ -32,7 +32,7 @@ export default function TodayScreen() {
   const router = useRouter();
   const params = useLocalSearchParams<{ poem?: string }>();
   const [form, setForm] = useState<Form>("free");
-  const [langMode, setLangMode] = useState<LangMode>("ja");
+  const [langMode, setLangMode] = useState<LangMode>("mix");
   const [read, setRead] = useState<ReadState>(emptyRead());
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [ready, setReady] = useState(false);
