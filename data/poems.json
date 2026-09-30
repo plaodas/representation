@@ -2621,5 +2621,522 @@
       "one_leap"
     ],
     "order": 120
+  },
+  {
+    "id": "haiku-shiki-hatsuyuki",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "初雪やかくれおほせぬ馬の糞",
+    "see": [
+      "ordinary",
+      "day"
+    ],
+    "order": 121
+  },
+  {
+    "id": "haiku-shiki-suzume",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "ぬれ足で雀のあるく廊下かな",
+    "see": [
+      "indoor",
+      "water"
+    ],
+    "order": 122
+  },
+  {
+    "id": "haiku-shiki-yoiyami",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "宵闇や薄に月のいづる音",
+    "see": [
+      "night",
+      "plant",
+      "light"
+    ],
+    "order": 123
+  },
+  {
+    "id": "haiku-shiki-kocho",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "胡蝶飛ぶ簾のうちの人もなし",
+    "see": [
+      "indoor"
+    ],
+    "order": 124
+  },
+  {
+    "id": "haiku-shiki-sankai",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "三階の灯を消しに行く夜寒かな",
+    "see": [
+      "night",
+      "light",
+      "indoor"
+    ],
+    "order": 125
+  },
+  {
+    "id": "haiku-shiki-koban",
+    "poet": "正岡子規",
+    "source": "日本の名随筆72　夜",
+    "sourceYear": 1988,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/42168_12297.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "交番の交代時の夜寒かな",
+    "see": [
+      "night",
+      "street",
+      "person"
+    ],
+    "order": 126
+  },
+  {
+    "id": "fixed-toson-kasa",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "傘のうち",
+    "body": "二人してさす一張の\n傘に姿をつゝむとも\n情の雨のふりしきり\nかわく間もなきたもとかな\n\n顔と顔とをうちよせて\nあゆむとすればなつかしや\n梅花の油黒髪の\n乱れて匂ふ傘のうち\n\n恋の一雨ぬれまさり\nぬれてこひしき夢の間や\n染めてぞ燃ゆる紅絹うらの\n雨になやめる足まとひ",
+    "see": [
+      "person",
+      "water"
+    ],
+    "order": 127
+  },
+  {
+    "id": "fixed-toson-shiru",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "知るや君",
+    "body": "こゝろもあらぬ秋鳥の\n声にもれくる一ふしを\n知るや君\n\n深くも澄める朝潮の\n底にかくるゝ真珠を\n知るや君\n\nあやめもしらぬやみの夜に\n静にうごく星くづを\n知るや君\n\nまだ弾きも見ぬをとめごの\n胸にひそめる琴の音を\n知るや君",
+    "see": [
+      "plant",
+      "morning",
+      "night",
+      "sky"
+    ],
+    "order": 128
+  },
+  {
+    "id": "fixed-bansui-natsu",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "夏夜",
+    "body": "靜けき夏の夜半の空\n遠き蛙の歌聽けば\n無聲にまさるさびなれや\n眠を誘ふ水の音\n心しづかに流るれど\n夕月山に落ち行けば\n影を涵さんよしもなし。\n\n星夜の空の薄光り\n心を遠く誘ひつゝ\nすゞしくそよぐ風のねは\n神のかなづる玉琴に\n觸れてやひゞく天の樂、\n昨日の夢と悲みし\n浮世の春は替はれども\n見ずやとこよの春の花\n散らでしぼまで大空の\n星のあなたにほゝゑむを。",
+    "see": [
+      "night",
+      "water",
+      "sky",
+      "light"
+    ],
+    "order": 129
+  },
+  {
+    "id": "fixed-bansui-tsuki",
+    "poet": "土井晩翠",
+    "source": "明治文學全集 58 土井晩翠 薄田泣菫 蒲原有明集",
+    "sourceYear": 1967,
+    "origin": "https://www.aozora.gr.jp/cards/001081/files/42233_38066.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "月と戀",
+    "body": "寢覺め夜深き窓の外\nしばし雲間を洩れいでゝ\n靜かに忍ぶ影見れば\n月は戀にも似たりけり。\n\n浮世慕ふて宵々に\n寄する光のかひやなに\n叢雲厚く布き滿てば\n戀はあだなり月姫よ。\n\nあだなる戀に泣く子らの\n手に育ちけむ花のごと\n色青じろう影やせて\n隱れも行くか雲の外。",
+    "see": [
+      "night",
+      "light",
+      "sky",
+      "person"
+    ],
+    "order": 130
+  },
+  {
+    "id": "fixed-blake-london",
+    "poet": "William Blake",
+    "source": "Songs of Innocence and of Experience",
+    "sourceYear": 1794,
+    "origin": "https://www.gutenberg.org/cache/epub/1934/pg1934.txt",
+    "deathYear": 1827,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "short_line"
+    ],
+    "title": "London",
+    "body": "I wander through each chartered street,\nNear where the chartered Thames does flow,\nA mark in every face I meet,\nMarks of weakness, marks of woe.\n\nIn every cry of every man,\nIn every infant’s cry of fear,\nIn every voice, in every ban,\nThe mind-forged manacles I hear:\n\nHow the chimney-sweeper’s cry\nEvery blackening church appals,\nAnd the hapless soldier’s sigh\nRuns in blood down palace-walls.\n\nBut most, through midnight streets I hear\nHow the youthful harlot’s curse\nBlasts the new-born infant’s tear,\nAnd blights with plagues the marriage hearse.",
+    "see": [
+      "street",
+      "night",
+      "water",
+      "person"
+    ],
+    "order": 131
+  },
+  {
+    "id": "fixed-blake-garden",
+    "poet": "William Blake",
+    "source": "Songs of Innocence and of Experience",
+    "sourceYear": 1794,
+    "origin": "https://www.gutenberg.org/cache/epub/1934/pg1934.txt",
+    "deathYear": 1827,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "The Garden of Love",
+    "body": "I went to the Garden of Love,\nAnd saw what I never had seen;\nA Chapel was built in the midst,\nWhere I used to play on the green.\n\nAnd the gates of this Chapel were shut,\nAnd ‘Thou shalt not’ writ over the door;\nSo I turned to the Garden of Love\nThat so many sweet flowers bore.\n\nAnd I saw it was filled with graves,\nAnd tombstones where flowers should be;\nAnd priests in black gowns were walking their rounds,\nAnd binding with briars my joys and desires.",
+    "see": [
+      "plant",
+      "day",
+      "person"
+    ],
+    "order": 132
+  },
+  {
+    "id": "fixed-sonnet-55",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 55",
+    "body": "Not marble, nor the gilded monuments\nOf princes, shall outlive this powerful rhyme;\nBut you shall shine more bright in these contents\nThan unswept stone, besmear’d with sluttish time.\nWhen wasteful war shall statues overturn,\nAnd broils root out the work of masonry,\nNor Mars his sword, nor war’s quick fire shall burn\nThe living record of your memory.\n’Gainst death, and all-oblivious enmity\nShall you pace forth; your praise shall still find room\nEven in the eyes of all posterity\nThat wear this world out to the ending doom.\nSo, till the judgement that yourself arise,\nYou live in this, and dwell in lovers’ eyes.",
+    "see": [
+      "person"
+    ],
+    "order": 133
+  },
+  {
+    "id": "fixed-sonnet-130",
+    "poet": "William Shakespeare",
+    "source": "Sonnets",
+    "sourceYear": 1609,
+    "origin": "https://www.gutenberg.org/cache/epub/1041/pg1041.txt",
+    "deathYear": 1616,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Sonnet 130",
+    "body": "My mistress’ eyes are nothing like the sun;\nCoral is far more red, than her lips red:\nIf snow be white, why then her breasts are dun;\nIf hairs be wires, black wires grow on her head.\nI have seen roses damask’d, red and white,\nBut no such roses see I in her cheeks;\nAnd in some perfumes is there more delight\nThan in the breath that from my mistress reeks.\nI love to hear her speak, yet well I know\nThat music hath a far more pleasing sound:\nI grant I never saw a goddess go;\nMy mistress, when she walks, treads on the ground:\nAnd yet by heaven, I think my love as rare,\nAs any she belied with false compare.",
+    "see": [
+      "person",
+      "plant",
+      "light"
+    ],
+    "order": 134
+  },
+  {
+    "id": "free-chuya-yusho",
+    "poet": "中原中也",
+    "source": "中原中也詩集",
+    "sourceYear": 1981,
+    "origin": "https://www.aozora.gr.jp/cards/000026/files/894_28272.html",
+    "deathYear": 1937,
+    "form": "free",
+    "lang": "ja",
+    "title": "夕照",
+    "body": "丘々は、胸に手を当て\n退けり。\n落陽は、慈愛の色の\n金のいろ。\n\n原に草、\n鄙唄うたひ\n山に樹々、\n老いてつましき心ばせ。\n\nかゝる折しも我ありぬ\n小児に踏まれし\n貝の肉。\n\nかゝるをりしも剛直の、\nさあれゆかしきあきらめよ\n腕拱みながら歩み去る。",
+    "see": [
+      "evening",
+      "scenery",
+      "plant",
+      "light"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 135
+  },
+  {
+    "id": "free-chuya-kikyo",
+    "poet": "中原中也",
+    "source": "中原中也詩集",
+    "sourceYear": 1981,
+    "origin": "https://www.aozora.gr.jp/cards/000026/files/894_28272.html",
+    "deathYear": 1937,
+    "form": "free",
+    "lang": "ja",
+    "title": "帰郷",
+    "body": "柱も庭も乾いてゐる\n今日は好い天気だ\n縁の下では蜘蛛の巣が\n心細さうに揺れてゐる\n\n山では枯木も息を吐く\nあゝ今日は好い天気だ\n路傍の草影が\nあどけない愁みをする\n\nこれが私の故里だ\nさやかに風も吹いてゐる\n心置なく泣かれよと\n年増婦の低い声もする\n\nあゝ　おまへはなにをして来たのだと……\n吹き来る風が私に云ふ",
+    "see": [
+      "day",
+      "scenery",
+      "plant"
+    ],
+    "say": [
+      "names_feeling"
+    ],
+    "order": 136
+  },
+  {
+    "id": "free-oote-yami",
+    "poet": "大手拓次",
+    "source": "世界の詩 28 大手拓次詩集",
+    "sourceYear": 1965,
+    "origin": "https://www.aozora.gr.jp/cards/000190/files/1029_20618.html",
+    "deathYear": 1934,
+    "form": "free",
+    "lang": "ja",
+    "title": "黄金の闇",
+    "body": "南がふいて\n鳩の胸が光りにふるへ、\nわたしの頭は醸された酒のやうに黴の花をはねのける。\n赤い護謨のやうにおびえる唇が\n力なげに、けれど親しげに内輪な歩みぶりをほのめかす。\nわたしは今、反省と悔悟の闇に\nあまくこぼれおちる情趣を抱きしめる。\n白い羽根蒲団の上に、\n産み月の黄金の闇は\n悩みをふくんでゐる。",
+    "see": [
+      "night",
+      "person",
+      "light"
+    ],
+    "say": [
+      "names_feeling",
+      "one_leap"
+    ],
+    "order": 137
+  },
+  {
+    "id": "free-oote-sansui",
+    "poet": "大手拓次",
+    "source": "世界の詩 28 大手拓次詩集",
+    "sourceYear": 1965,
+    "origin": "https://www.aozora.gr.jp/cards/000190/files/1029_20618.html",
+    "deathYear": 1934,
+    "form": "free",
+    "lang": "ja",
+    "title": "撒水車の小僧たち",
+    "body": "お前は撒水車をひく小僧たち、\n川ぞひのひろい市街を悠長にかけめぐる。\n紅や緑や光のある色はみんなおほひかくされ、\nSilence と廃滅の水色の色の行者のみがうろつく。\nこれがわたしの隠しやうもない生活の姿だ。\nああわたしの果てもない寂寥を\n街のかなたこなたに撒きちらせ、撒きちらせ。\n撒水車の小僧たち、\nあはい予言の日和が生れるより先に、\nつきせないわたしの寂寥をまきちらせまきちらせ。\n海のやうにわきでるわたしの寂寥をまきちらせ。",
+    "see": [
+      "street",
+      "water",
+      "person"
+    ],
+    "say": [
+      "names_feeling",
+      "explains"
+    ],
+    "order": 138
+  },
+  {
+    "id": "free-senge-ame",
+    "poet": "千家元麿",
+    "source": "日本現代文學全集 54 千家元麿・山村暮鳥・佐藤惣之助・福士幸次郎・堀口大學集",
+    "sourceYear": 1966,
+    "origin": "https://www.aozora.gr.jp/cards/000617/files/48569_33319.html",
+    "deathYear": 1948,
+    "form": "free",
+    "lang": "ja",
+    "title": "雨",
+    "body": "雨が降る、安らかに恙なく\n天から地に屆く\n人通りはまるで無い。自分一人だ。\n店々は燈をかゝげ、人が坐り、\n永遠に然うして居るものゝやうに見える。\n本當にどこに恐れや暗さがある。\n雨は往來にさした燈の中に美くしい姿を見せて\n濛々とした薄闇の世界へ音も無く消えて行く。安らかだ。\nゴト／＼と荷馬車が一臺向ふ側を通る。\n實に靜かだ。音も無く雨は降る。",
+    "see": [
+      "water",
+      "street",
+      "night",
+      "light"
+    ],
+    "say": [
+      "stops"
+    ],
+    "order": 139
+  },
+  {
+    "id": "free-senge-akanbo",
+    "poet": "千家元麿",
+    "source": "日本現代文學全集 54 千家元麿・山村暮鳥・佐藤惣之助・福士幸次郎・堀口大學集",
+    "sourceYear": 1966,
+    "origin": "https://www.aozora.gr.jp/cards/000617/files/48569_33319.html",
+    "deathYear": 1948,
+    "form": "free",
+    "lang": "ja",
+    "title": "赤ん坊",
+    "body": "赤ん坊は泣いて母を呼ぶ\n自分の眼覺めたのを知らせる爲めに\n苦るしい力強い聲で\n母を呼ぶ。母を呼ぶ\n深いところから世界が呼ぶやうに\n此世の母を呼ぶ、母を呼ぶ",
+    "see": [
+      "person"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "order": 140
+  },
+  {
+    "id": "free-masters-anne",
+    "poet": "Edgar Lee Masters",
+    "source": "Spoon River Anthology",
+    "sourceYear": 1915,
+    "origin": "https://www.gutenberg.org/cache/epub/1280/pg1280.txt",
+    "deathYear": 1950,
+    "form": "free",
+    "lang": "en",
+    "title": "Anne Rutledge",
+    "body": "Out of me unworthy and unknown\nThe vibrations of deathless music;\n“With malice toward none, with charity for all.”\nOut of me the forgiveness of millions toward millions,\nAnd the beneficent face of a nation\nShining with justice and truth.\nI am Anne Rutledge who sleep beneath these weeds,\nBeloved in life of Abraham Lincoln,\nWedded to him, not through union, But through separation.\nBloom forever, O Republic,\nFrom the dust of my bosom!",
+    "see": [
+      "person",
+      "plant"
+    ],
+    "say": [
+      "explains",
+      "names_feeling"
+    ],
+    "order": 141
+  },
+  {
+    "id": "free-masters-slack",
+    "poet": "Edgar Lee Masters",
+    "source": "Spoon River Anthology",
+    "sourceYear": 1915,
+    "origin": "https://www.gutenberg.org/cache/epub/1280/pg1280.txt",
+    "deathYear": 1950,
+    "form": "free",
+    "lang": "en",
+    "title": "Margaret Fuller Slack",
+    "body": "I would have been as great as George Eliot\nBut for an untoward fate.\nFor look at the photograph of me made by Penniwit,\nChin resting on hand, and deep—set eyes—\nGray, too, and far-searching.\nBut there was the old, old problem:\nShould it be celibacy, matrimony or unchastity?\nThen John Slack, the rich druggist, wooed me,\nLuring me with the promise of leisure for my novel,\nAnd I married him, giving birth to eight children,\nAnd had no time to write.\nIt was all over with me, anyway,\nWhen I ran the needle in my hand\nWhile washing the baby’s things,\nAnd died from lock—jaw, an ironical death.\nHear me, ambitious souls,\nSex is the curse of life.",
+    "see": [
+      "person",
+      "indoor"
+    ],
+    "say": [
+      "explains"
+    ],
+    "order": 142
+  },
+  {
+    "id": "free-crane-ship",
+    "poet": "Stephen Crane",
+    "source": "The Black Riders, and Other Lines",
+    "sourceYear": 1895,
+    "origin": "https://www.gutenberg.org/cache/epub/40786/pg40786.txt",
+    "deathYear": 1900,
+    "form": "free",
+    "lang": "en",
+    "title": "",
+    "body": "God fashioned the ship of the world carefully\nWith the infinite skill of an All-Master\nMade He the hull and the sails,\nHeld He the rudder\nReady for adjustment.\nErect stood He, scanning his work proudly.\nThen--at fateful time--a Wrong called,\nAnd God turned, heeding.\nLo, the ship, at this opportunity, slipped slyly,\nMaking cunning noiseless travel down the ways.\nSo that, forever rudderless, it went upon the seas\nGoing ridiculous voyages,\nMaking quaint progress,\nTurning as with serious purpose\nBefore stupid winds.\nAnd there were many in the sky\nWho laughed at this thing.",
+    "see": [
+      "water",
+      "sky"
+    ],
+    "say": [
+      "one_leap",
+      "explains"
+    ],
+    "order": 143
+  },
+  {
+    "id": "free-crane-learned",
+    "poet": "Stephen Crane",
+    "source": "The Black Riders, and Other Lines",
+    "sourceYear": 1895,
+    "origin": "https://www.gutenberg.org/cache/epub/40786/pg40786.txt",
+    "deathYear": 1900,
+    "form": "free",
+    "lang": "en",
+    "title": "",
+    "body": "A learned man came to me once.\nHe said, \"I know the way,--come.\"\nAnd I was overjoyed at this.\nTogether we hastened.\nSoon, too soon, were we\nWhere my eyes were useless,\nAnd I knew not the ways of my feet\nI clung to the hand of my friend;\nBut at last he cried, \"I am lost.\"",
+    "see": [
+      "person"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 144
   }
 ]

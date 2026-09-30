@@ -1470,6 +1470,180 @@ add({
   say: ["short_line", "one_leap"],
 });
 
+add({
+  id: "haiku-shiki-hatsuyuki",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "初雪やかくれおほせぬ馬の糞"),
+  see: ["ordinary", "day"],
+});
+add({
+  id: "haiku-shiki-suzume",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "ぬれ足で雀のあるく廊下かな"),
+  see: ["indoor", "water"],
+});
+add({
+  id: "haiku-shiki-yoiyami",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "宵闇や薄に月のいづる音"),
+  see: ["night", "plant", "light"],
+});
+add({
+  id: "haiku-shiki-kocho",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "胡蝶飛ぶ簾のうちの人もなし"),
+  see: ["indoor"],
+});
+add({
+  id: "haiku-shiki-sankai",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "三階の灯を消しに行く夜寒かな"),
+  see: ["night", "light", "indoor"],
+});
+add({
+  id: "haiku-shiki-koban",
+  ...yosamuSource,
+  body: yosamuLine(yosamu, "交番の交代時の夜寒かな"),
+  see: ["night", "street", "person"],
+});
+add({
+  id: "fixed-toson-kasa",
+  ...tosonSource,
+  title: "傘のうち",
+  body: betweenTitles(wakanaText, "傘のうち", "歌ふをきけば"),
+  see: ["person", "water"],
+});
+add({
+  id: "fixed-toson-shiru",
+  ...tosonSource,
+  title: "知るや君",
+  body: betweenTitles(wakanaText, "知るや君", "秋風の歌"),
+  see: ["plant", "morning", "night", "sky"],
+});
+add({
+  id: "fixed-bansui-natsu",
+  ...bansuiSource,
+  title: "夏夜",
+  body: pick(tenchiPoems, "夏夜"),
+  see: ["night", "water", "sky", "light"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-bansui-tsuki",
+  ...bansuiSource,
+  title: "月と戀",
+  body: pick(tenchiPoems, "月と戀"),
+  see: ["night", "light", "sky", "person"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-blake-london",
+  ...blakeSource,
+  title: "London",
+  body: blakePoem(blake, "LONDON"),
+  see: ["street", "night", "water", "person"],
+});
+add({
+  id: "fixed-blake-garden",
+  ...blakeSource,
+  title: "The Garden of Love",
+  body: blakePoem(blake, "THE GARDEN OF LOVE"),
+  see: ["plant", "day", "person"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-sonnet-55",
+  ...shakespeare,
+  title: "Sonnet 55",
+  body: sonnet(sonnets, "LV"),
+  see: ["person"],
+});
+add({
+  id: "fixed-sonnet-130",
+  ...shakespeare,
+  title: "Sonnet 130",
+  body: sonnet(sonnets, "CXXX"),
+  see: ["person", "plant", "light"],
+});
+add({
+  id: "free-chuya-yusho",
+  ...chuyaSource,
+  title: "夕照",
+  body: pick(chuyaPoems, "夕照"),
+  see: ["evening", "scenery", "plant", "light"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-chuya-kikyo",
+  ...chuyaSource,
+  title: "帰郷",
+  body: pick(chuyaPoems, "帰郷"),
+  see: ["day", "scenery", "plant"],
+  say: ["names_feeling"],
+});
+add({
+  id: "free-oote-yami",
+  ...ooteSource,
+  title: "黄金の闇",
+  body: betweenTitles(ooteText, "黄金の闇", "槍の野辺"),
+  see: ["night", "person", "light"],
+  say: ["names_feeling", "one_leap"],
+});
+add({
+  id: "free-oote-sansui",
+  ...ooteSource,
+  title: "撒水車の小僧たち",
+  body: betweenTitles(ooteText, "撒水車の小僧たち", "羊皮をきた召使"),
+  see: ["street", "water", "person"],
+  say: ["names_feeling", "explains"],
+});
+add({
+  id: "free-senge-ame",
+  ...sengeSource,
+  title: "雨",
+  body: pick(sengePoems, "雨"),
+  see: ["water", "street", "night", "light"],
+  say: ["stops"],
+});
+add({
+  id: "free-senge-akanbo",
+  ...sengeSource,
+  title: "赤ん坊",
+  body: pick(sengePoems, "赤ん坊"),
+  see: ["person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "free-masters-anne",
+  ...mastersSource,
+  title: "Anne Rutledge",
+  body: epitaph(masters, "Anne Rutledge"),
+  see: ["person", "plant"],
+  say: ["explains", "names_feeling"],
+});
+add({
+  id: "free-masters-slack",
+  ...mastersSource,
+  title: "Margaret Fuller Slack",
+  body: epitaph(masters, "Margaret Fuller Slack"),
+  see: ["person", "indoor"],
+  say: ["explains"],
+});
+add({
+  id: "free-crane-ship",
+  ...craneSource,
+  body: romanPoem(crane, "VI"),
+  see: ["water", "sky"],
+  say: ["one_leap", "explains"],
+});
+add({
+  id: "free-crane-learned",
+  ...craneSource,
+  body: romanPoem(crane, "XX"),
+  see: ["person"],
+  say: ["short_line", "stops"],
+});
+
 const ids = new Set();
 for (const poem of poems) {
   if (ids.has(poem.id)) throw new Error(`duplicate id ${poem.id}`);
