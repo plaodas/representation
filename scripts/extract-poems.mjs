@@ -1829,6 +1829,205 @@ add({
   see: ["indoor", "food", "person", "light"],
   say: ["one_leap", "stops"],
 });
+add({
+  id: "free-yagi-kawa",
+  ...yagiSource,
+  form: "free",
+  lang: "ja",
+  title: "ふるさとの川",
+  body: pick(yagiPoems, "ふるさとの川"),
+  see: ["water", "scenery"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-bocho-inori",
+  ...bochoSource,
+  title: "いのり",
+  body: pick(bochoPoems, "いのり"),
+  see: ["sky", "object"],
+  say: ["short_line", "names_feeling", "one_leap"],
+});
+add({
+  id: "free-hagiwara-kuki",
+  ...hagiwaraSource,
+  form: "free",
+  lang: "ja",
+  title: "草の茎",
+  body: pick(hagiwara, "草の茎"),
+  see: ["plant", "sky", "day"],
+  say: ["short_line", "stops"],
+});
+add({
+  id: "free-kenji-iwate",
+  ...kenjiSource,
+  title: "岩手山",
+  body: pick(kenjiPoems, "岩手山"),
+  see: ["sky", "light"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-whitman-glimpse",
+  ...whitmanSource,
+  title: "A Glimpse",
+  body: gutenbergSlice(whitman, "A Glimpse", /\n\n\n/),
+  see: ["indoor", "night", "person"],
+  say: ["stops"],
+});
+add({
+  id: "free-whitman-leaf",
+  ...whitmanSource,
+  title: "A Leaf for Hand in Hand",
+  body: gutenbergSlice(whitman, "A Leaf for Hand in Hand", /\n\n\n/),
+  see: ["water", "person", "street"],
+  say: ["one_leap"],
+});
+const lastEpitaph = (text, name) => {
+  const lines = text.split(/\r?\n/);
+  let index = -1;
+  lines.forEach((line, i) => {
+    if (line.trim() === name) index = i;
+  });
+  if (index < 0) throw new Error(`missing ${name}`);
+  const body = [];
+  let blanks = 0;
+  for (const raw of lines.slice(index + 1)) {
+    const trimmed = raw.trim();
+    if (!trimmed) {
+      blanks += 1;
+      if (body.length && body.at(-1) !== "") body.push("");
+      continue;
+    }
+    if (body.length && blanks >= 2 && trimmed.length < 48 && !/[.!?,"—-]$/.test(trimmed)) break;
+    blanks = 0;
+    body.push(trimmed);
+  }
+  while (body[0] === "") body.shift();
+  while (body.at(-1) === "") body.pop();
+  return body.join("\n");
+};
+add({
+  id: "free-masters-petit",
+  ...mastersSource,
+  title: "Petit, the Poet",
+  body: lastEpitaph(masters, "Petit, the Poet"),
+  see: ["plant", "scenery"],
+  say: ["explains", "one_leap"],
+});
+add({
+  id: "free-lawrence-bat",
+  ...lawrenceSource,
+  title: "Bat",
+  body: titledVerse(lawrence, "BAT"),
+  see: ["evening", "sky"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "haiku-shiki-nishibi",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "西日さす地藏の笠に蜻蛉哉"),
+  see: ["day", "light", "object"],
+});
+add({
+  id: "haiku-shiki-sumire",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "我庭に一本さきしすみれ哉"),
+  see: ["plant"],
+});
+add({
+  id: "haiku-shiki-kumo",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "春の月一重の雲にかくれけり"),
+  see: ["sky", "evening"],
+});
+add({
+  id: "haiku-shiki-tsubaki",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "落したか落ちたか路の椿かな"),
+  see: ["plant", "street"],
+});
+add({
+  id: "tanka-bokusui-sabi",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "自がこころ寂び古びなば"),
+  see: ["person"],
+  say: ["short_line", "stops", "names_feeling"],
+});
+add({
+  id: "tanka-bokusui-hiji",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "書きながら肱をちぢめし"),
+  see: ["person"],
+});
+add({
+  id: "tanka-akiko-tobari",
+  ...akikoSource,
+  body: tankaLine(midare, "夜の帳にささめき尽きし"),
+  see: ["night", "person", "light"],
+});
+add({
+  id: "tanka-mokichi-umidori",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "灰いろの海鳥むれし"),
+  see: ["morning", "light", "scenery"],
+});
+add({
+  id: "fixed-toson-choon",
+  ...tosonSource,
+  title: "潮音",
+  body: betweenTitles(wakanaText, "潮音", "酔歌"),
+  see: ["water", "scenery"],
+});
+add({
+  id: "fixed-toson-sode",
+  ...tosonSource,
+  title: "四つの袖",
+  body: betweenTitles(wakanaText, "四つの袖", "天馬"),
+  see: ["person"],
+});
+add({
+  id: "fixed-susukida-ichijiku",
+  ...susukidaSource,
+  title: "無花果",
+  body: pick(hakuyoPoems, "無花果"),
+  see: ["plant", "day"],
+});
+add({
+  id: "fixed-ariake-toki",
+  ...ariakeSource,
+  title: "束の間なりき",
+  body: pick(shunchoPoems, "束の間なりき"),
+  see: ["light", "person", "night"],
+});
+add({
+  id: "fixed-keats-robin",
+  ...keatsSource,
+  title: "Robin Hood",
+  body: verseBlock(keats, "No! those days are gone away,", (line) => line === "TO AUTUMN."),
+  see: ["plant", "person"],
+});
+add({
+  id: "fixed-keats-fancy",
+  ...keatsSource,
+  title: "Fancy",
+  body: verseBlock(keats, "Ever let the Fancy roam,", (line) => line === "ODE." || line.startsWith("LINES ON THE MERMAID")),
+  see: ["night", "indoor", "sky"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-wordsworth-sparrow",
+  ...wordsworthSource,
+  title: "The Sparrow's Nest",
+  body: verseBlock(wordsworth, "Look, five blue eggs are gleaming there!", (line) => line.startsWith("10.")),
+  see: ["person", "scenery"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "fixed-wordsworth-celandine",
+  ...wordsworthSource,
+  title: "The Small Celandine",
+  body: verseBlock(wordsworth, "There is a Flower, the Lesser Celandine,", (line) => /^[789]\./.test(line)),
+  see: ["plant", "day", "light"],
+});
 
 const ids = new Set();
 for (const poem of poems) {

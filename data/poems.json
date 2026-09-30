@@ -3656,5 +3656,510 @@
       "stops"
     ],
     "order": 168
+  },
+  {
+    "id": "free-yagi-kawa",
+    "source": "八木重吉詩集",
+    "sourceYear": 1969,
+    "origin": "https://www.aozora.gr.jp/cards/000013/files/542_42320.html",
+    "deathYear": 1927,
+    "poet": "八木重吉",
+    "form": "free",
+    "lang": "ja",
+    "title": "ふるさとの川",
+    "body": "ふるさとの川よ\nふるさとの川よ\nよい音をたててながれているだろう",
+    "see": [
+      "water",
+      "scenery"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 169
+  },
+  {
+    "id": "free-bocho-inori",
+    "poet": "山村暮鳥",
+    "source": "山村暮鳥全集第一巻",
+    "sourceYear": 1989,
+    "origin": "https://www.aozora.gr.jp/cards/000136/files/731_50613.html",
+    "deathYear": 1924,
+    "form": "free",
+    "lang": "ja",
+    "title": "いのり",
+    "body": "つりばりぞそらよりたれつ\nまぼろしのこがねのうをら\nさみしさに\nさみしさに\nそのはりをのみ。",
+    "see": [
+      "sky",
+      "object"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling",
+      "one_leap"
+    ],
+    "order": 170
+  },
+  {
+    "id": "free-hagiwara-kuki",
+    "source": "現代詩文庫　1009　萩原朔太郎",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000067/files/859_21656.html",
+    "deathYear": 1942,
+    "poet": "萩原朔太郎",
+    "form": "free",
+    "lang": "ja",
+    "title": "草の茎",
+    "body": "冬のさむさに、\nほそき毛をもてつつまれし、\n草の茎をみよや、\nあをらみ茎はさみしげなれども、\nいちめんにうすき毛をもてつつまれし、\n草の茎をみよや。\n\n雪もよひする空のかなたに、\n草の茎はもえいづる。",
+    "see": [
+      "plant",
+      "sky",
+      "day"
+    ],
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "order": 171
+  },
+  {
+    "id": "free-kenji-iwate",
+    "poet": "宮沢賢治",
+    "source": "宮沢賢治全集1",
+    "sourceYear": 1986,
+    "origin": "https://www.aozora.gr.jp/cards/000081/files/1058_15403.html",
+    "deathYear": 1933,
+    "form": "free",
+    "lang": "ja",
+    "title": "岩手山",
+    "body": "そらの散乱反射のなかに\n古ぼけて黒くゑぐるもの\nひかりの微塵系列の底に\nきたなくしろく澱むもの\n（一九二二、六、二七）",
+    "see": [
+      "sky",
+      "light"
+    ],
+    "say": [
+      "short_line",
+      "one_leap"
+    ],
+    "order": 172
+  },
+  {
+    "id": "free-whitman-glimpse",
+    "poet": "Walt Whitman",
+    "source": "Leaves of Grass",
+    "sourceYear": 1892,
+    "origin": "https://www.gutenberg.org/cache/epub/1322/pg1322.txt",
+    "deathYear": 1892,
+    "form": "free",
+    "lang": "en",
+    "title": "A Glimpse",
+    "body": "A glimpse through an interstice caught,\nOf a crowd of workmen and drivers in a bar-room around the stove late of a winter night, and I unremark’d seated in a corner,\nOf a youth who loves me and whom I love, silently approaching and seating himself near, that he may hold me by the hand,\nA long while amid the noises of coming and going, of drinking and oath and smutty jest,\nThere we two, content, happy in being together, speaking little, perhaps not a word.",
+    "see": [
+      "indoor",
+      "night",
+      "person"
+    ],
+    "say": [
+      "stops"
+    ],
+    "order": 173
+  },
+  {
+    "id": "free-whitman-leaf",
+    "poet": "Walt Whitman",
+    "source": "Leaves of Grass",
+    "sourceYear": 1892,
+    "origin": "https://www.gutenberg.org/cache/epub/1322/pg1322.txt",
+    "deathYear": 1892,
+    "form": "free",
+    "lang": "en",
+    "title": "A Leaf for Hand in Hand",
+    "body": "A leaf for hand in hand;\nYou natural persons old and young!\nYou on the Mississippi and on all the branches and bayous of the Mississippi!\nYou friendly boatmen and mechanics! you roughs!\nYou twain! and all processions moving along the streets!\nI wish to infuse myself among you till I see it common for you to walk hand in hand.",
+    "see": [
+      "water",
+      "person",
+      "street"
+    ],
+    "say": [
+      "one_leap"
+    ],
+    "order": 174
+  },
+  {
+    "id": "free-masters-petit",
+    "poet": "Edgar Lee Masters",
+    "source": "Spoon River Anthology",
+    "sourceYear": 1915,
+    "origin": "https://www.gutenberg.org/cache/epub/1280/pg1280.txt",
+    "deathYear": 1950,
+    "form": "free",
+    "lang": "en",
+    "title": "Petit, the Poet",
+    "body": "Seeds in a dry pod, tick, tick, tick,\nTick, tick, tick, like mites in a quarrel—\nFaint iambics that the full breeze wakens—\nBut the pine tree makes a symphony thereof.\nTriolets, villanelles, rondels, rondeaus,\nBallades by the score with the same old thought:\nThe snows and the roses of yesterday are vanished;\nAnd what is love but a rose that fades?\nLife all around me here in the village:\nTragedy, comedy, valor and truth,\nCourage, constancy, heroism, failure—\nAll in the loom, and oh what patterns!\nWoodlands, meadows, streams and rivers—\nBlind to all of it all my life long.\nTriolets, villanelles, rondels, rondeaus,\nSeeds in a dry pod, tick, tick, tick, Tick, tick, tick, what little\niambics,\nWhile Homer and Whitman roared in the pines?",
+    "see": [
+      "plant",
+      "scenery"
+    ],
+    "say": [
+      "explains",
+      "one_leap"
+    ],
+    "order": 175
+  },
+  {
+    "id": "free-lawrence-bat",
+    "poet": "D. H. Lawrence",
+    "source": "Birds, Beasts and Flowers",
+    "sourceYear": 1923,
+    "origin": "https://www.gutenberg.org/cache/epub/60337/pg60337.txt",
+    "deathYear": 1930,
+    "form": "free",
+    "lang": "en",
+    "title": "Bat",
+    "body": "At evening, sitting on this terrace,\nWhen the sun from the west, beyond Pisa, beyond the mountains of Carrara\nDeparts, and the world is taken by surprise ...\n\nWhen the tired flower of Florence is in gloom beneath the glowing\nBrown hills surrounding ...\n\nWhen under the arches of the Ponte Vecchio\nA green light enters against stream, flush from the west,\nAgainst the current of obscure Arno ...\n\nLook up, and you see things flying\nBetween the day and the night;\nSwallows with spools of dark thread sewing the shadows together.\n\nA circle swoop, and a quick parabola under the bridge arches\nWhere light pushes through;\nA sudden turning upon itself of a thing in the air.\nA dip to the water.\n\nAnd you think:\n“The swallows are flying so late!”\n\nSwallows?\n\nDark air-life looping\nYet missing the pure loop ...\nA twitch, a twitter, an elastic shudder in flight\nAnd serrated wings against the sky,\nLike a glove, a black glove thrown up at the light,\nAnd falling back.\n\nNever swallows!\n_Bats!_\nThe swallows are gone.\n\nAt a wavering instant the swallows gave way to bats\nBy the Ponte Vecchio ...\nChanging guard.\n\nBats, and an uneasy creeping in one’s scalp\nAs the bats swoop overhead!\nFlying madly.\n\nPipistrello!\nBlack piper on an infinitesimal pipe.\nLittle lumps that fly in air and have voices indefinite, wildly vindictive;\n\nWings like bits of umbrella.\n\nBats!\n\nCreatures that hang themselves up like an old rag, to sleep;\nAnd disgustingly upside down.\n\nHanging upside down like rows of disgusting old rags\nAnd grinning in their sleep.\nBats!\n\nNot for me!",
+    "see": [
+      "evening",
+      "sky"
+    ],
+    "say": [
+      "short_line",
+      "names_feeling"
+    ],
+    "order": 176
+  },
+  {
+    "id": "haiku-shiki-nishibi",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "西日さす地藏の笠に蜻蛉哉",
+    "see": [
+      "day",
+      "light",
+      "object"
+    ],
+    "order": 177
+  },
+  {
+    "id": "haiku-shiki-sumire",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "我庭に一本さきしすみれ哉",
+    "see": [
+      "plant"
+    ],
+    "order": 178
+  },
+  {
+    "id": "haiku-shiki-kumo",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "春の月一重の雲にかくれけり",
+    "see": [
+      "sky",
+      "evening"
+    ],
+    "order": 179
+  },
+  {
+    "id": "haiku-shiki-tsubaki",
+    "poet": "正岡子規",
+    "source": "子規全集　第一巻　俳句一",
+    "sourceYear": 1975,
+    "origin": "https://www.aozora.gr.jp/cards/000305/files/1896.html",
+    "deathYear": 1902,
+    "form": "haiku",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "落したか落ちたか路の椿かな",
+    "see": [
+      "plant",
+      "street"
+    ],
+    "order": 180
+  },
+  {
+    "id": "tanka-bokusui-sabi",
+    "poet": "若山牧水",
+    "source": "若山牧水全集　第七卷",
+    "sourceYear": 1958,
+    "origin": "https://www.aozora.gr.jp/cards/000162/files/2693_20319.html",
+    "deathYear": 1928,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops",
+      "names_feeling"
+    ],
+    "body": "自がこころ寂び古びなばこのごときをさなき文はまた書かざらむ",
+    "see": [
+      "person"
+    ],
+    "order": 181
+  },
+  {
+    "id": "tanka-bokusui-hiji",
+    "poet": "若山牧水",
+    "source": "若山牧水全集　第七卷",
+    "sourceYear": 1958,
+    "origin": "https://www.aozora.gr.jp/cards/000162/files/2693_20319.html",
+    "deathYear": 1928,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "書きながら肱をちぢめしわがすがたわが文章になしといはなくに",
+    "see": [
+      "person"
+    ],
+    "order": 182
+  },
+  {
+    "id": "tanka-akiko-tobari",
+    "poet": "与謝野晶子",
+    "source": "みだれ髪",
+    "sourceYear": 2000,
+    "origin": "https://www.aozora.gr.jp/cards/000885/files/51307_47033.html",
+    "deathYear": 1942,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "names_feeling",
+      "stops"
+    ],
+    "body": "夜の帳にささめき尽きし星の今を下界の人の鬢のほつれよ",
+    "see": [
+      "night",
+      "person",
+      "light"
+    ],
+    "order": 183
+  },
+  {
+    "id": "tanka-mokichi-umidori",
+    "poet": "斎藤茂吉",
+    "source": "歌集　つゆじも",
+    "sourceYear": 2004,
+    "origin": "https://www.aozora.gr.jp/cards/001059/files/56884_63901.html",
+    "deathYear": 1953,
+    "form": "tanka",
+    "lang": "ja",
+    "title": "",
+    "say": [
+      "short_line",
+      "stops"
+    ],
+    "body": "灰いろの海鳥むれし田中には朝日のひかりすがしくさせり",
+    "see": [
+      "morning",
+      "light",
+      "scenery"
+    ],
+    "order": 184
+  },
+  {
+    "id": "fixed-toson-choon",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "潮音",
+    "body": "わきてながるゝ\nやほじほの\nそこにいざよふ\nうみの琴\nしらべもふかし\nもゝかはの\nよろづのなみを\nよびあつめ\nときみちくれば\nうらゝかに\nとほくきこゆる\nはるのしほのね",
+    "see": [
+      "water",
+      "scenery"
+    ],
+    "order": 185
+  },
+  {
+    "id": "fixed-toson-sode",
+    "poet": "島崎藤村",
+    "source": "藤村詩集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/000158/files/1508_18509.html",
+    "deathYear": 1943,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo",
+      "names_feeling"
+    ],
+    "title": "四つの袖",
+    "body": "をとこの気息のやはらかき\nお夏の髪にかゝるとき\nをとこの早きためいきの\n霰のごとくはしるとき\n\nをとこの熱き手の掌の\nお夏の手にも触るゝとき\nをとこの涙ながれいで\nお夏の袖にかゝるとき\n\nをとこの黒き目のいろの\nお夏の胸に映るとき\nをとこの紅き口唇の\nお夏の口にもゆるとき\n\n人こそしらね嗚呼恋の\nふたりの身より流れいで\nげにこがるれど慕へども\nやむときもなき清十郎",
+    "see": [
+      "person"
+    ],
+    "order": 186
+  },
+  {
+    "id": "fixed-susukida-ichijiku",
+    "poet": "薄田泣菫",
+    "source": "白羊宮",
+    "sourceYear": 1906,
+    "origin": "https://www.aozora.gr.jp/cards/000150/files/50558_61357.html",
+    "deathYear": 1945,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "無花果",
+    "body": "葉こそこぼるれ、夏なかの\n青水無月のかげに見し\nその日の夢はまづ覺めて、\n今日はた汝、――ああ無花果。\n\n昨日ぞ、夕に、あかつきに\n露けかりつる身のふたり、\n明日を、天なる大御手に\n委ぬるも、はた、――ああ無花果。",
+    "see": [
+      "plant",
+      "day"
+    ],
+    "order": 187
+  },
+  {
+    "id": "fixed-ariake-toki",
+    "poet": "蒲原有明",
+    "source": "日本現代文學全集 22 土井晩翠・薄田泣菫・蒲原有明・伊良子清白・横瀬夜雨集",
+    "sourceYear": 1968,
+    "origin": "https://www.aozora.gr.jp/cards/001055/files/46161_54994.html",
+    "deathYear": 1952,
+    "form": "fixed",
+    "lang": "ja",
+    "say": [
+      "shichigo"
+    ],
+    "title": "束の間なりき",
+    "body": "貴なるかげや、たき\n白衣ほのぼの――\nああ、今なえし眼よぎり\nにほふは姫か、びやくえの\n花の香いぶき。\n\n白玻ふかくおほひて、\n燭はその手に、\n盡きざる膏油玉髓、\n消えせぬ焔紅玉、\nあるひはこれか。\n\n夢こそひかり、ひまなく\nまぼろしうごく、\nこは何、ここに緑の\n星かと孔雀舞ひいで、\nわが身をさそふ。\n\n貴なる姫よ、しばしは\nその手の燭を、\nしばしは掩へ。――ああ世に\nわが身ぞ命すべなき\nちりひぢ水。\n\nほほゑみ、光、まぼろし、\n『時』のたはふれ、\n束のまなりき、これさへ、\nやがては眞闇おくつき、――\n白衣きえゆく。",
+    "see": [
+      "light",
+      "person",
+      "night"
+    ],
+    "order": 188
+  },
+  {
+    "id": "fixed-keats-robin",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme"
+    ],
+    "title": "Robin Hood",
+    "body": "No! those days are gone away,\nAnd their hours are old and gray,\nAnd their minutes buried all\nUnder the down-trodden pall\nOf the leaves of many years:\nMany times have winter's shears,\nFrozen North, and chilling East,\nSounded tempests to the feast\nOf the forest's whispering fleeces,\nSince men knew nor rent nor leases.\n\nNo, the bugle sounds no more,\nAnd the twanging bow no more;\nSilent is the ivory shrill\nPast the heath and up the hill;\nThere is no mid-forest laugh,\nWhere lone Echo gives the half\nTo some wight, amaz'd to hear\nJesting, deep in forest drear.\n\nOn the fairest time of June\nYou may go, with sun or moon,\nOr the seven stars to light you,\nOr the polar ray to right you;\nBut you never may behold\nLittle John, or Robin bold;\nNever one, of all the clan,\nThrumming on an empty can\nSome old hunting ditty, while\nHe doth his green way beguile\nTo fair hostess Merriment,\nDown beside the pasture Trent;\nFor he left the merry tale\nMessenger for spicy ale.\n\nGone, the merry morris din;\nGone, the song of Gamelyn;\nGone, the tough-belted outlaw\nIdling in the \"grene shawe;\"\nAll are gone away and past!\nAnd if Robin should be cast\nSudden from his turfed grave,\nAnd if Marian should have\nOnce again her forest days,\nShe would weep, and he would craze:\nHe would swear, for all his oaks,\nFall'n beneath the dockyard strokes,\nHave rotted on the briny seas;\nShe would weep that her wild bees\nSang not to her--strange! that honey\nCan't be got without hard money!\n\nSo it is: yet let us sing,\nHonour to the old bow-string!\nHonour to the bugle-horn!\nHonour to the woods unshorn!\nHonour to the Lincoln green!\nHonour to the archer keen!\nHonour to tight little John,\nAnd the horse he rode upon!\nHonour to bold Robin Hood,\nSleeping in the underwood!\nHonour to maid Marian,\nAnd to all the Sherwood-clan!\nThough their days have hurried by\nLet us two a burden try.",
+    "see": [
+      "plant",
+      "person"
+    ],
+    "order": 189
+  },
+  {
+    "id": "fixed-keats-fancy",
+    "poet": "John Keats",
+    "source": "Poems Published in 1820",
+    "sourceYear": 1820,
+    "origin": "https://www.gutenberg.org/cache/epub/23684/pg23684.txt",
+    "deathYear": 1821,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "Fancy",
+    "body": "Ever let the Fancy roam,\nPleasure never is at home:\nAt a touch sweet Pleasure melteth,\nLike to bubbles when rain pelteth;\nThen let winged Fancy wander\nThrough the thought still spread beyond her:\nOpen wide the mind's cage-door,\nShe'll dart forth, and cloudward soar.\nO sweet Fancy! let her loose;\nSummer's joys are spoilt by use,\nAnd the enjoying of the Spring\nFades as does its blossoming;\nAutumn's red-lipp'd fruitage too,\nBlushing through the mist and dew,\nCloys with tasting: What do then?\nSit thee by the ingle, when\nThe sear faggot blazes bright,\nSpirit of a winter's night;\nWhen the soundless earth is muffled,\nAnd the caked snow is shuffled\nFrom the ploughboy's heavy shoon;\nWhen the Night doth meet the Noon\nIn a dark conspiracy\nTo banish Even from her sky.\nSit thee there, and send abroad,\nWith a mind self-overaw'd,\nFancy, high-commission'd:--send her!\nShe has vassals to attend her:\nShe will bring, in spite of frost,\nBeauties that the earth hath lost;\nShe will bring thee, all together,\nAll delights of summer weather;\nAll the buds and bells of May,\nFrom dewy sward or thorny spray\nAll the heaped Autumn's wealth,\nWith a still, mysterious stealth:\nShe will mix these pleasures up\nLike three fit wines in a cup,\nAnd thou shalt quaff it:--thou shalt hear\nDistant harvest-carols clear;\nRustle of the reaped corn;\nSweet birds antheming the morn:\nAnd, in the same moment--hark!\n'Tis the early April lark,\nOr the rooks, with busy caw,\nForaging for sticks and straw.\nThou shalt, at one glance, behold\nThe daisy and the marigold;\nWhite-plum'd lilies, and the first\nHedge-grown primrose that hath burst;\nShaded hyacinth, alway\nSapphire queen of the mid-May;\nAnd every leaf, and every flower\nPearled with the self-same shower.\nThou shalt see the field-mouse peep\nMeagre from its celled sleep;\nAnd the snake all winter-thin\nCast on sunny bank its skin;\nFreckled nest-eggs thou shalt see\nHatching in the hawthorn-tree,\nWhen the hen-bird's wing doth rest\nQuiet on her mossy nest;\nThen the hurry and alarm\nWhen the bee-hive casts its swarm;\nAcorns ripe down-pattering,\nWhile the autumn breezes sing.\n\nOh, sweet Fancy! let her loose;\nEvery thing is spoilt by use:\nWhere's the cheek that doth not fade,\nToo much gaz'd at? Where's the maid\nWhose lip mature is ever new?\nWhere's the eye, however blue,\nDoth not weary? Where's the face\nOne would meet in every place?\nWhere's the voice, however soft,\nOne would hear so very oft?\nAt a touch sweet Pleasure melteth\nLike to bubbles when rain pelteth.\nLet, then, winged Fancy find\nThee a mistress to thy mind:\nDulcet-eyed as Ceres' daughter,\nEre the God of Torment taught her\nHow to frown and how to chide;\nWith a waist and with a side\nWhite as Hebe's, when her zone\nSlipt its golden clasp, and down\nFell her kirtle to her feet,\nWhile she held the goblet sweet,\nAnd Jove grew languid.--Break the mesh\nOf the Fancy's silken leash;\nQuickly break her prison-string\nAnd such joys as these she'll bring.--\nLet the winged Fancy roam\nPleasure never is at home.",
+    "see": [
+      "night",
+      "indoor",
+      "sky"
+    ],
+    "order": 190
+  },
+  {
+    "id": "fixed-wordsworth-sparrow",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme",
+      "names_feeling"
+    ],
+    "title": "The Sparrow's Nest",
+    "body": "Look, five blue eggs are gleaming there!\nFew visions have I seen more fair,\nNor many prospects of delight\nMore pleasing than that simple sight!\nI started seeming to espy\nThe home and shelter'd bed,\nThe Sparrow's dwelling, which, hard by\nMy Father's House, in wet or dry,\nMy Sister Emmeline and I\nTogether visited.\n\nShe look'd at it as if she fear'd it;\nStill wishing, dreading to be near it:\nSuch heart was in her, being then\nA little Prattler among men.\nThe Blessing of my later years\nWas with me when a Boy;\nShe gave me eyes, she gave me ears;\nAnd humble cares, and delicate fears;\nA heart, the fountain of sweet tears;\nAnd love, and thought, and joy.",
+    "see": [
+      "person",
+      "scenery"
+    ],
+    "order": 191
+  },
+  {
+    "id": "fixed-wordsworth-celandine",
+    "poet": "William Wordsworth",
+    "source": "Poems in Two Volumes, Volume 2",
+    "sourceYear": 1807,
+    "origin": "https://www.gutenberg.org/cache/epub/8824/pg8824.txt",
+    "deathYear": 1850,
+    "form": "fixed",
+    "lang": "en",
+    "say": [
+      "rhyme"
+    ],
+    "title": "The Small Celandine",
+    "body": "There is a Flower, the Lesser Celandine,\nThat shrinks, like many more, from cold and rain;\nAnd, the first moment that the sun may shine,\nBright as the sun itself, 'tis out again!\n\nWhen hailstones have been falling swarm on swarm,\nOr blasts the green field and the trees distress'd,\nOft have I seen it muffled up from harm,\nIn close self-shelter, like a Thing at rest.\n\nBut lately, one rough day, this Flower I pass'd,\nAnd recognized it, though an alter'd Form,\nNow standing forth an offering to the Blast,\nAnd buffetted at will by Rain and Storm,\n\nI stopp'd, and said with inly muttered voice,\n\"It doth not love the shower, nor seek the cold:\nThis neither is its courage nor its choice,\nBut its necessity in being old.\"\n\nThe sunshine may not bless it, nor the dew;\nIt cannot help itself in its decay;\nStiff in its members, wither'd, changed of hue.\nAnd, in my spleen, I smiled that it was grey.\n\nTo be a Prodigal's Favorite--then, worse truth,\nA Miser's Pensioner--behold our lot!\nO Man! that from thy fair and shining youth\nAge might but take the things Youth needed not!",
+    "see": [
+      "plant",
+      "day",
+      "light"
+    ],
+    "order": 192
   }
 ]

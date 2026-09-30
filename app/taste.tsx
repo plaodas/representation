@@ -1,9 +1,9 @@
 import { useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { ScrollView, StyleSheet, Text } from "react-native";
-import { loadReactions } from "../data/db";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { loadLang, loadReactions, saveLang } from "../data/db";
 import { groundFor, poemById } from "../data/library";
-import { sayLabel, seeLabel, type Reaction, type SayTag, type SeeTag } from "../domain/types";
+import { langModeLabel, nextLangMode, sayLabel, seeLabel, type LangMode, type Reaction, type SayTag, type SeeTag } from "../domain/types";
 
 const ranked = (reactions: Reaction[]) => {
   const see = new Map<SeeTag, number>();
@@ -25,27 +25,44 @@ const ranked = (reactions: Reaction[]) => {
 export default function TasteScreen() {
   const ground = groundFor();
   const [reactions, setReactions] = useState<Reaction[]>([]);
+  const [langMode, setLangMode] = useState<LangMode>("mix");
   useFocusEffect(useCallback(() => {
-    loadReactions().then(setReactions).catch(() => undefined);
+    Promise.all([loadReactions(), loadLang()])
+      .then(([stored, mode]) => {
+        setReactions(stored);
+        setLangMode(mode);
+      })
+      .catch(() => undefined);
   }, []));
   const likes = reactions.filter((reaction) => reaction.sentiment === "like");
   const words = ranked(reactions);
   const reasons = likes.filter((reaction) => reaction.reason.trim()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  const cycleLang = () => {
+    const mode = nextLangMode(langMode);
+    setLangMode(mode);
+    void saveLang(mode);
+  };
+
   return (
-    <ScrollView style={styles.fill} contentContainerStyle={styles.page}>
-        {likes.length === 0 ? (
-          <Text style={[styles.lead, { color: ground.color }]}>反応がたまるとここに並ぶ。</Text>
-        ) : (
-          <>
-            {words.map((word) => (
-              <Text key={word} style={[styles.word, { color: ground.color }]}>{word}</Text>
-            ))}
-            {reasons.map((reaction) => (
-              <Text key={reaction.poemId} style={[styles.reason, { color: ground.faint }]}>{reaction.reason}</Text>
-            ))}
-          </>
-        )}
-    </ScrollView>
+    <View style={styles.fill}>
+      <ScrollView style={styles.fill} contentContainerStyle={styles.page}>
+          {likes.length === 0 ? (
+            <Text style={[styles.lead, { color: ground.color }]}>反応がたまるとここに並ぶ。</Text>
+          ) : (
+            <>
+              {words.map((word) => (
+                <Text key={word} style={[styles.word, { color: ground.color }]}>{word}</Text>
+              ))}
+              {reasons.map((reaction) => (
+                <Text key={reaction.poemId} style={[styles.reason, { color: ground.faint }]}>{reaction.reason}</Text>
+              ))}
+            </>
+          )}
+      </ScrollView>
+      <Pressable onPress={cycleLang} style={styles.lang}>
+        <Text style={[styles.langWord, { color: ground.faint }]}>{langModeLabel[langMode]}</Text>
+      </Pressable>
+    </View>
   );
 }
 
@@ -55,4 +72,6 @@ const styles = StyleSheet.create({
   lead: { fontSize: 18, lineHeight: 32 },
   word: { fontSize: 22, lineHeight: 40, fontFamily: "ZenOldMincho_400Regular" },
   reason: { marginTop: 18, fontSize: 16, lineHeight: 28 },
+  lang: { alignItems: "center", paddingBottom: 12 },
+  langWord: { fontSize: 13, letterSpacing: 2 },
 });
