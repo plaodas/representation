@@ -5,7 +5,7 @@ import { sayTags, seeTags, type SayTag, type SeeTag } from "../../domain/types.t
 import { openOrders, type OrderRow } from "./db.ts";
 import { canReplace, deliveryOf, localParts } from "./deliver.ts";
 import { ensureModel, writePoem } from "./ollama.ts";
-import { acceptPoem } from "./poem.ts";
+import { acceptPoem, tooClose } from "./poem.ts";
 import { promptFor } from "./prompt.ts";
 
 const port = Number(process.env.PORT ?? "8787");
@@ -118,13 +118,13 @@ const fulfill = async (row: OrderRow) => {
     orders.mark(row, "作る", attempts);
     let text = "";
     try {
-      text = await writePoem(promptFor({ fragments, say, lang: row.lang }));
+      text = await writePoem(promptFor({ fragments, say, lang: row.lang, sample: row.sample }));
     } catch (error) {
       orders.mark(row, "待つ", attempts - 1);
       throw error;
     }
     const poem = acceptPoem(text);
-    if (poem) {
+    if (poem && !tooClose(poem, row.sample)) {
       orders.adopt(row, poem);
       console.log(`届ける ${row.localDate} ${poem.split("\n").length}行`);
       await pushBell(row.pushToken);
@@ -164,6 +164,7 @@ const place = async (request: IncomingMessage, response: ServerResponse) => {
     fragments?: unknown;
     say?: unknown;
     lang?: unknown;
+    sample?: unknown;
   };
   try {
     payload = JSON.parse(await readBody(request)) as typeof payload;
@@ -198,6 +199,7 @@ const place = async (request: IncomingMessage, response: ServerResponse) => {
     fragments: JSON.stringify(fragments),
     say: JSON.stringify(say),
     lang: payload.lang,
+    sample: typeof payload.sample === "string" && payload.sample.trim() ? payload.sample.trim() : null,
   });
   console.log(`待つ ${delivery.localDate}`);
   send(response, 204);

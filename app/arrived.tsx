@@ -1,9 +1,13 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
+import * as ImagePicker from "expo-image-picker";
 import { useEffect, useState } from "react";
 import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { fadeToScreen } from "../components/Frame";
-import { loadArrived, saveArrived, type Arrived } from "../data/db";
+import { loadArrived, loadLang, loadReactions, saveArrived, type Arrived } from "../data/db";
 import { groundFor, todayKey } from "../data/library";
+import { orderPhoto, watchArrival } from "../data/order";
+import { likeCount, photoLikeThreshold } from "../domain/selectNext";
+import type { LangMode } from "../domain/types";
 
 export default function ArrivedScreen() {
   const ground = groundFor();
@@ -12,6 +16,31 @@ export default function ArrivedScreen() {
   const day = params.day || todayKey();
   const [arrived, setArrived] = useState<Arrived | null>(null);
   const [draft, setDraft] = useState<string | null>(null);
+  const [asking, setAsking] = useState(false);
+  const [blocked, setBlocked] = useState(false);
+  const [limit, setLimit] = useState(false);
+  const [canSend, setCanSend] = useState(false);
+  const [langMode, setLangMode] = useState<LangMode>("mix");
+
+  useEffect(() => {
+    setAsking(false);
+    setBlocked(false);
+    setLimit(false);
+  }, [day]);
+
+  useEffect(() => {
+    let alive = true;
+    Promise.all([loadReactions(), loadLang()])
+      .then(([reactions, lang]) => {
+        if (!alive) return;
+        setCanSend(likeCount(reactions) >= photoLikeThreshold);
+        setLangMode(lang);
+      })
+      .catch(() => undefined);
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -49,6 +78,44 @@ export default function ArrivedScreen() {
     void saveArrived(next);
   };
 
+  const sampleBody = () => {
+    const text = (draft ?? arrived.body).trim();
+    if (!text) return "";
+    if (draft !== null && text !== arrived.body) {
+      const next = { ...arrived, body: text };
+      setArrived(next);
+      void saveArrived(next);
+    }
+    if (draft !== null) setDraft(null);
+    return text;
+  };
+
+  const pickPhoto = () => {
+    setAsking(false);
+    const sample = sampleBody();
+    if (!sample) return;
+    void (async () => {
+      const picked = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ["images"],
+        allowsMultipleSelection: false,
+        quality: 0.5,
+        base64: false,
+        exif: false,
+      });
+      if (picked.canceled || !picked.assets[0]?.uri) return;
+      const reactions = await loadReactions();
+      const sent = await orderPhoto(picked.assets[0].uri, reactions, langMode, sample);
+      if (sent === "full") {
+        setBlocked(true);
+        setLimit(true);
+        return;
+      }
+      if (sent !== "sent") return;
+      const poem = await watchArrival();
+      if (poem?.day) fadeToScreen(() => router.push({ pathname: "/arrived", params: { day: poem.day } }));
+    })();
+  };
+
   return (
     <View style={styles.stage}>
       {arrived.thumb ? (
@@ -71,16 +138,46 @@ export default function ArrivedScreen() {
             style={[styles.body, styles.field, face]}
           />
         )}
+        {limit ? (
+          <Text style={[styles.consent, styles.limit, { color: ground.color }]}>
+            詩の創作は1日1回までです。
+          </Text>
+        ) : asking ? (
+          <Pressable onPress={pickPhoto}>
+            <Text style={[styles.consent, { color: ground.color }]}>
+              創作のために詩を外部へ送信します。サーバーへの送信データは創作後に削除されます。
+            </Text>
+          </Pressable>
+        ) : null}
         <View style={styles.words}>
-          <Pressable onPress={() => { if (draft === null) setDraft(arrived.body); }}>
+          <Pressable onPress={() => {
+            setAsking(false);
+            setLimit(false);
+            if (draft === null) setDraft(arrived.body);
+          }}>
             <Text style={[styles.word, { color: ground.faint }]}>綴る</Text>
           </Pressable>
           <Pressable onPress={() => {
+            setAsking(false);
+            setLimit(false);
             if (draft !== null) finish(draft);
             fadeToScreen(() => router.push("/memory"));
           }}>
             <Text style={[styles.word, { color: ground.faint }]}>記憶</Text>
           </Pressable>
+          {canSend ? (
+            <Pressable onPress={() => {
+              if (blocked) {
+                setAsking(false);
+                setLimit((value) => !value);
+                return;
+              }
+              setLimit(false);
+              setAsking((value) => !value);
+            }}>
+              <Text style={[styles.word, { color: ground.faint, opacity: asking ? 0.45 : 1 }]}>瞬間</Text>
+            </Pressable>
+          ) : null}
         </View>
       </ScrollView>
     </View>
@@ -105,6 +202,16 @@ const styles = StyleSheet.create({
   },
   body: { fontSize: 22, lineHeight: 40 },
   field: { padding: 0, borderWidth: 0, outlineWidth: 0 },
+  consent: {
+    marginTop: 28,
+    textAlign: "center",
+    fontSize: 13,
+    lineHeight: 22,
+    textDecorationLine: "underline",
+  },
+  limit: {
+    textDecorationLine: "none",
+  },
   words: {
     marginTop: 28,
     flexDirection: "row",

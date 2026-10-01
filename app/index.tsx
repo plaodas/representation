@@ -41,6 +41,8 @@ export default function TodayScreen() {
   const [ready, setReady] = useState(false);
   const [actionsClear, setActionsClear] = useState(false);
   const [kept, setKept] = useState(false);
+  const [blocked, setBlocked] = useState(false);
+  const [limit, setLimit] = useState(false);
   const viewing = params.poem ? poemById(params.poem) : undefined;
   const reasonSave = useRef(Promise.resolve());
   const latestReason = useRef("");
@@ -225,6 +227,10 @@ export default function TodayScreen() {
   }, [ready]);
 
   const pickPhoto = () => {
+    if (blocked) {
+      setLimit((value) => !value);
+      return;
+    }
     void (async () => {
       const picked = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ["images"],
@@ -235,6 +241,11 @@ export default function TodayScreen() {
       });
       if (picked.canceled || !picked.assets[0]?.uri) return;
       const sent = await orderPhoto(picked.assets[0].uri, reactions, langMode);
+      if (sent === "full") {
+        setBlocked(true);
+        setLimit(true);
+        return;
+      }
       if (sent === "sent") followArrival();
     })();
   };
@@ -320,6 +331,9 @@ export default function TodayScreen() {
             {[current.title, current.poet].filter(Boolean).join("　")}
           </Text>
         ) : null}
+        {limit ? (
+          <Text style={[styles.limit, { color: ground.color }]}>詩の創作は1日1回までです。</Text>
+        ) : null}
         {ready && current && likeCount(reactions) >= photoLikeThreshold ? (
           <View style={styles.photo}>
             <Pressable onPress={pickPhoto}>
@@ -384,6 +398,7 @@ const styles = StyleSheet.create({
   wide: { paddingVertical: 72 },
   body: { fontSize: 22, lineHeight: 40 },
   credit: { marginTop: 28, fontSize: 13 },
+  limit: { marginTop: 28, textAlign: "center", fontSize: 13, lineHeight: 22 },
   photo: {
     marginTop: 36,
     flexDirection: "row",
