@@ -18,7 +18,7 @@ type FileState = {
   reading: Partial<Record<Form, ReadState>>;
   form: Form;
   lang: LangMode;
-  arrived: Arrived | null;
+  arrived: Arrived[];
   orderToken: string;
 };
 
@@ -27,7 +27,7 @@ const emptyFile = (): FileState => ({
   reading: {},
   form: "free",
   lang: "mix",
-  arrived: null,
+  arrived: [],
   orderToken: "",
 });
 
@@ -37,11 +37,28 @@ const webWithoutFileSystem = () =>
 const asLangMode = (value: string | undefined): LangMode =>
   value === "ja" || value === "en" ? value : "mix";
 
+const isArrived = (value: unknown): value is Arrived => {
+  if (!value || typeof value !== "object") return false;
+  const poem = value as Arrived;
+  return Boolean(poem.day) && (poem.lang === "ja" || poem.lang === "en");
+};
+
+const asList = (raw: unknown): Arrived[] => {
+  const value = typeof raw === "string" && raw ? (JSON.parse(raw) as unknown) : raw;
+  const items = Array.isArray(value) ? value : value ? [value] : [];
+  return items.filter(isArrived).sort((a, b) => b.day.localeCompare(a.day));
+};
+
 const readFile = (): FileState => {
   const raw = localStorage.getItem(fileKey);
   if (!raw) return emptyFile();
-  const parsed = JSON.parse(raw) as Partial<FileState>;
-  return { ...emptyFile(), ...parsed, lang: asLangMode(parsed.lang) };
+  const parsed = JSON.parse(raw) as Partial<FileState> & { arrived?: unknown };
+  return {
+    ...emptyFile(),
+    ...parsed,
+    lang: asLangMode(parsed.lang),
+    arrived: asList(parsed.arrived),
+  };
 };
 
 const writeFile = (file: FileState) => {
@@ -249,26 +266,25 @@ const saveMeta = async (key: string, value: string) => {
   );
 };
 
-const asArrived = (raw: string | Arrived | null | undefined): Arrived | null => {
-  if (!raw) return null;
-  const parsed = typeof raw === "string" ? (JSON.parse(raw) as Arrived) : raw;
-  if (!parsed.day || (parsed.lang !== "ja" && parsed.lang !== "en")) return null;
-  return parsed;
-};
-
-export const loadArrived = async (): Promise<Arrived | null> => {
-  if (webWithoutFileSystem()) return asArrived(readFile().arrived);
-  return asArrived(await meta("arrived"));
-};
-
-export const saveArrived = async (arrived: Arrived) => {
+const writeArrived = async (arrived: Arrived[]) => {
+  const next = [...arrived].sort((a, b) => b.day.localeCompare(a.day));
   if (webWithoutFileSystem()) {
     const file = readFile();
-    file.arrived = arrived;
+    file.arrived = next;
     writeFile(file);
     return;
   }
-  await saveMeta("arrived", JSON.stringify(arrived));
+  await saveMeta("arrived", JSON.stringify(next));
+};
+
+export const loadArrived = async (): Promise<Arrived[]> => {
+  if (webWithoutFileSystem()) return readFile().arrived;
+  return asList(await meta("arrived"));
+};
+
+export const saveArrived = async (arrived: Arrived) => {
+  const kept = (await loadArrived()).filter((item) => item.day !== arrived.day);
+  await writeArrived([arrived, ...kept]);
 };
 
 export const orderToken = async () => {

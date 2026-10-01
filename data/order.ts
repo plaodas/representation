@@ -42,12 +42,13 @@ export const orderPhoto = async (uri: string, reactions: Reaction[], langMode: L
   const reduced = await reducePhoto(uri);
   if (!reduced) return "rejected" as const;
   const lang = langMode === "en" ? "en" : "ja";
-  const existing = await loadArrived();
+  const today = todayKey();
+  const existing = (await loadArrived()).find((item) => item.day === today);
   await saveArrived({
-    day: todayKey(),
+    day: today,
     lang,
     thumb: reduced.thumb,
-    body: existing?.day === todayKey() ? existing.body : "",
+    body: existing?.body ?? "",
     seen: false,
   });
   const response = await authed("/orders", {
@@ -78,11 +79,12 @@ export const watchArrival = () => {
           continue;
         }
         if (today?.status === "届ける" && today.body) {
-          const current = await loadArrived();
+          const day = todayKey();
+          const current = (await loadArrived()).find((item) => item.day === day);
           const arrived: Arrived = {
-            day: todayKey(),
+            day,
             lang: today.lang,
-            thumb: current?.day === todayKey() ? current.thumb : "",
+            thumb: current?.thumb ?? "",
             body: today.body,
             seen: false,
           };

@@ -1,25 +1,31 @@
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { fadeToScreen } from "../components/Frame";
 import { loadArrived, saveArrived, type Arrived } from "../data/db";
-import { groundFor } from "../data/library";
+import { groundFor, todayKey } from "../data/library";
 
 export default function ArrivedScreen() {
   const ground = groundFor();
+  const router = useRouter();
+  const params = useLocalSearchParams<{ day?: string }>();
+  const day = params.day || todayKey();
   const [arrived, setArrived] = useState<Arrived | null>(null);
 
   useEffect(() => {
     let alive = true;
     loadArrived()
       .then((stored) => {
-        if (!alive || !stored?.body) return;
-        setArrived(stored);
-        if (!stored.seen) void saveArrived({ ...stored, seen: true });
+        const poem = stored.find((item) => item.day === day);
+        if (!alive || !poem?.body) return;
+        setArrived(poem);
+        if (!poem.seen) void saveArrived({ ...poem, seen: true });
       })
       .catch(() => undefined);
     return () => {
       alive = false;
     };
-  }, []);
+  }, [day]);
 
   if (!arrived) return null;
 
@@ -40,6 +46,12 @@ export default function ArrivedScreen() {
         >
           {arrived.body}
         </Text>
+        <Pressable
+          onPress={() => fadeToScreen(() => router.push("/memory"))}
+          style={styles.memory}
+        >
+          <Text style={[styles.memoryWord, { color: ground.faint }]}>記憶</Text>
+        </Pressable>
       </ScrollView>
     </View>
   );
@@ -48,7 +60,7 @@ export default function ArrivedScreen() {
 const styles = StyleSheet.create({
   stage: { flex: 1 },
   photo: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     opacity: 0.72,
     transform: [{ scale: 1.2 }],
   },
@@ -62,4 +74,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   body: { fontSize: 22, lineHeight: 40 },
+  memory: { marginTop: 28, alignSelf: "center" },
+  memoryWord: { fontSize: 13, letterSpacing: 2 },
 });
