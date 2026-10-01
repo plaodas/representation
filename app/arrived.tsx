@@ -1,6 +1,6 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { fadeToScreen } from "../components/Frame";
 import { loadArrived, saveArrived, type Arrived } from "../data/db";
 import { groundFor, todayKey } from "../data/library";
@@ -11,6 +11,7 @@ export default function ArrivedScreen() {
   const params = useLocalSearchParams<{ day?: string }>();
   const day = params.day || todayKey();
   const [arrived, setArrived] = useState<Arrived | null>(null);
+  const [draft, setDraft] = useState<string | null>(null);
 
   useEffect(() => {
     let alive = true;
@@ -19,7 +20,12 @@ export default function ArrivedScreen() {
         const poem = stored.find((item) => item.day === day);
         if (!alive || !poem?.body) return;
         setArrived(poem);
-        if (!poem.seen) void saveArrived({ ...poem, seen: true });
+        if (!poem.seen) {
+          void loadArrived().then((list) => {
+            const current = list.find((item) => item.day === poem.day) ?? poem;
+            return saveArrived({ ...current, seen: true });
+          });
+        }
       })
       .catch(() => undefined);
     return () => {
@@ -29,29 +35,53 @@ export default function ArrivedScreen() {
 
   if (!arrived) return null;
 
+  const face = {
+    color: ground.color,
+    fontFamily: arrived.lang === "ja" ? "ZenOldMincho_400Regular" : "EBGaramond_400Regular",
+  };
+
+  const finish = (text: string) => {
+    const body = text.trim();
+    setDraft(null);
+    if (!body || body === arrived.body) return;
+    const next = { ...arrived, body };
+    setArrived(next);
+    void saveArrived(next);
+  };
+
   return (
     <View style={styles.stage}>
       {arrived.thumb ? (
         <Image source={{ uri: arrived.thumb }} blurRadius={36} style={styles.photo} />
       ) : null}
       <ScrollView contentContainerStyle={styles.poemWrap}>
-        <Text
-          style={[
-            styles.body,
-            {
-              color: ground.color,
-              fontFamily: arrived.lang === "ja" ? "ZenOldMincho_400Regular" : "EBGaramond_400Regular",
-            },
-          ]}
-        >
-          {arrived.body}
-        </Text>
-        <Pressable
-          onPress={() => fadeToScreen(() => router.push("/memory"))}
-          style={styles.memory}
-        >
-          <Text style={[styles.memoryWord, { color: ground.faint }]}>記憶</Text>
-        </Pressable>
+        {draft === null ? (
+          <Text style={[styles.body, face]}>{arrived.body}</Text>
+        ) : (
+          <TextInput
+            autoFocus
+            multiline
+            value={draft}
+            onChangeText={setDraft}
+            onBlur={(event) => {
+              const text = (event.nativeEvent as { text?: string }).text;
+              if (typeof text === "string") finish(text);
+            }}
+            onEndEditing={(event) => finish(event.nativeEvent.text)}
+            style={[styles.body, styles.field, face]}
+          />
+        )}
+        <View style={styles.words}>
+          <Pressable onPress={() => { if (draft === null) setDraft(arrived.body); }}>
+            <Text style={[styles.word, { color: ground.faint }]}>綴る</Text>
+          </Pressable>
+          <Pressable onPress={() => {
+            if (draft !== null) finish(draft);
+            fadeToScreen(() => router.push("/memory"));
+          }}>
+            <Text style={[styles.word, { color: ground.faint }]}>記憶</Text>
+          </Pressable>
+        </View>
       </ScrollView>
     </View>
   );
@@ -74,6 +104,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   body: { fontSize: 22, lineHeight: 40 },
-  memory: { marginTop: 28, alignSelf: "center" },
-  memoryWord: { fontSize: 13, letterSpacing: 2 },
+  field: { padding: 0, borderWidth: 0, outlineWidth: 0 },
+  words: {
+    marginTop: 28,
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 28,
+  },
+  word: { fontSize: 13, letterSpacing: 2 },
 });
