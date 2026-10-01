@@ -16,38 +16,16 @@ export const localParts = (now: Date, timeZone: string) => {
   };
 };
 
-const addDay = (date: string) => {
-  const [year, month, day] = date.split("-").map(Number);
-  return new Date(Date.UTC(year, month - 1, day + 1)).toISOString().slice(0, 10);
+export const dailyOrderLimit = (raw: string | undefined) => {
+  if (raw === undefined || raw.trim() === "") return 1;
+  const value = Number(raw);
+  return Number.isInteger(value) && value >= 0 ? value : 1;
 };
 
-export const utcForLocal = (date: string, hour: number, timeZone: string) => {
-  const [year, month, day] = date.split("-").map(Number);
-  let utc = Date.UTC(year, month - 1, day, hour, 0, 0);
-  for (let attempt = 0; attempt < 4; attempt += 1) {
-    const parts = localParts(new Date(utc), timeZone);
-    const [gotYear, gotMonth, gotDay] = parts.date.split("-").map(Number);
-    const got = Date.UTC(gotYear, gotMonth - 1, gotDay, parts.hour, 0, 0);
-    const want = Date.UTC(year, month - 1, day, hour, 0, 0);
-    utc += want - got;
-  }
-  return new Date(utc).toISOString();
-};
+export const orderAllowed = (hasRow: boolean, limit: number) => limit === 0 || !hasRow;
 
-export const deliveryOf = (input: {
-  now: Date;
-  timeZone: string;
-  localDate: string;
-  immediate: boolean;
-}) => {
+export const deliveryOf = (input: { now: Date; timeZone: string; localDate: string }) => {
   const here = localParts(input.now, input.timeZone);
   if (input.localDate !== here.date) return null;
-  if (input.immediate) {
-    return { localDate: input.localDate, deliverAt: input.now.toISOString() };
-  }
-  const localDate = here.hour < 15 ? input.localDate : addDay(input.localDate);
-  return { localDate, deliverAt: utcForLocal(localDate, 18, input.timeZone) };
+  return { localDate: input.localDate, deliverAt: input.now.toISOString() };
 };
-
-export const canReplace = (status: string, hour: number, immediate: boolean) =>
-  status === "待つ" && (immediate || hour < 15);

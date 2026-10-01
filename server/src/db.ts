@@ -100,15 +100,16 @@ export const openOrders = (path: string) => {
      ORDER BY deliver_at`,
   );
   const mark = db.prepare(
-    `UPDATE orders SET status = ?, attempts = ? WHERE account = ? AND local_date = ?`,
+    `UPDATE orders SET status = ?, attempts = ? WHERE account = ? AND local_date = ? AND deliver_at = ?`,
   );
   const adopt = db.prepare(
     `UPDATE orders
      SET status = '届ける', body = ?, fragments = NULL, sample = NULL
-     WHERE account = ? AND local_date = ?`,
+     WHERE account = ? AND local_date = ? AND deliver_at = ?`,
   );
   const fail = db.prepare(
-    `UPDATE orders SET status = '失敗', fragments = NULL, sample = NULL WHERE account = ? AND local_date = ?`,
+    `UPDATE orders SET status = '失敗', fragments = NULL, sample = NULL
+     WHERE account = ? AND local_date = ? AND deliver_at = ?`,
   );
   const hand = db.prepare(
     `UPDATE orders SET status = '渡した', body = NULL, fragments = NULL, sample = NULL
@@ -136,13 +137,13 @@ export const openOrders = (path: string) => {
       return (due.all(nowIso) as Stored[]).map(rowOf);
     },
     mark(row: OrderRow, status: Status, attempts: number) {
-      mark.run(status, attempts, row.account, row.localDate);
+      return mark.run(status, attempts, row.account, row.localDate, row.deliverAt).changes > 0;
     },
     adopt(row: OrderRow, body: string) {
-      adopt.run(body, row.account, row.localDate);
+      return adopt.run(body, row.account, row.localDate, row.deliverAt).changes > 0;
     },
     fail(row: OrderRow) {
-      fail.run(row.account, row.localDate);
+      return fail.run(row.account, row.localDate, row.deliverAt).changes > 0;
     },
     hand(row: OrderRow) {
       hand.run(row.account, row.localDate);

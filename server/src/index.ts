@@ -3,13 +3,13 @@ import { createServer, type IncomingMessage, type ServerResponse } from "node:ht
 import { seasons, type Fragments, type Season } from "../../domain/fragments.ts";
 import { sayTags, seeTags, type SayTag, type SeeTag } from "../../domain/types.ts";
 import { openOrders, type OrderRow } from "./db.ts";
-import { canReplace, deliveryOf, localParts } from "./deliver.ts";
+import { dailyOrderLimit, deliveryOf, localParts, orderAllowed } from "./deliver.ts";
 import { ensureModel, writePoem } from "./ollama.ts";
 import { acceptPoem, tooClose } from "./poem.ts";
 import { promptFor } from "./prompt.ts";
 
 const port = Number(process.env.PORT ?? "8787");
-const immediate = process.env.DELIVER_IMMEDIATE === "1";
+const limit = dailyOrderLimit(process.env.DAILY_ORDER_LIMIT);
 const loopMs = Number(process.env.LOOP_MS ?? "300000");
 const orders = openOrders(process.env.DATA_PATH ?? "/data/orders.db");
 
@@ -102,20 +102,19 @@ const pushBell = async (token: string | null) => {
 
 const fulfill = async (row: OrderRow) => {
   if (row.status === "作る" && row.attempts >= 2) {
-    orders.fail(row);
-    console.log(`失敗 ${row.localDate}`);
+    if (orders.fail(row)) console.log(`失敗 ${row.localDate}`);
     return;
   }
   let attempts = row.attempts;
   const fragments = JSON.parse(row.fragments ?? "null") as Fragments | null;
   const say = JSON.parse(row.say ?? "null") as Partial<Record<SayTag, number>> | null;
   if (!fragments || !say) {
-    orders.fail(row);
+    if (orders.fail(row)) console.log(`失敗 ${row.localDate}`);
     return;
   }
   while (attempts < 2) {
     attempts += 1;
-    orders.mark(row, "作る", attempts);
+    if (!orders.mark(row, "作る", attempts)) return;
     let text = "";
     try {
       text = await writePoem(promptFor({ fragments, say, lang: row.lang, sample: row.sample }));
@@ -125,14 +124,13 @@ const fulfill = async (row: OrderRow) => {
     }
     const poem = acceptPoem(text);
     if (poem && !tooClose(poem, row.sample)) {
-      orders.adopt(row, poem);
+      if (!orders.adopt(row, poem)) return;
       console.log(`届ける ${row.localDate} ${poem.split("\n").length}行`);
       await pushBell(row.pushToken);
       return;
     }
   }
-  orders.fail(row);
-  console.log(`失敗 ${row.localDate}`);
+  if (orders.fail(row)) console.log(`失敗 ${row.localDate}`);
 };
 
 let ticking = false;
@@ -184,12 +182,10 @@ const place = async (request: IncomingMessage, response: ServerResponse) => {
     now,
     timeZone: payload.timeZone,
     localDate: payload.localDate,
-    immediate,
   });
   if (!delivery) return send(response, 400);
   const existing = orders.forAccount(account).find((row) => row.localDate === delivery.localDate);
-  const hour = localParts(now, payload.timeZone).hour;
-  if (existing && !canReplace(existing.status, hour, immediate)) return send(response, 409);
+  if (!orderAllowed(Boolean(existing), limit)) return send(response, 409);
   orders.place({
     account,
     localDate: delivery.localDate,
