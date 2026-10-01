@@ -5,14 +5,31 @@ import { emptyRead } from "../domain/types";
 
 const fileKey = "representation";
 
+export type Arrived = {
+  day: string;
+  lang: "ja" | "en";
+  thumb: string;
+  body: string;
+  seen: boolean;
+};
+
 type FileState = {
   reactions: Reaction[];
   reading: Partial<Record<Form, ReadState>>;
   form: Form;
   lang: LangMode;
+  arrived: Arrived | null;
+  orderToken: string;
 };
 
-const emptyFile = (): FileState => ({ reactions: [], reading: {}, form: "free", lang: "mix" });
+const emptyFile = (): FileState => ({
+  reactions: [],
+  reading: {},
+  form: "free",
+  lang: "mix",
+  arrived: null,
+  orderToken: "",
+});
 
 const webWithoutFileSystem = () =>
   Platform.OS === "web" && (typeof navigator === "undefined" || !navigator.storage);
@@ -211,4 +228,60 @@ export const saveForm = async (form: Form) => {
      ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
     form,
   );
+};
+
+const meta = async (key: string) => {
+  const connection = await db();
+  const row = await connection.getFirstAsync<{ value: string }>(
+    "SELECT value FROM meta WHERE key = ?",
+    key,
+  );
+  return row?.value ?? "";
+};
+
+const saveMeta = async (key: string, value: string) => {
+  const connection = await db();
+  await connection.runAsync(
+    `INSERT INTO meta (key, value) VALUES (?, ?)
+     ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
+    key,
+    value,
+  );
+};
+
+const asArrived = (raw: string | Arrived | null | undefined): Arrived | null => {
+  if (!raw) return null;
+  const parsed = typeof raw === "string" ? (JSON.parse(raw) as Arrived) : raw;
+  if (!parsed.day || (parsed.lang !== "ja" && parsed.lang !== "en")) return null;
+  return parsed;
+};
+
+export const loadArrived = async (): Promise<Arrived | null> => {
+  if (webWithoutFileSystem()) return asArrived(readFile().arrived);
+  return asArrived(await meta("arrived"));
+};
+
+export const saveArrived = async (arrived: Arrived) => {
+  if (webWithoutFileSystem()) {
+    const file = readFile();
+    file.arrived = arrived;
+    writeFile(file);
+    return;
+  }
+  await saveMeta("arrived", JSON.stringify(arrived));
+};
+
+export const orderToken = async () => {
+  const existing = webWithoutFileSystem() ? readFile().orderToken : await meta("order-token");
+  if (existing.length >= 16) return existing;
+  const bytes = crypto.getRandomValues(new Uint8Array(24));
+  const token = btoa(String.fromCharCode(...bytes));
+  if (webWithoutFileSystem()) {
+    const file = readFile();
+    file.orderToken = token;
+    writeFile(file);
+    return token;
+  }
+  await saveMeta("order-token", token);
+  return token;
 };

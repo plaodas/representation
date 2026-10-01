@@ -2,6 +2,16 @@ import { forms, type Form, type LangMode, type Poem, type Reaction, type ReadSta
 
 export const likeThreshold = 8;
 
+export const photoLikeThreshold = 15;
+
+export const likeCount = (reactions: Reaction[]) =>
+  reactions.filter((reaction) => reaction.sentiment === "like").length;
+
+export const freeSay = (poems: Poem[], reactions: Reaction[]) => {
+  const { say } = weights(poems, reactions, "free");
+  return Object.fromEntries(say) as Partial<Record<SayTag, number>>;
+};
+
 const alternates = (form: Form) => form === "free" || form === "fixed";
 
 const poemMap = (poems: Poem[]) => new Map(poems.map((poem) => [poem.id, poem]));

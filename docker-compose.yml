@@ -1,0 +1,32 @@
+services:
+  ollama:
+    image: ollama/ollama
+    environment:
+      OLLAMA_KEEP_ALIVE: 30m
+    volumes:
+      - ollama:/root/.ollama
+    expose:
+      - "11434"
+  backend:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    ports:
+      - "8787:8787"
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: qwen3.5:4b
+      OLLAMA_SECRET: local-dev
+      AUTH_MODE: local
+      DELIVER_IMMEDIATE: "1"
+      LOOP_MS: "5000"
+      PORT: "8787"
+      DATA_PATH: /data/orders.db
+    volumes:
+      - orders:/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+volumes:
+  ollama:
+  orders:

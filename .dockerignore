@@ -1,0 +1,5 @@
+node_modules
+.git
+.expo
+data/poems.json
+scripts/work
