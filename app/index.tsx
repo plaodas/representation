@@ -40,6 +40,7 @@ export default function TodayScreen() {
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [ready, setReady] = useState(false);
   const [actionsClear, setActionsClear] = useState(false);
+  const [kept, setKept] = useState(false);
   const viewing = params.poem ? poemById(params.poem) : undefined;
   const reasonSave = useRef(Promise.resolve());
   const latestReason = useRef("");
@@ -189,15 +190,16 @@ export default function TodayScreen() {
     }
   };
 
-  const openArrived = () => {
-    fadeToScreen(() => router.push("/arrived"));
+  const openArrived = (day = todayKey()) => {
+    fadeToScreen(() => router.push({ pathname: "/arrived", params: { day } }));
   };
 
   const followArrival = () => {
     void watchArrival()
       .then((arrived) => {
         if (!alive.current || !arrived?.body) return;
-        openArrived();
+        setKept(true);
+        openArrived(arrived.day);
       })
       .catch(() => undefined);
   };
@@ -208,8 +210,10 @@ export default function TodayScreen() {
     loadArrived()
       .then((stored) => {
         if (stop) return;
-        if (stored?.body && stored.day === todayKey() && !stored.seen) {
-          openArrived();
+        setKept(stored.some((item) => item.body));
+        const today = stored.find((item) => item.day === todayKey());
+        if (today?.body && !today.seen) {
+          openArrived(today.day);
           return;
         }
         followArrival();
@@ -317,9 +321,16 @@ export default function TodayScreen() {
           </Text>
         ) : null}
         {ready && current && likeCount(reactions) >= photoLikeThreshold ? (
-          <Pressable onPress={pickPhoto} style={styles.photo}>
-            <Text style={[styles.faint, { color: ground.faint }]}>写真</Text>
-          </Pressable>
+          <View style={styles.photo}>
+            <Pressable onPress={pickPhoto}>
+              <Text style={[styles.faint, { color: ground.faint }]}>瞬間</Text>
+            </Pressable>
+            {kept ? (
+              <Pressable onPress={() => fadeToScreen(() => router.push("/memory"))}>
+                <Text style={[styles.faint, { color: ground.faint }]}>記憶</Text>
+              </Pressable>
+            ) : null}
+          </View>
         ) : null}
       </ScrollView>
       </Animated.View>
@@ -373,7 +384,13 @@ const styles = StyleSheet.create({
   wide: { paddingVertical: 72 },
   body: { fontSize: 22, lineHeight: 40 },
   credit: { marginTop: 28, fontSize: 13 },
-  photo: { marginTop: 36, alignSelf: "center" },
+  photo: {
+    marginTop: 36,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignSelf: "center",
+    gap: 28,
+  },
   actions: {
     flexDirection: "row",
     justifyContent: "center",
