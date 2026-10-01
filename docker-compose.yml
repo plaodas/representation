@@ -18,7 +18,7 @@ services:
       OLLAMA_MODEL: qwen3.5:4b
       OLLAMA_SECRET: local-dev
       AUTH_MODE: local
-      DELIVER_IMMEDIATE: "1"
+      DAILY_ORDER_LIMIT: "0"
       LOOP_MS: "5000"
       PORT: "8787"
       DATA_PATH: /data/orders.db
