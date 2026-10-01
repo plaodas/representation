@@ -2028,6 +2028,352 @@ add({
   body: verseBlock(wordsworth, "There is a Flower, the Lesser Celandine,", (line) => /^[789]\./.test(line)),
   see: ["plant", "day", "light"],
 });
+add({
+  id: "free-chuya-dokugo",
+  ...chuyaSource,
+  title: "独語",
+  body: pick(chuyaPoems, "独語"),
+  see: ["water", "object"],
+  say: ["short_line", "one_leap", "stops"],
+});
+add({
+  id: "free-chuya-inori",
+  ...chuyaSource,
+  title: "祈り",
+  body: pick(chuyaPoems, "祈り"),
+  see: ["person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "free-senge-fuyu",
+  ...sengeSource,
+  title: "冬の日の入り",
+  body: pick(sengePoems, "冬の日の入り"),
+  see: ["evening", "light", "person"],
+  say: ["short_line"],
+});
+add({
+  id: "free-senge-kitakaze",
+  ...sengeSource,
+  title: "北風",
+  body: pick(sengePoems, "北風"),
+  see: ["evening", "sky"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "free-lowell-bungler",
+  ...lowellSource,
+  title: "The Bungler",
+  body: titledVerse(lowell, "The Bungler"),
+  see: ["light", "indoor"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-lowell-obligation",
+  ...lowellSource,
+  title: "Obligation",
+  body: titledVerse(lowell, "Obligation"),
+  see: ["person"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "free-stevens-motion",
+  ...stevensSource,
+  title: "Life Is Motion",
+  body: titledVerse(stevens, "Life Is Motion"),
+  see: ["person", "scenery"],
+  say: ["short_line"],
+});
+add({
+  id: "free-stevens-wind",
+  ...stevensSource,
+  title: "To the Roaring Wind",
+  body: titledVerse(stevens, "To the Roaring Wind"),
+  see: ["night", "sky"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "haiku-shiki-tori",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "ちる花にもつるゝ鳥の翼かな"),
+  see: ["plant"],
+});
+add({
+  id: "haiku-shiki-ayu",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "見ればたゞ水の色なる小鮎哉"),
+  see: ["water"],
+});
+add({
+  id: "haiku-shiki-kabashira",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "夕立の來て蚊柱を崩しけり"),
+  see: ["water", "day"],
+});
+add({
+  id: "haiku-shiki-shoji",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "青／＼と障子にうつるはせを哉"),
+  see: ["plant", "indoor", "light"],
+});
+add({
+  id: "tanka-bokusui-issatsu",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "書くとなく書きてたまりし"),
+  see: ["ordinary", "person"],
+});
+add({
+  id: "tanka-bokusui-tanomare",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "おほくこれたのまれて書きし"),
+  see: ["person"],
+  say: ["short_line", "stops", "names_feeling"],
+});
+add({
+  id: "tanka-takuboku-sunayama",
+  ...takubokuSource,
+  body: tanka.find((block) => block.includes("砂山の砂に腹這ひ")),
+  see: ["scenery", "person"],
+});
+add({
+  id: "tanka-takuboku-ko",
+  ...takubokuSource,
+  body: tanka.find((block) => block.includes("目さまして猶起き出でぬ")),
+  see: ["person", "morning"],
+});
+add({
+  id: "fixed-toson-myojo",
+  ...tosonSource,
+  title: "明星",
+  body: betweenTitles(wakanaText, "明星", "潮音"),
+  see: ["morning", "light", "sky", "water"],
+});
+add({
+  id: "fixed-ariake-keibaku",
+  ...ariakeSource,
+  title: "繋縛",
+  body: pick(shunchoPoems, "繋縛"),
+  see: ["person", "night", "light"],
+});
+add({
+  id: "fixed-susukida-kuchizuke",
+  ...susukidaSource,
+  title: "くちづけ",
+  body: pick(hakuyoPoems, "くちづけ"),
+  see: ["morning", "water", "sky"],
+});
+add({
+  id: "fixed-bansui-ichieda",
+  ...bansuiSource,
+  title: "花一枝",
+  body: pick(tenchiPoems, "花一枝"),
+  see: ["plant", "person"],
+});
+add({
+  id: "fixed-blake-pipe",
+  ...blakeSource,
+  title: "Introduction",
+  body: blakePoem(blake, "INTRODUCTION"),
+  see: ["person", "day"],
+});
+add({
+  id: "fixed-blake-clod",
+  ...blakeSource,
+  title: "The Clod and the Pebble",
+  body: blakePoem(blake, "THE CLOD AND THE PEBBLE"),
+  see: ["water"],
+  say: ["rhyme", "short_line", "names_feeling"],
+});
+add({
+  id: "fixed-keats-bards",
+  ...keatsSource,
+  title: "Bards of Passion and of Mirth",
+  body: verseBlock(keats, "Bards of Passion and of Mirth,", (line) => line === "LINES"),
+  see: ["person", "sky"],
+});
+add({
+  id: "fixed-wordsworth-butterfly",
+  ...wordsworthSource,
+  title: "To a Butterfly",
+  body: verseBlock(wordsworth, "Stay near me--do not take thy flight!", (line) => line.startsWith("2.")),
+  see: ["person"],
+  say: ["rhyme", "names_feeling"],
+});
+add({
+  id: "free-oote-karasu",
+  ...ooteSource,
+  title: "陶器の鴉",
+  body: betweenTitles(ooteText, "陶器の鴉", "しなびた船"),
+  see: ["object", "day"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-oote-inu",
+  ...ooteSource,
+  title: "つんぼの犬",
+  body: betweenTitles(ooteText, "つんぼの犬", "野の羊へ"),
+  see: ["plant", "water"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-yagi-kaze",
+  ...yagiSource,
+  form: "free",
+  lang: "ja",
+  title: "風が鳴る",
+  body: pick(yagiPoems, "風が鳴る"),
+  see: ["plant"],
+  say: ["short_line", "names_feeling"],
+});
+add({
+  id: "free-hagiwara-nae",
+  ...hagiwaraSource,
+  form: "free",
+  lang: "ja",
+  title: "苗",
+  body: pick(hagiwara, "苗"),
+  see: ["plant", "sky", "light", "person"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-lawrence-peach",
+  ...lawrenceSource,
+  title: "Peach",
+  body: titledVerse(lawrence, "PEACH"),
+  see: ["food"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-lawrence-jay",
+  ...lawrenceSource,
+  title: "The Blue Jay",
+  body: titledVerse(lawrence, "THE BLUE JAY"),
+  see: ["sky", "scenery"],
+  say: ["short_line", "one_leap"],
+});
+add({
+  id: "free-masters-hoheimer",
+  ...mastersSource,
+  title: "Knowlt Hoheimer",
+  body: lastEpitaph(masters, "Knowlt Hoheimer"),
+  see: ["person"],
+  say: ["explains", "names_feeling"],
+});
+add({
+  id: "free-masters-griffy",
+  ...mastersSource,
+  title: "Griffy the Cooper",
+  body: lastEpitaph(masters, "Griffy the Cooper"),
+  see: ["object", "person"],
+  say: ["explains", "one_leap"],
+});
+add({
+  id: "haiku-shiki-kiku",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "それ／＼に名のつく菊の芽生哉"),
+  see: ["plant"],
+});
+add({
+  id: "haiku-shiki-medaka",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "一ひらの花にあつまる目高哉"),
+  see: ["plant", "water"],
+});
+add({
+  id: "haiku-shiki-zuda",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "木の枝に頭陀かけてそこに晝寐哉"),
+  see: ["plant", "day", "person"],
+});
+add({
+  id: "haiku-shiki-okami",
+  ...kanzanSource,
+  body: kanzanLine(kanzan, "狼の聲も聞こゆる夜寒かな"),
+  see: ["night"],
+});
+add({
+  id: "tanka-bokusui-magokoro",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "眞心のこもらぬにあらず"),
+  see: ["person"],
+  say: ["short_line", "stops", "names_feeling"],
+});
+add({
+  id: "tanka-bokusui-kakioki",
+  ...bokusuiSource,
+  body: tankaLine(bokusuiUta, "書きおきしは書かざりしに"),
+  see: ["ordinary", "person"],
+});
+add({
+  id: "tanka-akiko-kane",
+  ...akikoSource,
+  body: tankaLine(midare, "堂の鐘のひくきゆふべを"),
+  see: ["evening", "person", "plant"],
+});
+add({
+  id: "tanka-mokichi-nagasaki",
+  ...mokichiSource,
+  body: tankaLine(tsuyu, "とほく来てひとり寂しむに"),
+  see: ["scenery", "person", "day"],
+  say: ["short_line", "stops", "names_feeling"],
+});
+add({
+  id: "fixed-toson-suika",
+  ...tosonSource,
+  title: "酔歌",
+  body: betweenTitles(wakanaText, "酔歌", "二つの声"),
+  see: ["person", "food"],
+});
+add({
+  id: "fixed-susukida-kibou",
+  ...susukidaSource,
+  title: "希望",
+  body: pick(hakuyoPoems, "希望"),
+  see: ["water", "plant", "day"],
+});
+add({
+  id: "fixed-ariake-aki",
+  ...ariakeSource,
+  title: "秋",
+  body: pick(shunchoPoems, "秋"),
+  see: ["evening", "water", "plant", "light"],
+});
+add({
+  id: "fixed-bansui-airaku",
+  ...bansuiSource,
+  title: "哀樂",
+  body: pick(tenchiPoems, "哀樂"),
+  see: ["night", "sky", "light", "person"],
+  say: ["shichigo", "names_feeling"],
+});
+add({
+  id: "fixed-blake-boy",
+  ...blakeSource,
+  title: "The Little Boy Lost",
+  body: blakePoem(blake, "THE LITTLE BOY LOST"),
+  see: ["night", "person"],
+});
+add({
+  id: "fixed-blake-rosetree",
+  ...blakeSource,
+  title: "My Pretty Rose Tree",
+  body: verseBlock(blake, "A flower was offered to me,", (line) => line.startsWith("AH, SUNFLOWER")),
+  see: ["plant"],
+});
+add({
+  id: "fixed-wordsworth-gipsies",
+  ...wordsworthSource,
+  title: "Gipsies",
+  body: verseBlock(wordsworth, "Yet are they here?--the same unbroken knot", (line) => line.startsWith("11.")),
+  see: ["person", "night", "sky"],
+});
+add({
+  id: "fixed-sonnet-94",
+  ...shakespeare,
+  title: "Sonnet 94",
+  body: sonnet(sonnets, "XCIV"),
+  see: ["plant", "person"],
+});
 
 const ids = new Set();
 for (const poem of poems) {
