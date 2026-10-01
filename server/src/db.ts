@@ -12,6 +12,7 @@ export type OrderRow = {
   pushToken: string | null;
   fragments: string | null;
   say: string | null;
+  sample: string | null;
   lang: "ja" | "en";
   status: Status;
   attempts: number;
@@ -26,6 +27,7 @@ type Stored = {
   push_token: string | null;
   fragments: string | null;
   say: string | null;
+  sample: string | null;
   lang: "ja" | "en";
   status: Status;
   attempts: number;
@@ -40,6 +42,7 @@ const rowOf = (stored: Stored): OrderRow => ({
   pushToken: stored.push_token,
   fragments: stored.fragments,
   say: stored.say,
+  sample: stored.sample,
   lang: stored.lang,
   status: stored.status,
   attempts: stored.attempts,
@@ -62,14 +65,19 @@ export const openOrders = (path: string) => {
       status TEXT NOT NULL,
       attempts INTEGER NOT NULL,
       body TEXT,
+      sample TEXT,
       PRIMARY KEY (account, local_date)
     );
   `);
+  const columns = db.prepare("PRAGMA table_info(orders)").all() as { name: string }[];
+  if (!columns.some((column) => column.name === "sample")) {
+    db.exec("ALTER TABLE orders ADD COLUMN sample TEXT");
+  }
 
   const write = db.prepare(`
     INSERT INTO orders (
-      account, local_date, time_zone, deliver_at, push_token, fragments, say, lang, status, attempts, body
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, '待つ', 0, NULL)
+      account, local_date, time_zone, deliver_at, push_token, fragments, say, lang, status, attempts, body, sample
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, '待つ', 0, NULL, ?)
     ON CONFLICT(account, local_date) DO UPDATE SET
       time_zone = excluded.time_zone,
       deliver_at = excluded.deliver_at,
@@ -79,7 +87,8 @@ export const openOrders = (path: string) => {
       lang = excluded.lang,
       status = '待つ',
       attempts = 0,
-      body = NULL
+      body = NULL,
+      sample = excluded.sample
   `);
   const byAccount = db.prepare(
     "SELECT * FROM orders WHERE account = ? ORDER BY local_date",
@@ -95,14 +104,14 @@ export const openOrders = (path: string) => {
   );
   const adopt = db.prepare(
     `UPDATE orders
-     SET status = '届ける', body = ?, fragments = NULL
+     SET status = '届ける', body = ?, fragments = NULL, sample = NULL
      WHERE account = ? AND local_date = ?`,
   );
   const fail = db.prepare(
-    `UPDATE orders SET status = '失敗', fragments = NULL WHERE account = ? AND local_date = ?`,
+    `UPDATE orders SET status = '失敗', fragments = NULL, sample = NULL WHERE account = ? AND local_date = ?`,
   );
   const hand = db.prepare(
-    `UPDATE orders SET status = '渡した', body = NULL, fragments = NULL
+    `UPDATE orders SET status = '渡した', body = NULL, fragments = NULL, sample = NULL
      WHERE account = ? AND local_date = ?`,
   );
 
@@ -117,6 +126,7 @@ export const openOrders = (path: string) => {
         row.fragments,
         row.say,
         row.lang,
+        row.sample,
       );
     },
     forAccount(account: string) {

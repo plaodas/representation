@@ -63,6 +63,7 @@ export const promptFor = (input: {
   fragments: Fragments;
   say: Partial<Record<SayTag, number>>;
   lang: "ja" | "en";
+  sample?: string | null;
 }) => {
   const seen = input.fragments.see.map((tag) => (input.lang === "ja" ? seeJa[tag] : seeEn[tag]));
   const person =
@@ -78,6 +79,7 @@ export const promptFor = (input: {
     .filter((entry): entry is [SayTag, number] => typeof entry[1] === "number")
     .map(([tag, score]) => `${input.lang === "ja" ? sayJa[tag] : sayEn[tag]} ${score}`)
     .join(input.lang === "ja" ? "、" : ", ");
+  const sample = input.sample?.trim();
   if (input.lang === "en") {
     return [
       "Write one free-verse poem in English, six to twelve lines.",
@@ -89,6 +91,7 @@ export const promptFor = (input: {
       `Person: ${person}`,
       `Season: ${season}`,
       `Scores: ${way || "none"}`,
+      ...(sample ? ["", "Follow the leap of the sample, and do not repeat its words.", sample] : []),
     ].join("\n");
   }
   return [
@@ -101,5 +104,6 @@ export const promptFor = (input: {
     `人: ${person}`,
     `季節: ${season}`,
     `言い方の得点: ${way || "なし"}`,
+    ...(sample ? ["", "この飛躍の仕方に寄せ、同じ言葉は繰り返さない。", sample] : []),
   ].join("\n");
 };

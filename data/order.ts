@@ -38,11 +38,29 @@ export const takeToday = async (): Promise<Today> => {
   return (await response.json()) as Today;
 };
 
-export const orderPhoto = async (uri: string, reactions: Reaction[], langMode: LangMode) => {
+export const orderPhoto = async (
+  uri: string,
+  reactions: Reaction[],
+  langMode: LangMode,
+  sample?: string,
+) => {
   const reduced = await reducePhoto(uri);
   if (!reduced) return "rejected" as const;
   const lang = langMode === "en" ? "en" : "ja";
   const today = todayKey();
+  const response = await authed("/orders", {
+    method: "POST",
+    body: JSON.stringify({
+      localDate: today,
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      fragments: reduced.fragments,
+      say: freeSay(allPoems, reactions),
+      lang,
+      ...(sample?.trim() ? { sample: sample.trim() } : {}),
+    }),
+  });
+  if (response?.status === 409) return "full" as const;
+  if (!response || response.status !== 204) return "refused" as const;
   const existing = (await loadArrived()).find((item) => item.day === today);
   await saveArrived({
     day: today,
@@ -51,17 +69,6 @@ export const orderPhoto = async (uri: string, reactions: Reaction[], langMode: L
     body: existing?.body ?? "",
     seen: false,
   });
-  const response = await authed("/orders", {
-    method: "POST",
-    body: JSON.stringify({
-      localDate: todayKey(),
-      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      fragments: reduced.fragments,
-      say: freeSay(allPoems, reactions),
-      lang,
-    }),
-  });
-  if (!response || response.status !== 204) return "refused" as const;
   return "sent" as const;
 };
 
