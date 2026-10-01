@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { advanceRead, formForLang, nextForm, resolveOpen, selectNextPoem } from "./selectNext.ts";
+import { advanceRead, formForLang, freeSay, nextForm, resolveOpen, selectNextPoem } from "./selectNext.ts";
 import { emptyRead, type Poem, type Reaction } from "./types.ts";
 
 const poem = (partial: Pick<Poem, "id" | "form" | "lang" | "poet" | "order"> & Partial<Poem>): Poem => ({
@@ -239,6 +239,17 @@ test("the same day does not keep a poem outside the chosen language", () => {
     langMode: "ja",
   });
   assert.equal(opened.poemId, "ja1");
+});
+
+test("photo orders send only the free-verse way of saying", () => {
+  const poems = [
+    poem({ id: "free1", form: "free", lang: "ja", poet: "甲", order: 1, say: ["short_line", "stops"] }),
+    poem({ id: "fixed1", form: "fixed", lang: "ja", poet: "乙", order: 1, say: ["rhyme"] }),
+  ];
+  const scores = freeSay(poems, [like("free1"), like("fixed1")]);
+  assert.equal(scores.short_line, 1);
+  assert.equal(scores.stops, 1);
+  assert.equal(scores.rhyme, undefined);
 });
 
 test("english only skips haiku and tanka", () => {

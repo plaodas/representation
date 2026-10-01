@@ -1,4 +1,5 @@
 import { useFocusEffect, useLocalSearchParams, useRouter } from "expo-router";
+import * as ImagePicker from "expo-image-picker";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   Animated,
@@ -10,9 +11,11 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { loadForm, loadLang, loadReactions, loadRead, saveForm, saveReaction, saveRead } from "../data/db";
+import { fadeToScreen } from "../components/Frame";
+import { loadArrived, loadForm, loadLang, loadReactions, loadRead, saveForm, saveReaction, saveRead } from "../data/db";
 import { allPoems, groundFor, poemById, todayKey } from "../data/library";
-import { advanceRead, formForLang, nextForm, resolveOpen, selectNextPoem } from "../domain/selectNext";
+import { orderPhoto, watchArrival } from "../data/order";
+import { advanceRead, formForLang, likeCount, nextForm, photoLikeThreshold, resolveOpen, selectNextPoem } from "../domain/selectNext";
 import { emptyRead, formLabel, type Form, type LangMode, type Reaction, type ReadState } from "../domain/types";
 
 let enterFaded = false;
@@ -186,6 +189,52 @@ export default function TodayScreen() {
     }
   };
 
+  const openArrived = () => {
+    fadeToScreen(() => router.push("/arrived"));
+  };
+
+  const followArrival = () => {
+    void watchArrival()
+      .then((arrived) => {
+        if (!alive.current || !arrived?.body) return;
+        openArrived();
+      })
+      .catch(() => undefined);
+  };
+
+  useEffect(() => {
+    if (!ready) return;
+    let stop = false;
+    loadArrived()
+      .then((stored) => {
+        if (stop) return;
+        if (stored?.body && stored.day === todayKey() && !stored.seen) {
+          openArrived();
+          return;
+        }
+        followArrival();
+      })
+      .catch(() => undefined);
+    return () => {
+      stop = true;
+    };
+  }, [ready]);
+
+  const pickPhoto = () => {
+    void (async () => {
+      const picked = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ["images"],
+        allowsMultipleSelection: false,
+        quality: 0.5,
+        base64: false,
+        exif: false,
+      });
+      if (picked.canceled || !picked.assets[0]?.uri) return;
+      const sent = await orderPhoto(picked.assets[0].uri, reactions, langMode);
+      if (sent === "sent") followArrival();
+    })();
+  };
+
   const nextPoem = () => {
     void crossfade(async () => {
       await reasonSave.current.catch(() => undefined);
@@ -267,6 +316,11 @@ export default function TodayScreen() {
             {[current.title, current.poet].filter(Boolean).join("　")}
           </Text>
         ) : null}
+        {ready && current && likeCount(reactions) >= photoLikeThreshold ? (
+          <Pressable onPress={pickPhoto} style={styles.photo}>
+            <Text style={[styles.faint, { color: ground.faint }]}>写真</Text>
+          </Pressable>
+        ) : null}
       </ScrollView>
       </Animated.View>
       <View onPointerEnter={() => setActionsClear(true)}>
@@ -319,6 +373,7 @@ const styles = StyleSheet.create({
   wide: { paddingVertical: 72 },
   body: { fontSize: 22, lineHeight: 40 },
   credit: { marginTop: 28, fontSize: 13 },
+  photo: { marginTop: 36, alignSelf: "center" },
   actions: {
     flexDirection: "row",
     justifyContent: "center",
