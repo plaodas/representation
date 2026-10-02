@@ -15,7 +15,7 @@ import { fadeToScreen } from "../components/Frame";
 import { loadArrived, loadForm, loadLang, loadReactions, loadRead, saveForm, saveReaction, saveRead } from "../data/db";
 import { allPoems, groundFor, poemById, todayKey } from "../data/library";
 import { orderPhoto, watchArrival } from "../data/order";
-import { advanceRead, formForLang, likeCount, nextForm, photoLikeThreshold, resolveOpen, selectNextPoem } from "../domain/selectNext";
+import { advanceRead, arrivedNotes, formForLang, likeCount, nextForm, photoLikeThreshold, resolveOpen, selectNextPoem } from "../domain/selectNext";
 import { emptyRead, formLabel, type Form, type LangMode, type Reaction, type ReadState } from "../domain/types";
 
 let enterFaded = false;
@@ -67,9 +67,10 @@ export default function TodayScreen() {
     const today = todayKey();
     const next = formForLang(requested, mode);
     if (next !== requested) await saveForm(next);
-    const [stored, storedReactions] = await Promise.all([
+    const [stored, storedReactions, arrived] = await Promise.all([
       loadRead(next),
       loadReactions(),
+      loadArrived(),
     ]);
     const opened = resolveOpen({
       poems: allPoems,
@@ -78,6 +79,7 @@ export default function TodayScreen() {
       form: next,
       langMode: mode,
       read: stored,
+      notes: arrivedNotes(arrived),
     });
     if (opened.read !== stored) await saveRead(next, opened.read);
     setForm(next);
@@ -212,7 +214,7 @@ export default function TodayScreen() {
     loadArrived()
       .then((stored) => {
         if (stop) return;
-        setKept(stored.some((item) => item.body));
+        setKept(stored.length > 0);
         const today = stored.find((item) => item.day === todayKey());
         if (today?.body && !today.seen) {
           openArrived(today.day);
@@ -261,6 +263,7 @@ export default function TodayScreen() {
         form,
         langMode,
         read,
+        notes: arrivedNotes(await loadArrived()),
       });
       const advanced = advanceRead(read, poemId, today);
       await saveRead(form, advanced);

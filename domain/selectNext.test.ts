@@ -241,6 +241,30 @@ test("the same day does not keep a poem outside the chosen language", () => {
   assert.equal(opened.poemId, "ja1");
 });
 
+test("a matched scene adds seeing, and too much explanation lowers free-verse saying", () => {
+  const fillers = Array.from({ length: 8 }, (_, index) =>
+    poem({ id: `pad${index}`, form: "free", lang: "ja", poet: `補${index}`, order: 100 + index, see: ["food"] }),
+  );
+  const poems = [
+    ...fillers,
+    poem({ id: "dry", form: "free", lang: "en", poet: "A", order: 1, see: ["street"], say: ["stops"] }),
+    poem({ id: "sky", form: "free", lang: "en", poet: "B", order: 2, see: ["sky"], say: ["stops"] }),
+  ];
+  const notes = [{ see: ["sky"] as const, scene: true, explains: true }];
+  const read = advanceRead(emptyRead(), "pad0", "2026-09-26");
+  const id = selectNextPoem({
+    poems,
+    reactions: fillers.map((item) => like(item.id)),
+    today: "2026-09-26",
+    form: "free",
+    read,
+    notes: [...notes],
+  });
+  assert.equal(id, "sky");
+  const scores = freeSay(poems, [], [...notes]);
+  assert.equal(scores.explains, -1);
+});
+
 test("photo orders send only the free-verse way of saying", () => {
   const poems = [
     poem({ id: "free1", form: "free", lang: "ja", poet: "甲", order: 1, say: ["short_line", "stops"] }),

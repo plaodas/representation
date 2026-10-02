@@ -44,6 +44,7 @@ export default function ReadScreen() {
                     styles.line,
                     {
                       color: ground.color,
+                      opacity: reaction.sentiment === "dislike" ? 0.28 : 1,
                       fontFamily: poem.lang === "ja" ? "ZenOldMincho_400Regular" : "EBGaramond_400Regular",
                     },
                   ]}

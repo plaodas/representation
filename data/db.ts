@@ -1,7 +1,7 @@
 import * as SQLite from "expo-sqlite";
 import { Platform } from "react-native";
-import type { Form, LangMode, Reaction, ReadState, Sentiment } from "../domain/types";
-import { emptyRead } from "../domain/types";
+import type { Form, LangMode, Reaction, ReadState, SeeTag, Sentiment } from "../domain/types";
+import { emptyRead, seeTags } from "../domain/types";
 
 const fileKey = "representation";
 
@@ -11,6 +11,13 @@ export type Arrived = {
   thumb: string;
   body: string;
   seen: boolean;
+  see: SeeTag[];
+  sentiment?: Sentiment;
+  reason: string;
+  scene: boolean;
+  explains: boolean;
+  missed: boolean;
+  notedAt?: string;
 };
 
 type FileState = {
@@ -37,16 +44,35 @@ const webWithoutFileSystem = () =>
 const asLangMode = (value: string | undefined): LangMode =>
   value === "ja" || value === "en" ? value : "mix";
 
+const asSee = (value: unknown): SeeTag[] =>
+  Array.isArray(value)
+    ? value.filter((tag): tag is SeeTag => typeof tag === "string" && seeTags.includes(tag as SeeTag))
+    : [];
+
 const isArrived = (value: unknown): value is Arrived => {
   if (!value || typeof value !== "object") return false;
   const poem = value as Arrived;
   return Boolean(poem.day) && (poem.lang === "ja" || poem.lang === "en");
 };
 
+const normalizeArrived = (poem: Arrived): Arrived => {
+  const sentiment = poem.sentiment === "like" || poem.sentiment === "dislike" ? poem.sentiment : undefined;
+  return {
+    ...poem,
+    see: asSee(poem.see),
+    reason: typeof poem.reason === "string" ? poem.reason : "",
+    scene: poem.scene === true,
+    explains: poem.explains === true,
+    missed: poem.missed === true,
+    sentiment,
+    notedAt: typeof poem.notedAt === "string" ? poem.notedAt : undefined,
+  };
+};
+
 const asList = (raw: unknown): Arrived[] => {
   const value = typeof raw === "string" && raw ? (JSON.parse(raw) as unknown) : raw;
   const items = Array.isArray(value) ? value : value ? [value] : [];
-  return items.filter(isArrived).sort((a, b) => b.day.localeCompare(a.day));
+  return items.filter(isArrived).map(normalizeArrived).sort((a, b) => b.day.localeCompare(a.day));
 };
 
 const readFile = (): FileState => {

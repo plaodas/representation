@@ -47,12 +47,23 @@ export default function ArrivedScreen() {
     loadArrived()
       .then((stored) => {
         const poem = stored.find((item) => item.day === day);
-        if (!alive || !poem?.body) return;
+        if (!alive || !poem) return;
         setArrived(poem);
-        if (!poem.seen) {
+        if (poem.body && !poem.seen) {
           void loadArrived().then((list) => {
             const current = list.find((item) => item.day === poem.day) ?? poem;
             return saveArrived({ ...current, seen: true });
+          });
+        }
+        if (!poem.body && !poem.missed && poem.day === todayKey()) {
+          void watchArrival().then(async (next) => {
+            if (!alive) return;
+            if (next?.day === poem.day) {
+              setArrived(next);
+              return;
+            }
+            const current = (await loadArrived()).find((item) => item.day === poem.day);
+            if (alive && current) setArrived(current);
           });
         }
       })
@@ -64,9 +75,29 @@ export default function ArrivedScreen() {
 
   if (!arrived) return null;
 
+  const tone = (chosen: boolean, other: boolean) => (chosen ? 1 : other ? 0.28 : 1);
+  const waiting = arrived.missed ? "届かなかった" : "待つ";
+
   const face = {
     color: ground.color,
     fontFamily: arrived.lang === "ja" ? "ZenOldMincho_400Regular" : "EBGaramond_400Regular",
+  };
+
+  const remember = (next: Arrived) => {
+    setArrived(next);
+    void saveArrived(next);
+  };
+
+  const choose = (sentiment: "like" | "dislike") => {
+    remember({ ...arrived, sentiment, notedAt: new Date().toISOString() });
+  };
+
+  const toggle = (key: "scene" | "explains") => {
+    remember({ ...arrived, [key]: !arrived[key], notedAt: new Date().toISOString() });
+  };
+
+  const finishReason = (text: string) => {
+    remember({ ...arrived, reason: text, notedAt: new Date().toISOString() });
   };
 
   const finish = (text: string) => {
@@ -122,7 +153,9 @@ export default function ArrivedScreen() {
         <Image source={{ uri: arrived.thumb }} blurRadius={36} style={styles.photo} />
       ) : null}
       <ScrollView contentContainerStyle={styles.poemWrap}>
-        {draft === null ? (
+        {!arrived.body ? (
+          <Text style={[styles.body, face]}>{waiting}</Text>
+        ) : draft === null ? (
           <Text style={[styles.body, face]}>{arrived.body}</Text>
         ) : (
           <TextInput
@@ -138,6 +171,45 @@ export default function ArrivedScreen() {
             style={[styles.body, styles.field, face]}
           />
         )}
+        {arrived.body ? (
+          <>
+            <View style={styles.words}>
+              <Pressable onPress={() => choose("like")}>
+                <Text style={{ color: ground.color, opacity: tone(arrived.sentiment === "like", Boolean(arrived.sentiment)) }}>
+                  好き
+                </Text>
+              </Pressable>
+              <Pressable onPress={() => choose("dislike")}>
+                <Text style={{ color: ground.color, opacity: tone(arrived.sentiment === "dislike", Boolean(arrived.sentiment)) }}>
+                  嫌い
+                </Text>
+              </Pressable>
+            </View>
+            {arrived.sentiment === "like" ? (
+              <TextInput
+                key={`${arrived.day}:like`}
+                defaultValue={arrived.reason}
+                onChangeText={(text) => setArrived({ ...arrived, reason: text })}
+                onBlur={(event) => {
+                  const text = (event.nativeEvent as { text?: string }).text;
+                  if (typeof text === "string") finishReason(text);
+                }}
+                onEndEditing={(event) => finishReason(event.nativeEvent.text)}
+                placeholder="ひとこと"
+                placeholderTextColor={ground.faint}
+                style={[styles.reason, { color: ground.color, borderColor: ground.faint }]}
+              />
+            ) : null}
+            <View style={styles.words}>
+              <Pressable onPress={() => toggle("scene")}>
+                <Text style={{ color: ground.color, opacity: arrived.scene ? 1 : 0.28 }}>情景は合っている</Text>
+              </Pressable>
+              <Pressable onPress={() => toggle("explains")}>
+                <Text style={{ color: ground.color, opacity: arrived.explains ? 1 : 0.28 }}>説明しすぎ</Text>
+              </Pressable>
+            </View>
+          </>
+        ) : null}
         {limit ? (
           <Text style={[styles.consent, styles.limit, { color: ground.color }]}>
             詩の創作は1日1回までです。
@@ -150,13 +222,15 @@ export default function ArrivedScreen() {
           </Pressable>
         ) : null}
         <View style={styles.words}>
-          <Pressable onPress={() => {
-            setAsking(false);
-            setLimit(false);
-            if (draft === null) setDraft(arrived.body);
-          }}>
-            <Text style={[styles.word, { color: ground.faint }]}>綴る</Text>
-          </Pressable>
+          {arrived.body ? (
+            <Pressable onPress={() => {
+              setAsking(false);
+              setLimit(false);
+              if (draft === null) setDraft(arrived.body);
+            }}>
+              <Text style={[styles.word, { color: ground.faint }]}>綴る</Text>
+            </Pressable>
+          ) : null}
           <Pressable onPress={() => {
             setAsking(false);
             setLimit(false);
@@ -219,4 +293,13 @@ const styles = StyleSheet.create({
     gap: 28,
   },
   word: { fontSize: 13, letterSpacing: 2 },
+  reason: {
+    alignSelf: "center",
+    width: "70%",
+    maxWidth: 420,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    fontSize: 16,
+    paddingVertical: 8,
+    marginTop: 16,
+  },
 });

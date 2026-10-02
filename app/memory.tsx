@@ -16,13 +16,14 @@ export default function MemoryScreen() {
   const [poems, setPoems] = useState<Arrived[]>([]);
   useFocusEffect(useCallback(() => {
     loadArrived()
-      .then((stored) => setPoems(stored.filter((item) => item.body)))
+      .then(setPoems)
       .catch(() => undefined);
   }, []));
   return (
     <ScrollView style={styles.fill} contentContainerStyle={styles.page}>
       {poems.map((poem) => {
-        const first = poem.body.split("\n").find((line) => line.trim()) ?? "";
+        const first = poem.body.split("\n").find((line) => line.trim())
+          ?? (poem.missed ? "届かなかった" : "待つ");
         return (
           <Pressable
             key={poem.day}
