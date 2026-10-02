@@ -1,7 +1,8 @@
 import * as SQLite from "expo-sqlite";
 import { Platform } from "react-native";
+import type { Carry, CarryPoem } from "../domain/carry";
 import type { Form, LangMode, Reaction, ReadState, SeeTag, Sentiment } from "../domain/types";
-import { emptyRead, seeTags } from "../domain/types";
+import { emptyRead, forms, seeTags } from "../domain/types";
 
 const fileKey = "representation";
 
@@ -334,6 +335,94 @@ export const removeArrived = async (id: string) => {
   if (!id) return;
   const stored = await loadArrived();
   await writeArrived(stored.filter((item) => item.id !== id));
+};
+
+const asArrived = (poem: CarryPoem): Arrived => ({
+  day: poem.day,
+  lang: poem.lang,
+  thumb: poem.thumb ?? "",
+  body: poem.body,
+  seen: poem.seen,
+  see: poem.see,
+  sentiment: poem.sentiment,
+  reason: poem.reason,
+  scene: poem.scene,
+  explains: poem.explains,
+  missed: poem.missed,
+  notedAt: poem.notedAt,
+  id: poem.id,
+  writtenAt: poem.writtenAt,
+});
+
+export const loadRecord = async (): Promise<Carry> => {
+  const [reactions, form, lang, arrived] = await Promise.all([
+    loadReactions(),
+    loadForm(),
+    loadLang(),
+    loadArrived(),
+  ]);
+  const reading: Carry["reading"] = {};
+  for (const name of forms) reading[name] = await loadRead(name);
+  return { reactions, reading, form, lang, arrived };
+};
+
+export const saveRecord = async (record: Carry) => {
+  const arrived = record.arrived.map(asArrived);
+  if (webWithoutFileSystem()) {
+    const file = readFile();
+    file.reactions = record.reactions;
+    file.reading = record.reading;
+    file.form = record.form;
+    file.lang = record.lang;
+    file.arrived = arrived;
+    writeFile(file);
+    return;
+  }
+  const connection = await db();
+  await connection.withTransactionAsync(async () => {
+    await connection.runAsync("DELETE FROM reactions");
+    for (const reaction of record.reactions) {
+      await connection.runAsync(
+        `INSERT INTO reactions (poem_id, sentiment, reason, updated_at) VALUES (?, ?, ?, ?)`,
+        reaction.poemId,
+        reaction.sentiment,
+        reaction.reason,
+        reaction.updatedAt,
+      );
+    }
+    for (const name of forms) {
+      const read = record.reading[name] ?? emptyRead();
+      await connection.runAsync(
+        `INSERT INTO reading (form, poem_id, day, count_today, shown_ids)
+         VALUES (?, ?, ?, ?, ?)
+         ON CONFLICT(form) DO UPDATE SET
+           poem_id = excluded.poem_id,
+           day = excluded.day,
+           count_today = excluded.count_today,
+           shown_ids = excluded.shown_ids`,
+        name,
+        read.lastPoemId,
+        read.day,
+        read.countToday,
+        JSON.stringify(read.shownIds),
+      );
+    }
+    await connection.runAsync(
+      `INSERT INTO meta (key, value) VALUES ('form', ?)
+       ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
+      record.form,
+    );
+    await connection.runAsync(
+      `INSERT INTO meta (key, value) VALUES ('lang', ?)
+       ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
+      record.lang,
+    );
+    await connection.runAsync(
+      `INSERT INTO meta (key, value) VALUES ('arrived', ?)
+       ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
+      JSON.stringify([...arrived].sort(byMemory)),
+    );
+  });
 };
 
 export const orderToken = async () => {

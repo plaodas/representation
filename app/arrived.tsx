@@ -124,9 +124,24 @@ export default function ArrivedScreen() {
     if (pending.current) return pending.current;
     const body = text.trim();
     setDraft(null);
-    if (!arrived.id || !body || body === arrived.body) return Promise.resolve(arrived.id ? arrived : null);
-    const next: Arrived = { ...arrived, body, writtenAt: new Date().toISOString() };
-    setArrived(next);
+    if (!body || body === arrived.body) return Promise.resolve(arrived.id ? arrived : null);
+    const next: Arrived = arrived.id
+      ? { ...arrived, body, writtenAt: new Date().toISOString() }
+      : {
+          id: poemId(),
+          day: arrived.day,
+          lang: arrived.lang,
+          thumb: arrived.thumb,
+          body,
+          seen: true,
+          see: [],
+          reason: "",
+          scene: false,
+          explains: false,
+          missed: false,
+          writtenAt: new Date().toISOString(),
+        };
+    if (arrived.id) setArrived(next);
     pending.current = saveArrived(next).then(() => next);
     return pending.current;
   };
@@ -137,20 +152,18 @@ export default function ArrivedScreen() {
       return;
     }
     if (pending.current || typeof text !== "string") return;
-    void saveOwn(text).then(() => {
+    void saveOwn(text).then((next) => {
       const where = destination.current;
       destination.current = "copy";
       pending.current = null;
-      if (where === "memory") fadeToScreen(() => router.push("/memory"));
+      if (where === "memory") {
+        fadeToScreen(() => router.push("/memory"));
+        return;
+      }
+      if (next?.id && next.id !== arrived.id) {
+        fadeToScreen(() => router.push({ pathname: "/arrived", params: { day: next.day, id: next.id } }));
+      }
     });
-  };
-
-  const openOwn = (poem: Arrived) => {
-    if (!poem.id) return;
-    fadeToScreen(() => router.push({
-      pathname: "/arrived",
-      params: { day: poem.day, id: poem.id, edit: "1" },
-    }));
   };
 
   const beginWrite = () => {
@@ -159,41 +172,13 @@ export default function ArrivedScreen() {
     setDissolving(false);
     skipWrite.current = false;
     if (draft !== null) return;
-    if (arrived.id) {
-      setDraft(arrived.body);
-      return;
-    }
-    void loadArrived().then(async (stored) => {
-      const latest = stored.find((item) => item.id && item.day === arrived.day);
-      if (latest) {
-        openOwn(latest);
-        return;
-      }
-      const body = arrived.body.trim();
-      if (!body) return;
-      const next: Arrived = {
-        id: poemId(),
-        day: arrived.day,
-        lang: arrived.lang,
-        thumb: arrived.thumb,
-        body,
-        seen: true,
-        see: [],
-        reason: "",
-        scene: false,
-        explains: false,
-        missed: false,
-        writtenAt: new Date().toISOString(),
-      };
-      await saveArrived(next);
-      openOwn(next);
-    });
+    setDraft(arrived.body);
   };
 
   const sampleBody = async () => {
     const text = (draft ?? arrived.body).trim();
     if (!text) return "";
-    if (draft !== null && arrived.id && text !== arrived.body) {
+    if (draft !== null && text !== arrived.body) {
       const next = await saveOwn(draft);
       pending.current = null;
       return next?.body ?? text;
