@@ -1,6 +1,6 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import * as ImagePicker from "expo-image-picker";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { fadeToScreen } from "../components/Frame";
 import { loadArrived, loadLang, loadReactions, saveArrived, type Arrived } from "../data/db";
@@ -12,8 +12,10 @@ import type { LangMode } from "../domain/types";
 export default function ArrivedScreen() {
   const ground = groundFor();
   const router = useRouter();
-  const params = useLocalSearchParams<{ day?: string }>();
+  const params = useLocalSearchParams<{ day?: string; id?: string; edit?: string }>();
   const day = params.day || todayKey();
+  const copyId = typeof params.id === "string" ? params.id : "";
+  const editing = params.edit === "1";
   const [arrived, setArrived] = useState<Arrived | null>(null);
   const [draft, setDraft] = useState<string | null>(null);
   const [asking, setAsking] = useState(false);
@@ -21,12 +23,17 @@ export default function ArrivedScreen() {
   const [limit, setLimit] = useState(false);
   const [canSend, setCanSend] = useState(false);
   const [langMode, setLangMode] = useState<LangMode>("mix");
+  const pending = useRef<Promise<Arrived | null> | null>(null);
+  const destination = useRef<"copy" | "memory">("copy");
 
   useEffect(() => {
+    setDraft(null);
     setAsking(false);
     setBlocked(false);
     setLimit(false);
-  }, [day]);
+    pending.current = null;
+    destination.current = "copy";
+  }, [day, copyId]);
 
   useEffect(() => {
     let alive = true;
@@ -46,23 +53,29 @@ export default function ArrivedScreen() {
     let alive = true;
     loadArrived()
       .then((stored) => {
-        const poem = stored.find((item) => item.day === day);
+        const poem = copyId
+          ? stored.find((item) => item.id === copyId)
+          : stored.find((item) => item.day === day && !item.id);
         if (!alive || !poem) return;
         setArrived(poem);
-        if (poem.body && !poem.seen) {
+        if (editing && poem.body) {
+          setDraft(poem.body);
+          router.setParams({ edit: "" });
+        }
+        if (!poem.id && poem.body && !poem.seen) {
           void loadArrived().then((list) => {
-            const current = list.find((item) => item.day === poem.day) ?? poem;
+            const current = list.find((item) => item.day === poem.day && !item.id) ?? poem;
             return saveArrived({ ...current, seen: true });
           });
         }
-        if (!poem.body && !poem.missed && poem.day === todayKey()) {
+        if (!poem.id && !poem.body && !poem.missed && poem.day === todayKey()) {
           void watchArrival().then(async (next) => {
             if (!alive) return;
-            if (next?.day === poem.day) {
+            if (next && !next.id && next.day === poem.day) {
               setArrived(next);
               return;
             }
-            const current = (await loadArrived()).find((item) => item.day === poem.day);
+            const current = (await loadArrived()).find((item) => item.day === poem.day && !item.id);
             if (alive && current) setArrived(current);
           });
         }
@@ -71,7 +84,7 @@ export default function ArrivedScreen() {
     return () => {
       alive = false;
     };
-  }, [day]);
+  }, [day, copyId, editing]);
 
   if (!arrived) return null;
 
@@ -100,22 +113,80 @@ export default function ArrivedScreen() {
     remember({ ...arrived, reason: text, notedAt: new Date().toISOString() });
   };
 
-  const finish = (text: string) => {
+  const poemId = () =>
+    [...crypto.getRandomValues(new Uint8Array(16))].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+
+  const saveOwn = (text: string) => {
+    if (pending.current) return pending.current;
     const body = text.trim();
     setDraft(null);
-    if (!body || body === arrived.body) return;
-    const next = { ...arrived, body };
+    if (!arrived.id || !body || body === arrived.body) return Promise.resolve(arrived.id ? arrived : null);
+    const next: Arrived = { ...arrived, body, writtenAt: new Date().toISOString() };
     setArrived(next);
-    void saveArrived(next);
+    pending.current = saveArrived(next).then(() => next);
+    return pending.current;
   };
 
-  const sampleBody = () => {
+  const finish = (text: string) => {
+    if (pending.current || typeof text !== "string") return;
+    void saveOwn(text).then(() => {
+      const where = destination.current;
+      destination.current = "copy";
+      pending.current = null;
+      if (where === "memory") fadeToScreen(() => router.push("/memory"));
+    });
+  };
+
+  const openOwn = (poem: Arrived) => {
+    if (!poem.id) return;
+    fadeToScreen(() => router.push({
+      pathname: "/arrived",
+      params: { day: poem.day, id: poem.id, edit: "1" },
+    }));
+  };
+
+  const beginWrite = () => {
+    setAsking(false);
+    setLimit(false);
+    if (draft !== null) return;
+    if (arrived.id) {
+      setDraft(arrived.body);
+      return;
+    }
+    void loadArrived().then(async (stored) => {
+      const latest = stored.find((item) => item.id && item.day === arrived.day);
+      if (latest) {
+        openOwn(latest);
+        return;
+      }
+      const body = arrived.body.trim();
+      if (!body) return;
+      const next: Arrived = {
+        id: poemId(),
+        day: arrived.day,
+        lang: arrived.lang,
+        thumb: arrived.thumb,
+        body,
+        seen: true,
+        see: [],
+        reason: "",
+        scene: false,
+        explains: false,
+        missed: false,
+        writtenAt: new Date().toISOString(),
+      };
+      await saveArrived(next);
+      openOwn(next);
+    });
+  };
+
+  const sampleBody = async () => {
     const text = (draft ?? arrived.body).trim();
     if (!text) return "";
-    if (draft !== null && text !== arrived.body) {
-      const next = { ...arrived, body: text };
-      setArrived(next);
-      void saveArrived(next);
+    if (draft !== null && arrived.id && text !== arrived.body) {
+      const next = await saveOwn(draft);
+      pending.current = null;
+      return next?.body ?? text;
     }
     if (draft !== null) setDraft(null);
     return text;
@@ -123,9 +194,9 @@ export default function ArrivedScreen() {
 
   const pickPhoto = () => {
     setAsking(false);
-    const sample = sampleBody();
-    if (!sample) return;
     void (async () => {
+      const sample = await sampleBody();
+      if (!sample) return;
       const picked = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ["images"],
         allowsMultipleSelection: false,
@@ -165,13 +236,16 @@ export default function ArrivedScreen() {
             onChangeText={setDraft}
             onBlur={(event) => {
               const text = (event.nativeEvent as { text?: string }).text;
-              if (typeof text === "string") finish(text);
+              finish(typeof text === "string" ? text : draft ?? "");
             }}
-            onEndEditing={(event) => finish(event.nativeEvent.text)}
+            onEndEditing={(event) => {
+              const text = event.nativeEvent.text;
+              finish(typeof text === "string" ? text : draft ?? "");
+            }}
             style={[styles.body, styles.field, face]}
           />
         )}
-        {arrived.body ? (
+        {arrived.body && !arrived.id ? (
           <>
             <View style={styles.words}>
               <Pressable onPress={() => choose("like")}>
@@ -202,7 +276,7 @@ export default function ArrivedScreen() {
             ) : null}
             <View style={styles.words}>
               <Pressable onPress={() => toggle("scene")}>
-                <Text style={{ color: ground.color, opacity: arrived.scene ? 1 : 0.28 }}>情景は合っている</Text>
+                <Text style={{ color: ground.color, opacity: arrived.scene ? 1 : 0.28 }}>情景が合う</Text>
               </Pressable>
               <Pressable onPress={() => toggle("explains")}>
                 <Text style={{ color: ground.color, opacity: arrived.explains ? 1 : 0.28 }}>説明しすぎ</Text>
@@ -223,18 +297,18 @@ export default function ArrivedScreen() {
         ) : null}
         <View style={styles.words}>
           {arrived.body ? (
-            <Pressable onPress={() => {
-              setAsking(false);
-              setLimit(false);
-              if (draft === null) setDraft(arrived.body);
-            }}>
+            <Pressable onPress={beginWrite}>
               <Text style={[styles.word, { color: ground.faint }]}>綴る</Text>
             </Pressable>
           ) : null}
           <Pressable onPress={() => {
             setAsking(false);
             setLimit(false);
-            if (draft !== null) finish(draft);
+            if (draft !== null) {
+              destination.current = "memory";
+              finish(draft);
+              return;
+            }
             fadeToScreen(() => router.push("/memory"));
           }}>
             <Text style={[styles.word, { color: ground.faint }]}>記憶</Text>
@@ -275,7 +349,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   body: { fontSize: 22, lineHeight: 40 },
-  field: { padding: 0, borderWidth: 0, outlineWidth: 0 },
+  field: { padding: 0, borderWidth: 0, outlineWidth: 0, minHeight: 160 },
   consent: {
     marginTop: 28,
     textAlign: "center",

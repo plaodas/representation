@@ -14,10 +14,10 @@ export type ArrivedNote = {
 };
 
 export const arrivedNotes = (
-  rows: { see?: readonly string[]; scene?: boolean; explains?: boolean }[],
+  rows: { id?: string; see?: readonly string[]; scene?: boolean; explains?: boolean }[],
 ): ArrivedNote[] =>
   rows.flatMap((row) => {
-    if (!row.scene && !row.explains) return [];
+    if (row.id || (!row.scene && !row.explains)) return [];
     const see = (row.see ?? []).filter((tag): tag is SeeTag => seeTags.includes(tag as SeeTag));
     return [{ see, scene: row.scene === true, explains: row.explains === true }];
   });

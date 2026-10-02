@@ -26,9 +26,12 @@ export default function MemoryScreen() {
           ?? (poem.missed ? "届かなかった" : "待つ");
         return (
           <Pressable
-            key={poem.day}
+            key={poem.id ?? poem.day}
             onPress={() => {
-              fadeToScreen(() => router.push({ pathname: "/arrived", params: { day: poem.day } }));
+              fadeToScreen(() => router.push({
+                pathname: "/arrived",
+                params: poem.id ? { day: poem.day, id: poem.id } : { day: poem.day },
+              }));
             }}
           >
             <View style={styles.row}>
