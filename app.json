@@ -9,7 +9,12 @@
       "bundler": "metro",
       "output": "single"
     },
-    "plugins": ["expo-router", "expo-sqlite", "expo-font"],
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-font",
+      "expo-sharing"
+    ],
     "experiments": {
       "typedRoutes": true
     }
