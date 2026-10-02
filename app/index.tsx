@@ -12,7 +12,7 @@ import {
   View,
 } from "react-native";
 import { fadeToScreen } from "../components/Frame";
-import { loadArrived, loadForm, loadLang, loadReactions, loadRead, saveForm, saveReaction, saveRead } from "../data/db";
+import { deliveredArrived, loadArrived, loadForm, loadLang, loadReactions, loadRead, saveForm, saveReaction, saveRead } from "../data/db";
 import { allPoems, groundFor, poemById, todayKey } from "../data/library";
 import { orderPhoto, watchArrival } from "../data/order";
 import { advanceRead, arrivedNotes, formForLang, likeCount, nextForm, photoLikeThreshold, resolveOpen, selectNextPoem } from "../domain/selectNext";
@@ -215,7 +215,7 @@ export default function TodayScreen() {
       .then((stored) => {
         if (stop) return;
         setKept(stored.length > 0);
-        const today = stored.find((item) => item.day === todayKey());
+        const today = deliveredArrived(stored, todayKey());
         if (today?.body && !today.seen) {
           openArrived(today.day);
           return;
@@ -339,14 +339,14 @@ export default function TodayScreen() {
         ) : null}
         {ready && current && likeCount(reactions) >= photoLikeThreshold ? (
           <View style={styles.photo}>
-            <Pressable onPress={pickPhoto}>
-              <Text style={[styles.faint, { color: ground.faint }]}>瞬間</Text>
-            </Pressable>
             {kept ? (
               <Pressable onPress={() => fadeToScreen(() => router.push("/memory"))}>
                 <Text style={[styles.faint, { color: ground.faint }]}>記憶</Text>
               </Pressable>
             ) : null}
+            <Pressable onPress={pickPhoto}>
+              <Text style={[styles.faint, { color: ground.faint }]}>瞬間</Text>
+            </Pressable>
           </View>
         ) : null}
       </ScrollView>

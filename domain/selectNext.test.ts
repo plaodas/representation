@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { advanceRead, formForLang, freeSay, nextForm, resolveOpen, selectNextPoem } from "./selectNext.ts";
+import { advanceRead, arrivedNotes, formForLang, freeSay, nextForm, resolveOpen, selectNextPoem } from "./selectNext.ts";
 import { emptyRead, type Poem, type Reaction } from "./types.ts";
 
 const poem = (partial: Pick<Poem, "id" | "form" | "lang" | "poet" | "order"> & Partial<Poem>): Poem => ({
@@ -263,6 +263,8 @@ test("a matched scene adds seeing, and too much explanation lowers free-verse sa
   assert.equal(id, "sky");
   const scores = freeSay(poems, [], [...notes]);
   assert.equal(scores.explains, -1);
+  const copied = freeSay(poems, [], arrivedNotes([{ id: "copy", see: ["sky"], scene: true, explains: true }]));
+  assert.equal(copied.explains, undefined);
 });
 
 test("photo orders send only the free-verse way of saying", () => {

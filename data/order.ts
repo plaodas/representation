@@ -1,6 +1,6 @@
 import { arrivedNotes, freeSay } from "../domain/selectNext";
 import type { LangMode, Reaction } from "../domain/types";
-import { loadArrived, orderToken, saveArrived, type Arrived } from "./db";
+import { deliveredArrived, loadArrived, orderToken, saveArrived, type Arrived } from "./db";
 import { allPoems, todayKey } from "./library";
 import { reducePhoto } from "./reducePhoto";
 
@@ -62,7 +62,7 @@ export const orderPhoto = async (
   });
   if (response?.status === 409) return "full" as const;
   if (!response || response.status !== 204) return "refused" as const;
-  const existing = stored.find((item) => item.day === today);
+  const existing = deliveredArrived(stored, today);
   await saveArrived({
     day: today,
     lang,
@@ -95,7 +95,7 @@ export const watchArrival = () => {
         }
         if (today?.status === "届ける" && today.body) {
           const day = todayKey();
-          const current = (await loadArrived()).find((item) => item.day === day);
+          const current = deliveredArrived(await loadArrived(), day);
           const arrived: Arrived = {
             day,
             lang: today.lang,
@@ -115,7 +115,7 @@ export const watchArrival = () => {
         }
         if (today?.status === "失敗") {
           const day = todayKey();
-          const current = (await loadArrived()).find((item) => item.day === day);
+          const current = deliveredArrived(await loadArrived(), day);
           if (current && !current.missed) await saveArrived({ ...current, missed: true });
           return null;
         }

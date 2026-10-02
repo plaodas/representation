@@ -1,4 +1,4 @@
-import { usePathname, useRouter } from "expo-router";
+import { useGlobalSearchParams, usePathname, useRouter } from "expo-router";
 import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -27,6 +27,7 @@ export const Frame = ({ children }: { children: ReactNode }) => {
   const ground = groundFor();
   const insets = useSafeAreaInsets();
   const path = usePathname();
+  const params = useGlobalSearchParams();
   const router = useRouter();
   const fading = useRef(false);
   const pending = useRef(false);
@@ -81,13 +82,15 @@ export const Frame = ({ children }: { children: ReactNode }) => {
     };
   });
 
+  const place = `${path}:${String(params.day ?? "")}:${String(params.id ?? "")}:${String(params.poem ?? "")}`;
+
   useEffect(() => {
     if (!pending.current) return;
     pending.current = false;
     void fade(1, 460).finally(() => {
       fading.current = false;
     });
-  }, [path]);
+  }, [place]);
 
   const go = (href: (typeof links)[number]["href"]) => {
     const here = href === "/" ? path === "/" : path === href;

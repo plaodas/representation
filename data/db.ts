@@ -18,6 +18,8 @@ export type Arrived = {
   explains: boolean;
   missed: boolean;
   notedAt?: string;
+  id?: string;
+  writtenAt?: string;
 };
 
 type FileState = {
@@ -66,13 +68,23 @@ const normalizeArrived = (poem: Arrived): Arrived => {
     missed: poem.missed === true,
     sentiment,
     notedAt: typeof poem.notedAt === "string" ? poem.notedAt : undefined,
+    id: typeof poem.id === "string" && poem.id ? poem.id : undefined,
+    writtenAt: typeof poem.writtenAt === "string" ? poem.writtenAt : undefined,
   };
+};
+
+const byMemory = (a: Arrived, b: Arrived) => {
+  const day = b.day.localeCompare(a.day);
+  if (day !== 0) return day;
+  if (!a.writtenAt && b.writtenAt) return 1;
+  if (a.writtenAt && !b.writtenAt) return -1;
+  return (b.writtenAt ?? "").localeCompare(a.writtenAt ?? "");
 };
 
 const asList = (raw: unknown): Arrived[] => {
   const value = typeof raw === "string" && raw ? (JSON.parse(raw) as unknown) : raw;
   const items = Array.isArray(value) ? value : value ? [value] : [];
-  return items.filter(isArrived).map(normalizeArrived).sort((a, b) => b.day.localeCompare(a.day));
+  return items.filter(isArrived).map(normalizeArrived).sort(byMemory);
 };
 
 const readFile = (): FileState => {
@@ -293,7 +305,7 @@ const saveMeta = async (key: string, value: string) => {
 };
 
 const writeArrived = async (arrived: Arrived[]) => {
-  const next = [...arrived].sort((a, b) => b.day.localeCompare(a.day));
+  const next = [...arrived].sort(byMemory);
   if (webWithoutFileSystem()) {
     const file = readFile();
     file.arrived = next;
@@ -308,9 +320,14 @@ export const loadArrived = async (): Promise<Arrived[]> => {
   return asList(await meta("arrived"));
 };
 
+export const deliveredArrived = (rows: Arrived[], day: string) =>
+  rows.find((item) => item.day === day && !item.id);
+
 export const saveArrived = async (arrived: Arrived) => {
-  const kept = (await loadArrived()).filter((item) => item.day !== arrived.day);
-  await writeArrived([arrived, ...kept]);
+  const stored = await loadArrived();
+  const same = (item: Arrived) =>
+    arrived.id ? item.id === arrived.id : !item.id && item.day === arrived.day;
+  await writeArrived([arrived, ...stored.filter((item) => !same(item))]);
 };
 
 export const orderToken = async () => {

@@ -55,7 +55,7 @@ export default function TasteScreen() {
         });
       },
     })),
-    ...arrived.filter((poem) => poem.sentiment === "like" && poem.reason.trim()).map((poem) => ({
+    ...arrived.filter((poem) => !poem.id && poem.sentiment === "like" && poem.reason.trim()).map((poem) => ({
       key: `arrived:${poem.day}`,
       at: poem.notedAt ?? poem.day,
       reason: poem.reason,
