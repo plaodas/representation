@@ -1,7 +1,8 @@
-import { useFocusEffect } from "expo-router";
+import { useFocusEffect, useRouter } from "expo-router";
 import { useCallback, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { loadLang, loadReactions, saveLang } from "../data/db";
+import { fadeToScreen } from "../components/Frame";
+import { loadArrived, loadLang, loadReactions, saveForm, saveLang, type Arrived } from "../data/db";
 import { groundFor, poemById } from "../data/library";
 import { langModeLabel, nextLangMode, sayLabel, seeLabel, type LangMode, type Reaction, type SayTag, type SeeTag } from "../domain/types";
 
@@ -24,19 +25,45 @@ const ranked = (reactions: Reaction[]) => {
 
 export default function TasteScreen() {
   const ground = groundFor();
+  const router = useRouter();
   const [reactions, setReactions] = useState<Reaction[]>([]);
+  const [arrived, setArrived] = useState<Arrived[]>([]);
   const [langMode, setLangMode] = useState<LangMode>("mix");
   useFocusEffect(useCallback(() => {
-    Promise.all([loadReactions(), loadLang()])
-      .then(([stored, mode]) => {
+    Promise.all([loadReactions(), loadLang(), loadArrived()])
+      .then(([stored, mode, poems]) => {
         setReactions(stored);
         setLangMode(mode);
+        setArrived(poems);
       })
       .catch(() => undefined);
   }, []));
   const likes = reactions.filter((reaction) => reaction.sentiment === "like");
   const words = ranked(reactions);
-  const reasons = likes.filter((reaction) => reaction.reason.trim()).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  const reasons = [
+    ...likes.filter((reaction) => reaction.reason.trim()).map((reaction) => ({
+      key: reaction.poemId,
+      at: reaction.updatedAt,
+      reason: reaction.reason,
+      open: () => {
+        const poem = poemById(reaction.poemId);
+        if (!poem) return;
+        fadeToScreen(() => {
+          void saveForm(poem.form).then(() => {
+            router.push({ pathname: "/", params: { poem: poem.id } });
+          });
+        });
+      },
+    })),
+    ...arrived.filter((poem) => poem.sentiment === "like" && poem.reason.trim()).map((poem) => ({
+      key: `arrived:${poem.day}`,
+      at: poem.notedAt ?? poem.day,
+      reason: poem.reason,
+      open: () => {
+        fadeToScreen(() => router.push({ pathname: "/arrived", params: { day: poem.day } }));
+      },
+    })),
+  ].sort((a, b) => b.at.localeCompare(a.at));
   const cycleLang = () => {
     const mode = nextLangMode(langMode);
     setLangMode(mode);
@@ -46,15 +73,17 @@ export default function TasteScreen() {
   return (
     <View style={styles.fill}>
       <ScrollView style={styles.fill} contentContainerStyle={styles.page}>
-          {likes.length === 0 ? (
+          {likes.length === 0 && reasons.length === 0 ? (
             <Text style={[styles.lead, { color: ground.color }]}>反応がたまるとここに並ぶ。</Text>
           ) : (
             <>
               {words.map((word) => (
                 <Text key={word} style={[styles.word, { color: ground.color }]}>{word}</Text>
               ))}
-              {reasons.map((reaction) => (
-                <Text key={reaction.poemId} style={[styles.reason, { color: ground.faint }]}>{reaction.reason}</Text>
+              {reasons.map((item) => (
+                <Pressable key={item.key} onPress={item.open}>
+                  <Text style={[styles.reason, { color: ground.faint }]}>{item.reason}</Text>
+                </Pressable>
               ))}
             </>
           )}

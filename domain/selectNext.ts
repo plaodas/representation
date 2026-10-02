@@ -1,4 +1,4 @@
-import { forms, type Form, type LangMode, type Poem, type Reaction, type ReadState, type SayTag, type SeeTag } from "./types.ts";
+import { forms, seeTags, type Form, type LangMode, type Poem, type Reaction, type ReadState, type SayTag, type SeeTag } from "./types.ts";
 
 export const likeThreshold = 8;
 
@@ -7,8 +7,23 @@ export const photoLikeThreshold = 15;
 export const likeCount = (reactions: Reaction[]) =>
   reactions.filter((reaction) => reaction.sentiment === "like").length;
 
-export const freeSay = (poems: Poem[], reactions: Reaction[]) => {
-  const { say } = weights(poems, reactions, "free");
+export type ArrivedNote = {
+  see: SeeTag[];
+  scene: boolean;
+  explains: boolean;
+};
+
+export const arrivedNotes = (
+  rows: { see?: readonly string[]; scene?: boolean; explains?: boolean }[],
+): ArrivedNote[] =>
+  rows.flatMap((row) => {
+    if (!row.scene && !row.explains) return [];
+    const see = (row.see ?? []).filter((tag): tag is SeeTag => seeTags.includes(tag as SeeTag));
+    return [{ see, scene: row.scene === true, explains: row.explains === true }];
+  });
+
+export const freeSay = (poems: Poem[], reactions: Reaction[], notes: ArrivedNote[] = []) => {
+  const { say } = weights(poems, reactions, "free", notes);
   return Object.fromEntries(say) as Partial<Record<SayTag, number>>;
 };
 
@@ -24,7 +39,7 @@ const likesInForm = (poems: Poem[], reactions: Reaction[], form: Form) => {
   ).length;
 };
 
-const weights = (poems: Poem[], reactions: Reaction[], form: Form) => {
+const weights = (poems: Poem[], reactions: Reaction[], form: Form, notes: ArrivedNote[] = []) => {
   const byId = poemMap(poems);
   const see = new Map<SeeTag, number>();
   const say = new Map<SayTag, number>();
@@ -35,6 +50,14 @@ const weights = (poems: Poem[], reactions: Reaction[], form: Form) => {
     for (const tag of poem.see) see.set(tag, (see.get(tag) ?? 0) + delta);
     if (poem.form === form) {
       for (const tag of poem.say) say.set(tag, (say.get(tag) ?? 0) + delta);
+    }
+  }
+  for (const note of notes) {
+    if (note.scene) {
+      for (const tag of note.see) see.set(tag, (see.get(tag) ?? 0) + 1);
+    }
+    if (note.explains && form === "free") {
+      say.set("explains", (say.get("explains") ?? 0) - 1);
     }
   }
   return { see, say };
@@ -91,6 +114,7 @@ export const selectNextPoem = ({
   form,
   read,
   langMode = "mix",
+  notes = [],
 }: {
   poems: Poem[];
   reactions: Reaction[];
@@ -98,6 +122,7 @@ export const selectNextPoem = ({
   form: Form;
   read: ReadState;
   langMode?: LangMode;
+  notes?: ArrivedNote[];
 }): string => {
   const inForm = poems.filter((poem) => poem.form === form);
   if (inForm.length === 0) {
@@ -134,7 +159,7 @@ export const selectNextPoem = ({
       chosen = [...candidates].sort(byOrder)[0];
     }
   } else {
-    const { see, say } = weights(poems, reactions, form);
+    const { see, say } = weights(poems, reactions, form, notes);
     const ranked = [...candidates].sort((a, b) => {
       const delta = scoreOf(b, see, say) - scoreOf(a, see, say);
       return delta !== 0 ? delta : byOrder(a, b);
@@ -168,6 +193,7 @@ export const resolveOpen = (input: {
   form: Form;
   read: ReadState;
   langMode?: LangMode;
+  notes?: ArrivedNote[];
 }): { poemId: string; read: ReadState } => {
   const langMode = input.langMode ?? "mix";
   const last = input.read.lastPoemId
