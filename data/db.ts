@@ -330,6 +330,12 @@ export const saveArrived = async (arrived: Arrived) => {
   await writeArrived([arrived, ...stored.filter((item) => !same(item))]);
 };
 
+export const removeArrived = async (id: string) => {
+  if (!id) return;
+  const stored = await loadArrived();
+  await writeArrived(stored.filter((item) => item.id !== id));
+};
+
 export const orderToken = async () => {
   const existing = webWithoutFileSystem() ? readFile().orderToken : await meta("order-token");
   if (existing.length >= 16) return existing;

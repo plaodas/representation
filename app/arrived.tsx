@@ -3,7 +3,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useEffect, useRef, useState } from "react";
 import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { fadeToScreen } from "../components/Frame";
-import { loadArrived, loadLang, loadReactions, saveArrived, type Arrived } from "../data/db";
+import { loadArrived, loadLang, loadReactions, removeArrived, saveArrived, type Arrived } from "../data/db";
 import { groundFor, todayKey } from "../data/library";
 import { orderPhoto, watchArrival } from "../data/order";
 import { likeCount, photoLikeThreshold } from "../domain/selectNext";
@@ -21,18 +21,22 @@ export default function ArrivedScreen() {
   const [asking, setAsking] = useState(false);
   const [blocked, setBlocked] = useState(false);
   const [limit, setLimit] = useState(false);
+  const [dissolving, setDissolving] = useState(false);
   const [canSend, setCanSend] = useState(false);
   const [langMode, setLangMode] = useState<LangMode>("mix");
   const pending = useRef<Promise<Arrived | null> | null>(null);
   const destination = useRef<"copy" | "memory">("copy");
+  const skipWrite = useRef(false);
 
   useEffect(() => {
     setDraft(null);
     setAsking(false);
     setBlocked(false);
     setLimit(false);
+    setDissolving(false);
     pending.current = null;
     destination.current = "copy";
+    skipWrite.current = false;
   }, [day, copyId]);
 
   useEffect(() => {
@@ -128,6 +132,10 @@ export default function ArrivedScreen() {
   };
 
   const finish = (text: string) => {
+    if (skipWrite.current) {
+      setDraft(null);
+      return;
+    }
     if (pending.current || typeof text !== "string") return;
     void saveOwn(text).then(() => {
       const where = destination.current;
@@ -148,6 +156,8 @@ export default function ArrivedScreen() {
   const beginWrite = () => {
     setAsking(false);
     setLimit(false);
+    setDissolving(false);
+    skipWrite.current = false;
     if (draft !== null) return;
     if (arrived.id) {
       setDraft(arrived.body);
@@ -190,6 +200,26 @@ export default function ArrivedScreen() {
     }
     if (draft !== null) setDraft(null);
     return text;
+  };
+
+  const beginDissolve = () => {
+    setAsking(false);
+    setLimit(false);
+    setDraft(null);
+    if (dissolving) {
+      setDissolving(false);
+      skipWrite.current = false;
+      return;
+    }
+    setDissolving(true);
+  };
+
+  const dissolve = () => {
+    const id = arrived.id;
+    if (!id) return;
+    setDissolving(false);
+    skipWrite.current = false;
+    void removeArrived(id).then(() => fadeToScreen(() => router.push("/memory")));
   };
 
   const pickPhoto = () => {
@@ -294,6 +324,12 @@ export default function ArrivedScreen() {
               創作のために詩を外部へ送信します。サーバーへの送信データは創作後に削除されます。
             </Text>
           </Pressable>
+        ) : dissolving ? (
+          <Pressable onPress={dissolve}>
+            <Text style={[styles.consent, { color: ground.color }]}>
+              この詩を端末から消します。
+            </Text>
+          </Pressable>
         ) : null}
         <View style={styles.words}>
           {arrived.body ? (
@@ -301,9 +337,17 @@ export default function ArrivedScreen() {
               <Text style={[styles.word, { color: ground.faint }]}>綴る</Text>
             </Pressable>
           ) : null}
+          {arrived.id ? (
+            <Pressable onPressIn={() => {
+              skipWrite.current = true;
+            }} onPress={beginDissolve}>
+              <Text style={[styles.word, { color: ground.faint, opacity: dissolving ? 0.45 : 1 }]}>溶かす</Text>
+            </Pressable>
+          ) : null}
           <Pressable onPress={() => {
             setAsking(false);
             setLimit(false);
+            setDissolving(false);
             if (draft !== null) {
               destination.current = "memory";
               finish(draft);
@@ -315,6 +359,8 @@ export default function ArrivedScreen() {
           </Pressable>
           {canSend ? (
             <Pressable onPress={() => {
+              setDissolving(false);
+              skipWrite.current = false;
               if (blocked) {
                 setAsking(false);
                 setLimit((value) => !value);
