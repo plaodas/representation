@@ -47,7 +47,10 @@ export default function MemoryScreen() {
               >
                 {first}
               </Text>
-              <Text style={[styles.day, { color: ground.faint }]}>{dayLabel(poem.day)}</Text>
+              <View style={styles.edge}>
+                {poem.id ? <Text style={[styles.day, { color: ground.faint }]}>綴</Text> : null}
+                <Text style={[styles.day, { color: ground.faint }]}>{dayLabel(poem.day)}</Text>
+              </View>
             </View>
           </Pressable>
         );
@@ -75,6 +78,7 @@ const styles = StyleSheet.create({
   page: { paddingHorizontal: 28, paddingVertical: 36, maxWidth: 720, width: "100%", alignSelf: "center" },
   row: { flexDirection: "row", alignItems: "baseline", gap: 16, paddingVertical: 14 },
   line: { flex: 1, fontSize: 18, lineHeight: 30 },
+  edge: { flexDirection: "row", alignItems: "baseline", gap: 8 },
   day: { fontSize: 12, letterSpacing: 1 },
   words: {
     marginTop: 28,
