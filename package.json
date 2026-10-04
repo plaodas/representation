@@ -4,7 +4,7 @@
   "description": "",
   "main": "expo-router/entry",
   "scripts": {
-    "test": "node --experimental-strip-types --test domain/selectNext.test.ts domain/fragments.test.ts server/src/deliver.test.ts server/src/poem.test.ts",
+    "test": "node --experimental-strip-types --test domain/carry.test.ts domain/selectNext.test.ts domain/fragments.test.ts server/src/deliver.test.ts server/src/poem.test.ts",
     "start": "expo start",
     "web": "expo start --web"
   },
@@ -24,10 +24,13 @@
     "@expo-google-fonts/zen-old-mincho": "^0.4.1",
     "expo": "^57.0.25",
     "expo-constants": "^57.0.19",
+    "expo-document-picker": "~57.0.3",
+    "expo-file-system": "~57.0.7",
     "expo-font": "^57.0.4",
     "expo-image-picker": "^57.0.20",
     "expo-linking": "^57.0.11",
     "expo-router": "^57.0.23",
+    "expo-sharing": "~57.0.22",
     "expo-splash-screen": "^57.0.9",
     "expo-sqlite": "^57.0.3",
     "expo-status-bar": "^57.0.1",
