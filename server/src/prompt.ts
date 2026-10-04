@@ -86,12 +86,15 @@ export const promptFor = (input: {
       "Separate lines with line breaks. Do not add a title, a note, a bullet list, or a list of things.",
       "Do not imitate a particular poet. Return only the poem.",
       "Move toward the higher scores and away from the lower ones.",
+      "Do not use the names under Seen as words in the poem. Use words one step away from them.",
       "",
       `Seen: ${seen.join(", ") || "unspecified"}`,
       `Person: ${person}`,
       `Season: ${season}`,
       `Scores: ${way || "none"}`,
-      ...(sample ? ["", "Follow the leap of the sample, and do not repeat its words.", sample] : []),
+      ...(sample
+        ? ["", "Lean toward the sample's words, and away from the names under Seen. Do not copy a line of the sample.", sample]
+        : []),
     ].join("\n");
   }
   return [
@@ -99,11 +102,14 @@ export const promptFor = (input: {
     "各行は改行で分ける。題名、説明、箇条書き、物の一覧は書かない。",
     "特定の詩人の口調は真似ない。詩だけを返す。",
     "得点が高い言い方に寄せ、低い言い方からは離れる。",
+    "見ることの名は詩に書かない。そこから一段離れた言葉を使う。",
     "",
     `見ること: ${seen.join("、") || "指定なし"}`,
     `人: ${person}`,
     `季節: ${season}`,
     `言い方の得点: ${way || "なし"}`,
-    ...(sample ? ["", "この飛躍の仕方に寄せ、同じ言葉は繰り返さない。", sample] : []),
+    ...(sample
+      ? ["", "見本の言葉へ寄せ、見ることの名からは離れる。見本の行はそのまま書かない。", sample]
+      : []),
   ].join("\n");
 };
