@@ -32,16 +32,38 @@ test("a distant poem is kept", () => {
   assert.equal(tooClose(distant, null), false);
 });
 
+test("shared words with the sample are kept", () => {
+  const near = ["夕暮れの縁", "空の赤", "街角の石", "誰もいない部屋", "机の上", "湯気が立つ"].join("\n");
+  assert.equal(tooClose(near, sample), false);
+});
+
 const fragments: Fragments = { see: ["sky"], person: false, season: "autumn" };
 
-test("a prompt without a sample stays the same shape", () => {
+test("a prompt without a sample keeps the seen names out of the poem", () => {
   const prompt = promptFor({ fragments, say: { one_leap: 2 }, lang: "ja" });
-  assert.equal(prompt.includes("この飛躍の仕方に寄せ"), false);
+  assert.equal(prompt.includes("見ることの名は詩に書かない。そこから一段離れた言葉を使う。"), true);
+  assert.equal(prompt.includes("見本の言葉へ寄せ"), false);
   assert.equal(prompt.includes("言い方の得点: 一段の飛躍 2"), true);
 });
 
-test("a prompt with a sample asks not to repeat it", () => {
+test("a prompt with a sample leans toward its words", () => {
   const prompt = promptFor({ fragments, say: {}, lang: "ja", sample });
-  assert.equal(prompt.includes("この飛躍の仕方に寄せ、同じ言葉は繰り返さない。"), true);
+  assert.equal(prompt.includes("見本の言葉へ寄せ、見ることの名からは離れる。見本の行はそのまま書かない。"), true);
   assert.equal(prompt.includes(sample), true);
+});
+
+test("an English prompt says the same", () => {
+  const plain = promptFor({ fragments, say: {}, lang: "en" });
+  assert.equal(
+    plain.includes("Do not use the names under Seen as words in the poem. Use words one step away from them."),
+    true,
+  );
+  assert.equal(plain.includes("Lean toward the sample's words"), false);
+  const withSample = promptFor({ fragments, say: {}, lang: "en", sample });
+  assert.equal(
+    withSample.includes(
+      "Lean toward the sample's words, and away from the names under Seen. Do not copy a line of the sample.",
+    ),
+    true,
+  );
 });
